@@ -10,7 +10,7 @@ Accepted
 
 ## Context
 
-The product’s version 1 goal is triage and next-step guidance, not case-file collection. Uploads would add technical, safeguarding, and retention complexity.
+The product's version 1 goal is triage and next-step guidance, not case-file collection. Uploads would add technical, safeguarding, and retention complexity.
 
 ## Decision
 

@@ -10,7 +10,7 @@ Accepted
 
 ## Context
 
-The product supports people who may be affected by Spain’s 2026 extraordinary regularisation process, but it is not the official government service and should not present itself as a legal decision-maker.
+The product supports people who may be affected by Spain's 2026 extraordinary regularisation process, but it is not the official government service and should not present itself as a legal decision-maker.
 
 ## Decision
 

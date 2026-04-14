@@ -2,7 +2,7 @@
 
 ## Summary
 
-Build a mobile-first, multilingual intake screener that helps people who may be affected by Spain’s 2026 extraordinary regularisation process understand their likely next step, identify evidence gaps, surface specialist issues early, and reach the right support channel.
+Build a mobile-first, multilingual intake screener that helps people who may be affected by Spain's 2026 extraordinary regularisation process understand their likely next step, identify evidence gaps, surface specialist issues early, and reach the right support channel.
 
 This service is not the official government application. It does not determine legal eligibility or immigration status. It provides first-pass triage and guidance.
 
@@ -58,7 +58,7 @@ The service should follow these principles throughout the journey, not just on i
 - end completed journeys with a clear outcome, next-step explanation, and summary identifier where implemented
 - prefer semantic, browser-native controls and structures that browsers and assistive technologies can understand
 - support language switching without progress loss
-- use language that reflects the user’s situation rather than internal administrative, operational, or legal categories
+- use language that reflects the user's situation rather than internal administrative, operational, or legal categories
 - avoid mandatory account creation for one-off or low-frequency use unless a stronger need is demonstrated
 
 ## Core journey
@@ -123,7 +123,7 @@ Changing language must not wipe previously entered answers.
 The service must capture enough information to estimate broad fit against the currently published policy direction, including:
 
 - whether the person is in Spain now
-- whether they were in Spain before the relevant cut-off used in the current policy
+- a residence timeline detailed enough to infer broad cut-off alignment
 - approximate residence timeline
 - whether they have applied for asylum or international protection
 - rough timing where that affects triage
@@ -200,8 +200,8 @@ The service should:
 - use one clear question per page
 - use short hint text where needed
 - show progress as steps rather than percentages
-- allow “I’m not sure” where uncertainty is common
-- avoid asking for exact dates where approximate month or year is enough for triage
+- allow “I'm not sure” where uncertainty is common
+- avoid asking for exact dates where policy-relevant time buckets and an approximate month are enough for triage
 - not require account creation to start
 - not require users to re-enter information already provided in the same journey unless there is a specific reviewed reason
 - make interruption survivable through save and resume
@@ -222,7 +222,7 @@ The service must:
 - state clearly that it helps identify next steps and support needs
 - state clearly that official rules and processes may change
 - avoid internal administrative, legal, or operational language that requires users to think like caseworkers or database managers
-- prefer question wording, answer labels, and result text that match the user’s real-world situation and task
+- prefer question wording, answer labels, and result text that match the user's real-world situation and task
 
 ## Data requirements
 
@@ -232,7 +232,7 @@ Version 1 should store only the minimum structured data needed for triage and re
 - language
 - completion mode
 - current-in-Spain flag
-- broad cut-off alignment flag
+- derived broad cut-off alignment signal
 - approximate residence start date or period
 - asylum or protection history flag and rough timing
 - identity-document categories

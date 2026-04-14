@@ -24,8 +24,6 @@ The journey is designed as a **triage flow**, not a legal determination flow.
 /start                      Start and orientation
 /language                   Language
 /completion-mode            Self or assisted
-/in-spain-now               In Spain now?
-/before-cutoff              In Spain before 31 Dec 2025?
 /residence-start            Approximate residence start
 /mostly-living-in-spain     Continuity / mostly living in Spain
 /asylum-history             Asylum or international protection history?
@@ -176,44 +174,6 @@ Currently in Spain
 
 ---
 
-### CUTOFF-01 — Before cutoff date
-
-**Route:** `/before-cutoff`
-
-**Question**
-
-Were you living in Spain before 31 December 2025?
-
-**Answer type**
-
-Single choice.
-
-**Options**
-
-- yes
-- no
-- not sure
-
-**Validation**
-
-Required.
-
-**Gate type**
-
-Hard gate for a confident `no`, subject to asylum-related routing.
-
-**Logic**
-
-- `yes` -> `TIMELINE-01`
-- `not sure` -> `TIMELINE-01` and add uncertainty flag
-- `no` -> route to `another_route_may_fit_better`, unless asylum logic later creates an exception path
-
-**Check-answers label**
-
-Living in Spain before 31 December 2025
-
----
-
 ### TIMELINE-01 — Residence start
 
 **Route:** `/residence-start`
@@ -224,11 +184,13 @@ About when did you start living in Spain?
 
 **Answer type**
 
-Month and year, plus `not sure`.
+One choice between:
+- 2024 or earlier
+- 2025
+- 2026
+- I’m not sure
 
-**Validation**
-
-Required, but `not sure` is valid.
+If `2025` is chosen, reveal a month field on the same page with a separate `I'm not sure about the month` option.
 
 **Gate type**
 
@@ -236,12 +198,14 @@ Informational.
 
 **Logic**
 
-- always continue to `CONTINUITY-01`
-- if the entered date clearly conflicts with `CUTOFF-01=yes`, add a contradiction flag
+- if `2026` is chosen, route tendency is `another_route_may_fit_better`
+- if `2025` is chosen, reveal month immediately on the same page
+- if `I'm not sure` is chosen, add an uncertainty flag
+- always continue to `CONTINUITY-01` in the fuller journey
 
 **Check-answers label**
 
-Approximate residence start
+When you started living in Spain
 
 ---
 
@@ -651,6 +615,6 @@ Show a cautious triage outcome, practical next steps, and support direction.
 
 ## Notes for implementation
 
-- The first milestone only needs a vertical slice through `START-01`, `CUTOFF-01`, `TIMELINE-01`, `CHECK-01`, and `RESULT-01`.
+- The first milestone only needs a vertical slice through `START-01`, `TIMELINE-01`, `CHECK-01`, and `RESULT-01`.
 - The question IDs in this document should remain stable even if route slugs change.
 - If policy assumptions change, update `docs/policy-context.md` and `docs/triage-rules.md` before changing this journey.

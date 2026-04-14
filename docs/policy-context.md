@@ -11,7 +11,7 @@ It is not legal advice and it is not a substitute for official instructions or o
 
 ## Current context
 
-As of April 2026, official Spanish government materials describe an extraordinary regularisation process for foreign nationals already in Spain. Public government statements have framed the policy around a formal, document-based process and have described criteria including presence in Spain before 31 December 2025, at least five months’ residence, and no criminal record.
+As of April 2026, official Spanish government materials describe an extraordinary regularisation process for foreign nationals already in Spain. Public government statements have framed the policy around a formal, document-based process and have described criteria including presence in Spain before 31 December 2025, at least five months' residence, and no criminal record.
 
 Official materials also confirm the creation of the Registro Electrónico de Colaboradores de Extranjería under Order ISM/164/2026. This creates a formal framework for authorised organisations to assist with immigration-related electronic procedures, including extraordinary regularisation.
 

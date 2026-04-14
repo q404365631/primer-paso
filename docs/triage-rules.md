@@ -24,7 +24,6 @@ The service is not a legal decision-maker. These rules exist to:
 Version 1 triage uses the following categories of input:
 
 - whether the person is in Spain now
-- whether they report living in Spain before 31 December 2025
 - approximate residence start
 - whether they report mostly living in Spain since then
 - asylum or international protection history
@@ -50,21 +49,15 @@ Hard gates should be rare.
 
 They are used only where a confident answer strongly suggests that continuing the standard flow would be unhelpful.
 
-### HG-01 — Not living in Spain before 31 December 2025
+### HG-01 — Residence start after 31 December 2025
 
-If the user gives a confident `no` to living in Spain before 31 December 2025, the default result is:
+If the user gives a residence start clearly after 31 December 2025, the default result is:
 
 - `another_route_may_fit_better`
 
 unless a later reviewed policy rule creates an exception path.
 
-### HG-02 — Not currently in Spain
-
-If the user gives a confident `no` to currently being in Spain, the default result is:
-
-- `another_route_may_fit_better`
-
-This is softer than HG-01 because future clarification steps may distinguish temporary absence from living elsewhere.
+This is based on the derived timeline, not on a separate cut-off question.
 
 ## Soft gates and specialist-review triggers
 
@@ -74,7 +67,6 @@ Soft gates do not automatically stop the journey. They add flags that influence 
 
 Add an uncertainty flag if any of these are `not sure`:
 
-- before-cutoff question
 - residence start question
 - mostly living in Spain question
 - asylum-history question
@@ -89,8 +81,7 @@ unless a stronger specialist route is present.
 
 Add a contradiction flag if the user reports:
 
-- living in Spain before 31 December 2025
-- but then provides a residence start clearly after that date
+- internally inconsistent timeline information across residence-related questions
 
 Contradictions should usually produce:
 
@@ -197,7 +188,7 @@ Use when all of the following are broadly true:
 - no hard gate has fired
 - no major specialist flag is present
 - core timeline answers broadly align
-- the person reports living in Spain before the cutoff
+- the person’s reported residence start broadly aligns with the cutoff
 - the person reports at least some plausible evidence categories
 
 ### possible_but_needs_more_evidence

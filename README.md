@@ -2,7 +2,7 @@
 
 A SvelteKit app with a pnpm-first developer toolchain built around:
 
-- **mise** for pinned local and CI toolchains
+- **mise** for local and CI toolchain orchestration
 - **pnpm** for deterministic installs
 - **Biome** for formatting and linting
 - **svelte-check** for Svelte-aware type checking
@@ -10,8 +10,12 @@ A SvelteKit app with a pnpm-first developer toolchain built around:
 
 ## Tooling
 
-- `mise.toml` pins **Node** and **pnpm**
+- `.node-version` is the canonical Node runtime version for local development, CI, and deploy platforms
+- `package.json#engines.node` is the compatibility guardrail enforced during install
+- `mise.toml` manages the developer toolchain and reads the repo's idiomatic Node version file
 - `package.json#packageManager` enforces the pnpm version policy
+- `netlify.toml` is the version-controlled source of truth for Netlify build configuration
+- `svelte.config.js` uses the explicit Netlify adapter for production deploys
 - `.npmrc` keeps pnpm policy visible in-repo
 - `biome.jsonc` is the single source of truth for formatting and linting
 - `pnpm-workspace.yaml` keeps the repo ready for workspace growth and narrowly approves required dependency build scripts
@@ -24,7 +28,7 @@ mise install
 mise x -- pnpm install --frozen-lockfile
 ```
 
-This will provision the pinned versions of Node and pnpm from mise.toml.
+This will provision the repo's declared Node and pnpm toolchain.
 
 ## Development
 
@@ -51,6 +55,7 @@ pnpm test
 
 - `pnpm dev`
 - `pnpm build`
+- `pnpm install --frozen-lockfile`
 - `pnpm preview`
 - `pnpm format`
 - `pnpm lint`
@@ -62,6 +67,14 @@ pnpm test
 ## Lockfile discipline
 
 Commit `pnpm-lock.yaml` whenever dependencies change. CI installs with `--frozen-lockfile`, so dependency drift gets caught immediately.
+
+## Hosting
+
+This repo is configured for Netlify using:
+
+- `.node-version` for the canonical Node runtime version
+- `netlify.toml` for Netlify build configuration
+- `@sveltejs/adapter-netlify` for the production deployment target
 
 ## Biome with Svelte
 

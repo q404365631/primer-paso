@@ -1,3 +1,5 @@
+import type { MessageKey } from '$lib/content'
+
 export type ResultState =
 	| 'likely_in_scope'
 	| 'possible_but_needs_more_evidence'
@@ -7,13 +9,13 @@ export type ResultState =
 
 export interface TriageResult {
 	resultState: ResultState
-	flags: string[]
-	reason?: string
+	flags: MessageKey[]
+	reasonKey?: MessageKey
 	evidenceStrength: 'strong' | 'thin' | 'unknown'
 	showHowToApply: boolean
 	showSupportCta: boolean
 	showDocumentCta: boolean
-	explanation: string
-	nextSteps: string[]
+	explanationKey: MessageKey
+	nextStepKeys: MessageKey[]
 	humanReviewRecommended: boolean
 }

@@ -1,26 +1,30 @@
 <script lang="ts">
-import { t } from '$lib/content'
+import { getTranslator } from '$lib/content'
+
+let { data } = $props()
+
+const tt = $derived(getTranslator(data.locale ?? 'en'))
 </script>
 
 <section class="stack">
-	<p class="eyebrow">{t('pages.start.eyebrow')}</p>
+	<p class="eyebrow">{tt('pages.start.eyebrow')}</p>
 	<div class="card stack">
-		<h1>{t('pages.start.title')}</h1>
-		<p>{t('pages.start.lead')}</p>
-		<p>{t('pages.start.not_official')}</p>
-		<p>{t('pages.start.window_open')}</p>
-		<p>{t('pages.start.resume')}</p>
+		<h1>{tt('pages.start.title')}</h1>
+		<p>{tt('pages.start.lead')}</p>
+		<p>{tt('pages.start.not_official')}</p>
+		<p>{tt('pages.start.window_open')}</p>
+		<p>{tt('pages.start.resume')}</p>
 
 		<div class="stack">
-			<h2>{t('pages.start.what_to_expect_title')}</h2>
+			<h2>{tt('pages.start.what_to_expect_title')}</h2>
 			<ul>
-				<li>{t('pages.start.expectation.duration')}</li>
-				<li>{t('pages.start.expectation.one_question')}</li>
-				<li>{t('pages.start.expectation.review')}</li>
-				<li>{t('pages.start.expectation.timeline')}</li>
+				<li>{tt('pages.start.expectation.duration')}</li>
+				<li>{tt('pages.start.expectation.one_question')}</li>
+				<li>{tt('pages.start.expectation.review')}</li>
+				<li>{tt('pages.start.expectation.timeline')}</li>
 			</ul>
 		</div>
 
-		<div class="actions"><a class="button" href="/language">{t('pages.start.start_now')}</a></div>
+		<div class="actions"><a class="button" href="/language">{tt('pages.start.start_now')}</a></div>
 	</div>
 </section>

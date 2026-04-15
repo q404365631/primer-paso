@@ -1,0 +1,200 @@
+import type { MessageKey } from './index'
+
+export const es = {
+	'common.not_answered': 'Sin responder',
+	'common.choose_an_option': 'Elige una opción',
+	'common.choose_month': 'Elige un mes',
+	'common.choose_one_answer': 'Elige una respuesta',
+	'common.choose_all_that_apply': 'Elige todas las que correspondan',
+	'common.continue': 'Continuar',
+	'common.back': 'Volver',
+	'common.problem': 'Hay un problema',
+	'chrome.app_title': 'Cuestionario de regularización',
+	'chrome.meta_description':
+		'Un cuestionario inicial para el proceso extraordinario de regularización de España de 2026.',
+	'chrome.brand': 'Regularización',
+	'chrome.language_switcher_label': 'Cambio de idioma',
+	'pages.start.eyebrow': 'Hito 1',
+	'pages.start.title': 'Revisa qué apoyo podrías necesitar para el proceso de regularización',
+	'pages.start.lead': 'Usa este cuestionario para entender cuál podría ser tu siguiente paso.',
+	'pages.start.not_official': 'Esta no es la solicitud oficial del gobierno.',
+	'pages.start.window_open':
+		'La ventana oficial de solicitud está abierta hasta el 30 de junio de 2026.',
+	'pages.start.resume': 'Puedes parar y volver más tarde.',
+	'pages.start.what_to_expect_title': 'Qué esperar',
+	'pages.start.expectation.duration': 'entre 5 y 8 minutos',
+	'pages.start.expectation.one_question': 'una pregunta a la vez',
+	'pages.start.expectation.review': 'un paso de revisión antes del resultado',
+	'pages.start.expectation.timeline': 'una idea aproximada de cuándo empezaste a vivir en España',
+	'pages.start.start_now': 'Empezar',
+	'pages.check_answers.eyebrow': 'Revisión',
+	'pages.check_answers.title': 'Revisa tus respuestas',
+	'pages.check_answers.hint':
+		'Revisa estas respuestas antes de continuar. Puedes cambiar cualquier respuesta.',
+	'pages.check_answers.change': 'Cambiar',
+	'pages.check_answers.see_result': 'Ver resultado',
+	'pages.check_answers.back': 'Volver',
+	'pages.result.eyebrow': 'Resultado',
+	'pages.result.why_title': 'Por qué te mostramos esto',
+	'pages.result.meaning_title': 'Qué significa',
+	'pages.result.gather_title': 'Qué reunir ahora',
+	'pages.result.gather.before_cutoff':
+		'Documentos con fecha que muestren que ya vivías en España antes de enero de 2026',
+	'pages.result.gather.recent': 'Documentos recientes de los últimos 5 meses',
+	'pages.result.gather.identity': 'Tus documentos de identidad',
+	'pages.result.how_to_apply_title': 'Cómo solicitar',
+	'pages.result.how_to_apply.body':
+		'Usa el canal oficial del gobierno y no lo dejes para el último momento.',
+	'pages.result.how_to_apply.hint':
+		'La ventana oficial de solicitud está abierta hasta el 30 de junio de 2026.',
+	'pages.result.support_title': 'Recibir apoyo',
+	'pages.result.support.body':
+		'Este cuestionario no es asesoría legal. El apoyo disponible cerca de ti puede depender de tu provincia: {province}.',
+	'pages.result.flags_title': 'Alertas detectadas',
+	'pages.result.reference_title': 'Guarda esta referencia',
+	'pages.result.reference_body': 'Número de referencia: {sessionId}',
+	'pages.result.reference_hint':
+		'Usa imprimir, guardar, enviar por correo o una captura de pantalla para conservar una copia.',
+	'pages.result.action.help': '¿Quieres ayuda con el siguiente paso?',
+	'pages.result.action.back_to_answers': 'Volver a las respuestas',
+	'pages.result.action.start_again': 'Empezar de nuevo',
+	'pages.confirmation.eyebrow': 'Confirmación',
+	'pages.confirmation.title': 'Tu resultado está listo',
+	'pages.confirmation.body':
+		'Guarda esta página. Incluye tu número de referencia y una copia de tus respuestas.',
+	'pages.confirmation.reference_number': 'Número de referencia',
+	'pages.confirmation.updated': 'Actualizado',
+	'pages.confirmation.hint': 'Guarda, imprime o haz una captura de esta página.',
+	'pages.confirmation.action.view_answers': 'Ver tus respuestas',
+	'pages.confirmation.action.back_to_result': 'Volver al resultado',
+	'pages.confirmation.action.start_again': 'Empezar de nuevo',
+	'eyebrows.session_setup': 'Configuración de la sesión',
+	'eyebrows.eligibility': 'Requisitos básicos',
+	'eyebrows.route_split': 'Ruta',
+	'eyebrows.route_asylum': 'Ruta específica: asilo',
+	'eyebrows.route_non_asylum': 'Ruta específica: no asilo',
+	'eyebrows.identity': 'Identidad',
+	'eyebrows.evidence_cutoff': 'Pruebas: fecha límite',
+	'eyebrows.evidence_recent': 'Pruebas: meses recientes',
+	'eyebrows.specialist': 'Revisión especializada',
+	'eyebrows.routing': 'Derivación',
+	'eyebrows.referral': 'Derivación opcional',
+	'eyebrows.support': 'Necesidades de apoyo',
+	'eyebrows.contact': 'Contacto',
+	'months.january': 'Enero',
+	'months.february': 'Febrero',
+	'months.march': 'Marzo',
+	'months.april': 'Abril',
+	'months.may': 'Mayo',
+	'months.june': 'Junio',
+	'months.july': 'Julio',
+	'months.august': 'Agosto',
+	'months.september': 'Septiembre',
+	'months.october': 'Octubre',
+	'months.november': 'Noviembre',
+	'months.december': 'Diciembre',
+	'steps.language.title': 'Elige un idioma',
+	'steps.language.body': '¿Qué idioma quieres usar?',
+	'steps.language.hint': 'Puedes cambiar el idioma en cualquier momento sin perder tus respuestas.',
+	'steps.language.check_answers_label': 'Idioma',
+	'steps.language.error': 'Elige un idioma.',
+	'steps.completion_mode.title': '¿Para quién estás completando esto?',
+	'steps.completion_mode.body': '¿Para quién estás completando esto?',
+	'steps.completion_mode.hint': 'Elige la opción que mejor describa esta sesión.',
+	'steps.completion_mode.check_answers_label': 'Para quién estás completando esto',
+	'steps.completion_mode.error': 'Elige para quién estás completando esto.',
+	'steps.completion_mode.options.self': 'Para mí',
+	'steps.completion_mode.options.someone_else': 'Para otra persona, con su permiso',
+	'steps.completion_mode.options.support_worker': 'Soy trabajador/a de apoyo o voluntario/a',
+	'steps.in_spain_now.title': '¿Estás en España ahora?',
+	'steps.in_spain_now.body': '¿Estás en España ahora?',
+	'steps.in_spain_now.check_answers_label': 'Si estás en España ahora',
+	'steps.in_spain_now.error': 'Elige si estás en España ahora.',
+	'steps.common.options.yes': 'Sí',
+	'steps.common.options.no': 'No',
+	'steps.common.options.not_sure': 'No estoy seguro/a',
+	'steps.residence_start.title': '¿Cuándo empezaste a vivir en España?',
+	'steps.residence_start.hint': 'Un mes aproximado es suficiente.',
+	'steps.residence_start.check_answers_label': 'Cuándo empezaste a vivir en España',
+	'steps.residence_start.error': 'Elige cuándo empezaste a vivir en España.',
+	'steps.residence_start.month_error': 'Elige el mes o indica que no estás seguro/a del mes.',
+	'steps.residence_start.options.2024_or_earlier': 'En 2024 o antes',
+	'steps.residence_start.options.2025': 'En 2025',
+	'steps.residence_start.options.2026': 'En 2026',
+	'steps.residence_start.options.not_sure': 'No estoy seguro/a',
+	'steps.residence_start.month_prompt': '¿Qué mes fue, aproximadamente?',
+	'steps.residence_start.month_unknown': 'No estoy seguro/a del mes',
+	'answers.residence_start.2024_or_earlier': '2024 o antes',
+	'answers.residence_start.2026': '2026',
+	'answers.residence_start.not_sure': 'No estoy seguro/a',
+	'answers.residence_start.2025': '2025',
+	'answers.residence_start.2025_month_unknown': '2025 — mes no seguro',
+	'answers.residence_start.2025_month': '{month} de 2025',
+	'answers.contact.with_value': '{method}: {value}',
+	'result.reason.not_in_spain_now': 'Dijiste que ahora no estás en España.',
+	'result.reason.after_cutoff': 'Dijiste que empezaste a vivir en España en 2026.',
+	'result.reason.specialist_review':
+		'Una o más respuestas sugieren que una persona especialista debería revisar el siguiente paso.',
+	'result.reason.not_enough_information':
+		'Algunas de las respuestas clave sobre fechas siguen siendo inciertas.',
+	'result.reason.more_evidence':
+		'Tu vía y tus fechas podrían encajar, pero por ahora las pruebas parecen insuficientes.',
+	'result.reason.likely_in_scope':
+		'Tus respuestas encajan en términos generales con la vía, las fechas y el patrón de pruebas de este cuestionario.',
+	'result.explanation.not_in_spain_now':
+		'Según tus respuestas, probablemente esta no sea la vía adecuada para ti en este momento.',
+	'result.explanation.after_cutoff':
+		'Según tus respuestas, probablemente esta vía no sea la mejor opción para tu caso.',
+	'result.explanation.specialist_review':
+		'Tus respuestas sugieren que una persona especialista debería revisar tu situación antes del siguiente paso.',
+	'result.explanation.not_enough_information':
+		'Todavía no hay suficiente información para sugerir el mejor siguiente paso.',
+	'result.explanation.more_evidence':
+		'Según tus respuestas, esta vía podría encajar con tu situación, pero quizás necesites más documentos antes de solicitar.',
+	'result.explanation.likely_in_scope':
+		'Tus respuestas sugieren que podrías poder usar este proceso de regularización.',
+	'result.next_step.other_route_advice':
+		'Busca orientación sobre si otra vía migratoria encaja mejor con tu situación.',
+	'result.next_step.try_again_later':
+		'Si tu situación cambia, puedes revisar esta vía de nuevo más adelante.',
+	'result.next_step.keep_residence_documents':
+		'Guarda cualquier documento que muestre tu historial de residencia en España.',
+	'result.next_step.speak_to_specialist':
+		'Habla con una organización de apoyo especializada antes de presentar la solicitud.',
+	'result.next_step.keep_papers_together':
+		'Mantén juntos tus documentos de identidad y cualquier prueba fechada para la revisión.',
+	'result.next_step.confirm_timeline':
+		'Intenta confirmar aproximadamente cuándo empezaste a vivir en España y si has estado viviendo aquí durante los últimos 5 meses.',
+	'result.next_step.ask_for_help_if_unsure':
+		'Si no estás seguro/a, usa la modalidad asistida o pide ayuda a una organización de apoyo.',
+	'result.next_step.gather_before_cutoff':
+		'Intenta reunir documentos con fecha que muestren que ya vivías en España antes de enero de 2026.',
+	'result.next_step.gather_recent':
+		'También reúne, si puedes, documentos recientes de los últimos 5 meses.',
+	'result.next_step.use_official_channel':
+		'Usa el canal oficial del gobierno antes del 30 de junio de 2026.',
+	'result.flag.not_in_spain_now': 'No estás en España ahora',
+	'result.flag.uncertain_timeline': 'La cronología es incierta',
+	'result.flag.five_month_requirement_risk': 'Posible riesgo de continuidad',
+	'result.flag.hard_gate_after_cutoff': 'El inicio de residencia es posterior a la fecha límite',
+	'result.flag.criminal_record_concern': 'Posible preocupación por antecedentes penales',
+	'result.flag.identity_issue': 'Problema de identidad',
+	'result.flag.asylum_complexity': 'Posible complejidad relacionada con asilo',
+	'result.flag.missing_identity_documents': 'Faltan documentos de identidad',
+	'result.flag.continuity_concern': 'Preocupación por continuidad',
+	'result.title.likely_in_scope': 'Probablemente dentro del alcance',
+	'result.title.possible_but_needs_more_evidence':
+		'Esta vía podría encajar, pero quizá necesites más documentos primero',
+	'result.title.needs_specialist_review': 'Necesita revisión especializada',
+	'result.title.another_route_may_fit_better': 'Probablemente esta no sea la vía adecuada para ti',
+	'result.title.not_enough_information_yet':
+		'Necesitamos un poco más de información antes de sugerir un siguiente paso',
+	'result.lead.likely_in_scope': 'Puede que puedas usar esta vía',
+	'result.lead.possible_but_needs_more_evidence':
+		'Esta vía podría encajar, pero quizá necesites más documentos primero',
+	'result.lead.needs_specialist_review':
+		'Puede que necesites ayuda especializada antes de solicitar',
+	'result.lead.not_enough_information_yet':
+		'Necesitamos un poco más de información antes de sugerir un siguiente paso',
+	'result.lead.another_route_may_fit_better': 'Probablemente esta no sea la vía adecuada para ti'
+} satisfies Partial<Record<MessageKey, string>>

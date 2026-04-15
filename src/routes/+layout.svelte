@@ -1,7 +1,20 @@
 <script lang="ts">
-import { t } from '$lib/content'
+import { browser } from '$app/environment'
+import { getTranslator } from '$lib/content'
 
-let { children } = $props()
+let { children, data } = $props()
+
+const locale = $derived(data.locale ?? 'en')
+const textDirection = $derived(data.textDirection ?? 'ltr')
+const tt = $derived(getTranslator(locale))
+const currentPath = $derived(data.currentPath ?? '/start')
+
+$effect(() => {
+	if (!browser) return
+
+	document.documentElement.lang = locale
+	document.documentElement.dir = textDirection
+})
 
 const languages = [
 	{ value: 'es', label: 'Español' },
@@ -12,18 +25,25 @@ const languages = [
 </script>
 
 <svelte:head>
-	<title>{t('chrome.app_title')}</title>
-	<meta name="description" content={t('chrome.meta_description')}>
+	<title>{tt('chrome.app_title')}</title>
+	<meta name="description" content={tt('chrome.meta_description')}>
 </svelte:head>
 
 <div class="app-shell">
 	<header class="site-header">
 		<div class="site-width header-row">
-			<a class="brand" href="/start">{t('chrome.brand')}</a>
-			<nav aria-label={t('chrome.language_switcher_label')}>
+			<a class="brand" href="/start">{tt('chrome.brand')}</a>
+			<nav aria-label={tt('chrome.language_switcher_label')}>
 				<ul class="language-list">
 					{#each languages as language}
-						<li><a href={`/language?set=${language.value}`}>{language.label}</a></li>
+						<li>
+							<a
+								href={`/language?set=${language.value}&returnTo=${encodeURIComponent(currentPath)}`}
+								aria-current={language.value === locale ? 'true' : undefined}
+							>
+								{language.label}
+							</a>
+						</li>
 					{/each}
 				</ul>
 			</nav>

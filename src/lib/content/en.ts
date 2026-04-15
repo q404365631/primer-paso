@@ -1,6 +1,10 @@
 export const en = {
 	'common.not_answered': 'Not answered',
 	'common.choose_an_option': 'Choose an option',
+	'common.choose_all_that_apply': 'Choose all that apply',
+	'common.continue': 'Continue',
+	'common.back': 'Back',
+	'common.problem': 'There is a problem',
 	'chrome.app_title': 'Regularisation intake screener',
 	'chrome.meta_description':
 		"An intake screener for Spain's 2026 extraordinary regularisation process.",
@@ -184,9 +188,9 @@ export const en = {
 		'Something else with a date and my name on it',
 	'steps.evidence_before_cutoff.options.none_yet': 'I do not have any of these yet',
 	'steps.evidence_recent_months.title':
-		'Do you have any documents from the last 5 months that could help show you’ve been living here recently?',
+		"Do you have any documents from the last 5 months that could help show you've been living here recently?",
 	'steps.evidence_recent_months.body':
-		'Do you have any documents from the last 5 months that could help show you’ve been living here recently?',
+		"Do you have any documents from the last 5 months that could help show you've been living here recently?",
 	'steps.evidence_recent_months.hint': 'Choose all that apply.',
 	'steps.evidence_recent_months.check_answers_label': 'Papers from the last 5 months',
 	'steps.evidence_recent_months.error': 'Choose at least one option.',
@@ -268,6 +272,55 @@ export const en = {
 	'answers.residence_start.2025_month_unknown': '2025 — month not sure',
 	'answers.residence_start.2025_month': '{month} 2025',
 	'answers.contact.with_value': '{method}: {value}',
+	'result.reason.not_in_spain_now': 'You said you are not in Spain now.',
+	'result.reason.after_cutoff': 'You said you started living in Spain in 2026.',
+	'result.reason.specialist_review':
+		'One or more answers suggest that a specialist should review the next step.',
+	'result.reason.not_enough_information': 'Some of the key timeline answers are still uncertain.',
+	'result.reason.more_evidence':
+		'Your route and timing may fit, but the evidence looks thin so far.',
+	'result.reason.likely_in_scope':
+		'Your answers broadly fit the route, timing and evidence pattern for this checker.',
+	'result.explanation.not_in_spain_now':
+		'Based on your answers, this probably is not the right route for you right now.',
+	'result.explanation.after_cutoff':
+		'Based on your answers, this route probably is not the best fit.',
+	'result.explanation.specialist_review':
+		'Your answers suggest that a specialist should review your situation before the next step.',
+	'result.explanation.not_enough_information':
+		'There is not enough information yet to suggest the best next step.',
+	'result.explanation.more_evidence':
+		'Based on your answers, this route may fit your situation, but you may need more papers before you apply.',
+	'result.explanation.likely_in_scope':
+		'Your answers suggest you may be able to use this regularisation process.',
+	'result.next_step.other_route_advice':
+		'Get advice on whether another immigration route fits your situation better.',
+	'result.next_step.try_again_later':
+		'If your situation changes, you can check this route again later.',
+	'result.next_step.keep_residence_documents':
+		'Keep any documents that show your residence history in Spain.',
+	'result.next_step.speak_to_specialist':
+		'Speak to a specialist support organisation before you apply.',
+	'result.next_step.keep_papers_together':
+		'Keep your identity papers and any dated evidence together for review.',
+	'result.next_step.confirm_timeline':
+		'Try to confirm roughly when you started living in Spain and whether you have been living here during the last 5 months.',
+	'result.next_step.ask_for_help_if_unsure':
+		'If you are unsure, use assisted completion or ask a support organisation to help you.',
+	'result.next_step.gather_before_cutoff':
+		'Try to gather dated papers that show you were living in Spain before January 2026.',
+	'result.next_step.gather_recent': 'Also gather recent papers from the last 5 months if you can.',
+	'result.next_step.use_official_channel':
+		'Use the official application channel before 30 June 2026.',
+	'result.flag.not_in_spain_now': 'Not in Spain now',
+	'result.flag.uncertain_timeline': 'Timeline is uncertain',
+	'result.flag.five_month_requirement_risk': 'Possible continuity risk',
+	'result.flag.hard_gate_after_cutoff': 'Residence start is after the cut-off',
+	'result.flag.criminal_record_concern': 'Possible criminal record concern',
+	'result.flag.identity_issue': 'Identity issue',
+	'result.flag.asylum_complexity': 'Possible asylum complexity',
+	'result.flag.missing_identity_documents': 'Missing identity documents',
+	'result.flag.continuity_concern': 'Continuity concern',
 	'result.title.likely_in_scope': 'Likely in scope',
 	'result.title.possible_but_needs_more_evidence':
 		'This route may fit, but you may need more papers first',

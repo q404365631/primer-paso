@@ -1,5 +1,5 @@
 import { error, fail, redirect } from '@sveltejs/kit'
-import { t } from '$lib/content'
+import { getTranslator, resolveLocale } from '$lib/content'
 import type { ChoiceStepDefinition } from '$lib/journey/config'
 import { getJourneyStep, resolveStepTarget } from '$lib/journey/config'
 import { fieldAdapters } from '$lib/journey/field-adapters'
@@ -12,6 +12,14 @@ import {
 	updateJourneyAnswers
 } from '$lib/server/journey'
 import type { Actions, PageServerLoad } from './$types'
+
+const getLanguageRedirectTarget = (url: URL, fallback: string) =>
+	getSafeReturnTo(
+		new URL(
+			`${url.origin}${url.pathname}?returnTo=${encodeURIComponent(url.searchParams.get('returnTo') ?? '')}`
+		),
+		fallback
+	)
 
 const hasOptions = (step: ReturnType<typeof getJourneyStep>): step is ChoiceStepDefinition =>
 	Boolean(step && 'options' in step)
@@ -39,11 +47,13 @@ export const load: PageServerLoad = ({ cookies, params, url }) => {
 			step.options.some((option) => option.value === set)
 		) {
 			updateJourneyAnswers(cookies, { language: set })
-			redirect(303, '/start')
+			redirect(303, getLanguageRedirectTarget(url, '/start'))
 		}
 	}
 
 	const state = getJourneyState(cookies)
+	const locale = resolveLocale(state.answers.language)
+	const tt = getTranslator(locale)
 
 	if (step.guard && !step.guard(state.answers)) {
 		redirect(303, resolveStepTarget(step.redirectIfGuardFails ?? step.next, state.answers))
@@ -53,18 +63,19 @@ export const load: PageServerLoad = ({ cookies, params, url }) => {
 	const adapter = fieldAdapters[step.adapter]
 	const options: Array<{ value: string; label: string }> =
 		'options' in step
-			? step.options.map((option) => ({ value: option.value, label: t(option.labelKey) }))
+			? step.options.map((option) => ({ value: option.value, label: tt(option.labelKey) }))
 			: []
 
 	return {
+		locale,
 		step: {
 			slug: step.slug,
 			field: step.field,
 			adapter: step.adapter,
-			eyebrow: step.eyebrowKey ? t(step.eyebrowKey) : undefined,
-			title: t(step.titleKey),
-			body: step.bodyKey ? t(step.bodyKey) : undefined,
-			hint: step.hintKey ? t(step.hintKey) : undefined,
+			eyebrow: step.eyebrowKey ? tt(step.eyebrowKey) : undefined,
+			title: tt(step.titleKey),
+			body: step.bodyKey ? tt(step.bodyKey) : undefined,
+			hint: step.hintKey ? tt(step.hintKey) : undefined,
 			options
 		},
 		value: adapter.getFormValue(state.answers, step),
@@ -82,12 +93,14 @@ export const actions: Actions = {
 		}
 
 		const formData = await request.formData()
+		const locale = resolveLocale(getJourneyState(cookies).answers.language)
+		const tt = getTranslator(locale)
 		const adapter = fieldAdapters[step.adapter]
 		const parsed = adapter.parse(formData, step)
 
 		if (!parsed.ok) {
 			return fail(400, {
-				error: t(parsed.errorKey),
+				error: tt(parsed.errorKey),
 				value: parsed.formValue
 			})
 		}

@@ -1,15 +1,17 @@
 <script lang="ts">
-import { t } from '$lib/content'
+import { getTranslator } from '$lib/content'
 
 let { data } = $props()
+
+const tt = $derived(getTranslator(data.locale ?? 'en'))
 </script>
 
 <section class="stack">
-	<p class="eyebrow">{t('pages.check_answers.eyebrow')}</p>
+	<p class="eyebrow">{tt('pages.check_answers.eyebrow')}</p>
 
 	<div class="card stack">
-		<h1>{t('pages.check_answers.title')}</h1>
-		<p class="hint">{t('pages.check_answers.hint')}</p>
+		<h1>{tt('pages.check_answers.title')}</h1>
+		<p class="hint">{tt('pages.check_answers.hint')}</p>
 
 		<div class="check-list">
 			{#each data.answers as answer}
@@ -18,14 +20,16 @@ let { data } = $props()
 						<h2>{answer.label}</h2>
 						<p>{answer.value}</p>
 					</div>
-					<a class="button secondary" href={answer.changeHref}>{t('pages.check_answers.change')}</a>
+					<a class="button secondary" href={answer.changeHref}
+						>{tt('pages.check_answers.change')}</a
+					>
 				</section>
 			{/each}
 		</div>
 
 		<div class="actions">
-			<a class="button" href="/result">{t('pages.check_answers.see_result')}</a>
-			<a class="button secondary" href="/province">{t('pages.check_answers.back')}</a>
+			<a class="button" href="/result">{tt('pages.check_answers.see_result')}</a>
+			<a class="button secondary" href="/province">{tt('pages.check_answers.back')}</a>
 		</div>
 	</div>
 </section>

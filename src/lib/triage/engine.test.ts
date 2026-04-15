@@ -12,7 +12,7 @@ describe('runTriage', () => {
 		})
 
 		expect(result.resultState).toBe('another_route_may_fit_better')
-		expect(result.flags).toContain('not_in_spain_now')
+		expect(result.flags).toContain('result.flag.not_in_spain_now')
 	})
 
 	it('routes out when the residence start is after the cutoff', () => {
@@ -35,7 +35,7 @@ describe('runTriage', () => {
 		})
 
 		expect(result.resultState).toBe('not_enough_information_yet')
-		expect(result.flags).toContain('uncertain_timeline')
+		expect(result.flags).toContain('result.flag.uncertain_timeline')
 	})
 
 	it('returns specialist review for criminal record concern', () => {

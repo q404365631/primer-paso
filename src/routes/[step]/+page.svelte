@@ -1,10 +1,12 @@
 <script lang="ts">
 import ChoiceGroup from '$lib/components/questions/ChoiceGroup.svelte'
 import QuestionPage from '$lib/components/questions/QuestionPage.svelte'
-import { t } from '$lib/content'
+import { getTranslator } from '$lib/content'
 import { MONTH_VALUES } from '$lib/journey/types'
 
 let { data, form } = $props()
+const locale = $derived(data.locale ?? 'en')
+const tt = $derived(getTranslator(locale))
 
 type ResidenceStartFormValue = {
 	yearBucket: string
@@ -55,6 +57,7 @@ const contactValue = $derived.by(() => {
 	eyebrow={data.step.eyebrow}
 	title={data.step.title}
 	body={data.step.body}
+	{locale}
 	hint={data.step.hint}
 	error={form?.error}
 	returnTo={data.returnTo}
@@ -64,12 +67,14 @@ const contactValue = $derived.by(() => {
 		<ChoiceGroup
 			type="radio"
 			name={data.step.field}
+			legend={tt('common.choose_one_answer')}
 			options={data.step.options}
 			value={scalarValue}
 		/>
 	{:else if data.step.adapter === 'multi-choice'}
 		<ChoiceGroup
 			type="checkbox"
+			legend={tt('common.choose_all_that_apply')}
 			name={data.step.field}
 			options={data.step.options}
 			values={multiValue}
@@ -78,7 +83,7 @@ const contactValue = $derived.by(() => {
 		<label class="field">
 			<span class="sr-only">{data.step.title}</span>
 			<select name={data.step.field}>
-				<option value="">{t('common.choose_an_option')}</option>
+				<option value="">{tt('common.choose_an_option')}</option>
 				{#each data.step.options as option}
 					<option value={option.value} selected={scalarValue === option.value}>
 						{option.label}
@@ -87,32 +92,37 @@ const contactValue = $derived.by(() => {
 			</select>
 		</label>
 	{:else if data.step.adapter === 'residence-start'}
-		<fieldset class="question-group" aria-describedby="residence-start-hint">
-			<legend>{t('common.choose_one_answer')}</legend>
-			<ChoiceGroup
-				type="radio"
-				name="yearBucket"
-				options={[
-					{
-						value: '2024_or_earlier',
-						label: t('steps.residence_start.options.2024_or_earlier')
-					},
-					{ value: '2025', label: t('steps.residence_start.options.2025') },
-					{ value: '2026', label: t('steps.residence_start.options.2026') },
-					{ value: 'not_sure', label: t('steps.residence_start.options.not_sure') }
-				]}
-				value={residenceValue.yearBucket}
-			/>
+		<fieldset class="question-group">
+			<legend>{tt('common.choose_one_answer')}</legend>
+			{#each [
+				{
+					value: '2024_or_earlier',
+					label: tt('steps.residence_start.options.2024_or_earlier')
+				},
+				{ value: '2025', label: tt('steps.residence_start.options.2025') },
+				{ value: '2026', label: tt('steps.residence_start.options.2026') },
+				{ value: 'not_sure', label: tt('steps.residence_start.options.not_sure') }
+			] as option}
+				<label class="option">
+					<input
+						type="radio"
+						name="yearBucket"
+						value={option.value}
+						checked={residenceValue.yearBucket === option.value}
+					>
+					<span>{option.label}</span>
+				</label>
+			{/each}
 
 			{#if showMonthField}
 				<div class="card stack inline-subsection">
 					<label class="field">
-						<span>{t('steps.residence_start.month_prompt')}</span>
+						<span>{tt('steps.residence_start.month_prompt')}</span>
 						<select name="month" autocomplete="bday-month">
-							<option value="">{t('common.choose_month')}</option>
+							<option value="">{tt('common.choose_month')}</option>
 							{#each MONTH_VALUES as month}
 								<option value={month} selected={residenceValue.month === month}>
-									{t(`months.${month}` as import('$lib/content').MessageKey)}
+									{tt(`months.${month}` as import('$lib/content').MessageKey)}
 								</option>
 							{/each}
 						</select>
@@ -120,7 +130,7 @@ const contactValue = $derived.by(() => {
 
 					<label class="option">
 						<input type="checkbox" name="monthUnknown" checked={residenceValue.monthUnknown}>
-						<span>{t('steps.residence_start.month_unknown')}</span>
+						<span>{tt('steps.residence_start.month_unknown')}</span>
 					</label>
 				</div>
 			{/if}
@@ -129,13 +139,14 @@ const contactValue = $derived.by(() => {
 		<div class="stack">
 			<ChoiceGroup
 				type="radio"
+				legend={tt('common.choose_one_answer')}
 				name="contactMethod"
 				options={data.step.options}
 				value={contactValue.contactMethod}
 			/>
 			{#if contactValue.contactMethod && contactValue.contactMethod !== 'through_organisation'}
 				<label class="field">
-					<span>{t('steps.contact.detail_label')}</span>
+					<span>{tt('steps.contact.detail_label')}</span>
 					<input type="text" name="contactValue" value={contactValue.contactValue}>
 				</label>
 			{/if}

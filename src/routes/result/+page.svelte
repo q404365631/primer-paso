@@ -1,82 +1,84 @@
 <script lang="ts">
-import { t } from '$lib/content'
+import { getTranslator } from '$lib/content'
 
 let { data } = $props()
+
+const tt = $derived(getTranslator(data.locale ?? 'en'))
 </script>
 
 <section class="stack">
-	<p class="eyebrow">{t('pages.result.eyebrow')}</p>
+	<p class="eyebrow">{tt('pages.result.eyebrow')}</p>
 
 	<div class="card stack">
-		<span class="result-pill">{t(`result.title.${data.result.resultState}`)}</span>
-		<h1>{t(`result.lead.${data.result.resultState}`)}</h1>
-		<p>{data.result.explanation}</p>
+		<span class="result-pill">{tt(`result.title.${data.result.resultState}`)}</span>
+		<h1>{tt(`result.lead.${data.result.resultState}`)}</h1>
+		<p>{tt(data.result.explanationKey)}</p>
 
-		{#if data.result.reason}
+		{#if data.result.reasonKey}
 			<div class="stack">
-				<h2>{t('pages.result.why_title')}</h2>
-				<p>{data.result.reason}</p>
+				<h2>{tt('pages.result.why_title')}</h2>
+				<p>{tt(data.result.reasonKey)}</p>
 			</div>
 		{/if}
 
 		<div class="stack">
-			<h2>{t('pages.result.meaning_title')}</h2>
+			<h2>{tt('pages.result.meaning_title')}</h2>
 			<ul>
-				{#each data.result.nextSteps as step}
-					<li>{step}</li>
+				{#each data.result.nextStepKeys as stepKey}
+					<li>{tt(stepKey)}</li>
 				{/each}
 			</ul>
 		</div>
 
 		{#if data.result.showDocumentCta}
 			<div class="stack">
-				<h2>{t('pages.result.gather_title')}</h2>
+				<h2>{tt('pages.result.gather_title')}</h2>
 				<ul>
-					<li>{t('pages.result.gather.before_cutoff')}</li>
-					<li>{t('pages.result.gather.recent')}</li>
-					<li>{t('pages.result.gather.identity')}</li>
+					<li>{tt('pages.result.gather.before_cutoff')}</li>
+					<li>{tt('pages.result.gather.recent')}</li>
+					<li>{tt('pages.result.gather.identity')}</li>
 				</ul>
 			</div>
 		{/if}
 
 		{#if data.result.showHowToApply}
 			<div class="stack">
-				<h2>{t('pages.result.how_to_apply_title')}</h2>
-				<p>{t('pages.result.how_to_apply.body')}</p>
-				<p class="hint">{t('pages.result.how_to_apply.hint')}</p>
+				<h2>{tt('pages.result.how_to_apply_title')}</h2>
+				<p>{tt('pages.result.how_to_apply.body')}</p>
+				<p class="hint">{tt('pages.result.how_to_apply.hint')}</p>
 			</div>
 		{/if}
 
 		{#if data.result.showSupportCta}
 			<div class="stack">
-				<h2>{t('pages.result.support_title')}</h2>
-				<p>{t('pages.result.support.body', { province: data.province })}</p>
+				<h2>{tt('pages.result.support_title')}</h2>
+				<p>{tt('pages.result.support.body', { province: data.province })}</p>
 			</div>
 		{/if}
 
 		{#if data.result.flags.length > 0}
 			<div class="stack">
-				<h2>{t('pages.result.flags_title')}</h2>
+				<h2>{tt('pages.result.flags_title')}</h2>
 				<ul>
-					{#each data.result.flags as flag}
-						<li>{flag}</li>
+					{#each data.result.flags as flagKey}
+						<li>{tt(flagKey)}</li>
 					{/each}
 				</ul>
 			</div>
 		{/if}
 
 		<div class="stack">
-			<h2>{t('pages.result.reference_title')}</h2>
-			<p>{t('pages.result.reference_body', { sessionId: data.sessionId })}</p>
-			<p class="hint">{t('pages.result.reference_hint')}</p>
+			<h2>{tt('pages.result.reference_title')}</h2>
+			<p>{tt('pages.result.reference_body', { sessionId: data.sessionId })}</p>
+			<p class="hint">{tt('pages.result.reference_hint')}</p>
 		</div>
 
 		<div class="actions">
-			<a class="button" href="/referral">{t('pages.result.action.help')}</a>
+			<a class="button" href="/referral">{tt('pages.result.action.help')}</a>
 			<a class="button secondary" href="/check-answers"
-				>{t('pages.result.action.back_to_answers')}</a
+				>{tt('pages.result.action.back_to_answers')}</a
 			>
-			<a class="button secondary" href="/start?new=1">{t('pages.result.action.start_again')}</a>
+			<a class="button secondary" href="/start?new=1">{tt('pages.result.action.start_again')}</a>
 		</div>
 	</div>
 </section>

@@ -1,6 +1,10 @@
+import { ar } from './ar'
 import { en } from './en'
+import { es } from './es'
+import { fr } from './fr'
 
 export type MessageKey = keyof typeof en
+export type Locale = 'en' | 'es' | 'fr' | 'ar'
 
 export interface MessageReference {
 	type: 'message'
@@ -15,9 +19,29 @@ export interface RawReference {
 
 export type FormattedReference = MessageReference | RawReference
 
-export const t = (key: MessageKey, values?: Record<string, string>) => {
-	const template = en[key] ?? key
+const messages: Record<Locale, Partial<Record<MessageKey, string>>> = {
+	en,
+	es,
+	fr,
+	ar
+}
 
+const RTL_LOCALES = new Set<Locale>(['ar'])
+
+export const DEFAULT_LOCALE: Locale = 'en'
+
+export const resolveLocale = (value?: string | null): Locale => {
+	if (value === 'es' || value === 'en' || value === 'fr' || value === 'ar') {
+		return value
+	}
+
+	return DEFAULT_LOCALE
+}
+
+export const getTextDirection = (locale: Locale): 'rtl' | 'ltr' =>
+	RTL_LOCALES.has(locale) ? 'rtl' : 'ltr'
+
+const interpolate = (template: string, values?: Record<string, string>) => {
 	if (!values) {
 		return template
 	}
@@ -25,7 +49,24 @@ export const t = (key: MessageKey, values?: Record<string, string>) => {
 	return template.replace(/\{(\w+)\}/g, (_, name: string) => values[name] ?? `{${name}}`)
 }
 
-export const renderReference = (reference: FormattedReference): string => {
+export const translate = (
+	locale: Locale,
+	key: MessageKey,
+	values?: Record<string, string>
+): string => {
+	const template = messages[locale][key] ?? en[key] ?? key
+	return interpolate(template, values)
+}
+
+export const getTranslator = (locale: Locale) => {
+	return (key: MessageKey, values?: Record<string, string>) => translate(locale, key, values)
+}
+
+export const t = (key: MessageKey, values?: Record<string, string>) => {
+	return translate(DEFAULT_LOCALE, key, values)
+}
+
+const renderReferenceWithLocale = (reference: FormattedReference, locale: Locale): string => {
 	if (reference.type === 'raw') {
 		return reference.value
 	}
@@ -38,10 +79,13 @@ export const renderReference = (reference: FormattedReference): string => {
 						? value
 						: value.type === 'raw'
 							? value.value
-							: renderReference(value)
+							: renderReferenceWithLocale(value, locale)
 				])
 			)
 		: undefined
 
-	return t(reference.key, values)
+	return translate(locale, reference.key, values)
 }
+
+export const renderReference = (reference: FormattedReference, locale: Locale = DEFAULT_LOCALE) =>
+	renderReferenceWithLocale(reference, locale)

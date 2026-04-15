@@ -1,4 +1,5 @@
 import { redirect } from '@sveltejs/kit'
+import { resolveLocale } from '$lib/content'
 import { getJourneyState } from '$lib/server/journey'
 import { runTriage } from '$lib/triage/engine'
 import type { PageServerLoad } from './$types'
@@ -14,6 +15,7 @@ export const load: PageServerLoad = ({ cookies }) => {
 
 	return {
 		result,
+		locale: resolveLocale(state.answers.language),
 		province: state.answers.province,
 		sessionId: state.sessionId
 	}

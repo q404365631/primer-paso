@@ -1,3 +1,4 @@
+import type { MessageKey } from '$lib/content'
 import type {
 	EvidenceBeforeCutoffValue,
 	EvidenceRecentValue,
@@ -70,7 +71,7 @@ const hasAnyStrongRecentEvidence = (values: EvidenceRecentValue[] = []) =>
 	)
 
 export const runTriage = (answers: JourneyAnswers): TriageResult => {
-	const flags = new Set<string>()
+	const flags = new Set<MessageKey>()
 	const residenceStart = parseResidenceStart(answers)
 	const inSpainNow = answers.inSpainNow
 	const asylumBeforeCutoff = answers.asylumBeforeCutoff
@@ -95,17 +96,14 @@ export const runTriage = (answers: JourneyAnswers): TriageResult => {
 	if (inSpainNow === 'no') {
 		return {
 			resultState: 'another_route_may_fit_better',
-			flags: ['not_in_spain_now'],
-			reason: 'You said you are not in Spain now.',
+			flags: ['result.flag.not_in_spain_now'],
+			reasonKey: 'result.reason.not_in_spain_now',
 			evidenceStrength,
 			showHowToApply: false,
 			showSupportCta: true,
 			showDocumentCta: false,
-			explanation: 'Based on your answers, this probably is not the right route for you right now.',
-			nextSteps: [
-				'Get advice on whether another immigration route fits your situation better.',
-				'If your situation changes, you can check this route again later.'
-			],
+			explanationKey: 'result.explanation.not_in_spain_now',
+			nextStepKeys: ['result.next_step.other_route_advice', 'result.next_step.try_again_later'],
 			humanReviewRecommended: false
 		}
 	}
@@ -118,26 +116,26 @@ export const runTriage = (answers: JourneyAnswers): TriageResult => {
 		asylumBeforeCutoff === 'not_sure' ||
 		fiveMonthStay === 'not_sure'
 	) {
-		flags.add('uncertain_timeline')
+		flags.add('result.flag.uncertain_timeline')
 	}
 
 	if (fiveMonthStay === 'no') {
-		flags.add('five_month_requirement_risk')
+		flags.add('result.flag.five_month_requirement_risk')
 	}
 
 	if (residenceStart?.yearBucket === '2026') {
 		return {
 			resultState: 'another_route_may_fit_better',
-			flags: ['hard_gate_after_cutoff'],
-			reason: 'You said you started living in Spain in 2026.',
+			flags: ['result.flag.hard_gate_after_cutoff'],
+			reasonKey: 'result.reason.after_cutoff',
 			evidenceStrength,
 			showHowToApply: false,
 			showSupportCta: true,
 			showDocumentCta: false,
-			explanation: 'Based on your answers, this route probably is not the best fit.',
-			nextSteps: [
-				'Get advice on whether another route fits better for your situation.',
-				'Keep any documents that show your residence history in Spain.'
+			explanationKey: 'result.explanation.after_cutoff',
+			nextStepKeys: [
+				'result.next_step.other_route_advice',
+				'result.next_step.keep_residence_documents'
 			],
 			humanReviewRecommended: false
 		}
@@ -156,42 +154,47 @@ export const runTriage = (answers: JourneyAnswers): TriageResult => {
 			resultState: 'needs_specialist_review',
 			flags: [
 				...flags,
-				...(specialistFlags.includes('criminal_record_worry') ? ['criminal_record_concern'] : []),
-				...(specialistFlags.includes('identity_missing_or_mismatch') ? ['identity_issue'] : []),
-				...(specialistFlags.includes('asylum_case_not_clear') ? ['asylum_complexity'] : []),
-				...(identityDocuments.includes('no_identity_documents_now')
-					? ['missing_identity_documents']
+				...(specialistFlags.includes('criminal_record_worry')
+					? (['result.flag.criminal_record_concern'] as MessageKey[])
 					: []),
-				...(fiveMonthStay === 'no' ? ['continuity_concern'] : [])
+				...(specialistFlags.includes('identity_missing_or_mismatch')
+					? (['result.flag.identity_issue'] as MessageKey[])
+					: []),
+				...(specialistFlags.includes('asylum_case_not_clear')
+					? (['result.flag.asylum_complexity'] as MessageKey[])
+					: []),
+				...(identityDocuments.includes('no_identity_documents_now')
+					? (['result.flag.missing_identity_documents'] as MessageKey[])
+					: []),
+				...(fiveMonthStay === 'no' ? (['result.flag.continuity_concern'] as MessageKey[]) : [])
 			],
-			reason: 'One or more answers suggest that a specialist should review the next step.',
+			reasonKey: 'result.reason.specialist_review',
 			evidenceStrength,
 			showHowToApply: false,
 			showSupportCta: true,
 			showDocumentCta: false,
-			explanation:
-				'Your answers suggest that a specialist should review your situation before the next step.',
-			nextSteps: [
-				'Speak to a specialist support organisation before you apply.',
-				'Keep your identity papers and any dated evidence together for that review.'
+			explanationKey: 'result.explanation.specialist_review',
+			nextStepKeys: [
+				'result.next_step.speak_to_specialist',
+				'result.next_step.keep_papers_together'
 			],
 			humanReviewRecommended: true
 		}
 	}
 
-	if (flags.has('uncertain_timeline')) {
+	if (flags.has('result.flag.uncertain_timeline')) {
 		return {
 			resultState: 'not_enough_information_yet',
 			flags: [...flags],
-			reason: 'Some of the key timeline answers are still uncertain.',
+			reasonKey: 'result.reason.not_enough_information',
 			evidenceStrength,
 			showHowToApply: false,
 			showSupportCta: true,
 			showDocumentCta: false,
-			explanation: 'There is not enough information yet to suggest the best next step.',
-			nextSteps: [
-				'Try to confirm roughly when you started living in Spain and whether you have been living here during the last 5 months.',
-				'If you are unsure, use assisted completion or ask a support organisation to help you.'
+			explanationKey: 'result.explanation.not_enough_information',
+			nextStepKeys: [
+				'result.next_step.confirm_timeline',
+				'result.next_step.ask_for_help_if_unsure'
 			],
 			humanReviewRecommended: false
 		}
@@ -205,17 +208,13 @@ export const runTriage = (answers: JourneyAnswers): TriageResult => {
 		return {
 			resultState: 'possible_but_needs_more_evidence',
 			flags: [],
-			reason: 'Your route and timing may fit, but the evidence looks thin so far.',
+			reasonKey: 'result.reason.more_evidence',
 			evidenceStrength,
 			showHowToApply: true,
 			showSupportCta: true,
 			showDocumentCta: true,
-			explanation:
-				'Based on your answers, this route may fit your situation, but you may need more papers before you apply.',
-			nextSteps: [
-				'Try to gather dated papers that show you were living in Spain before January 2026.',
-				'Also gather recent papers from the last 5 months if you can.'
-			],
+			explanationKey: 'result.explanation.more_evidence',
+			nextStepKeys: ['result.next_step.gather_before_cutoff', 'result.next_step.gather_recent'],
 			humanReviewRecommended: false
 		}
 	}
@@ -223,15 +222,15 @@ export const runTriage = (answers: JourneyAnswers): TriageResult => {
 	return {
 		resultState: 'likely_in_scope',
 		flags: [],
-		reason: 'Your answers broadly fit the route, timing and evidence pattern for this checker.',
+		reasonKey: 'result.reason.likely_in_scope',
 		evidenceStrength,
 		showHowToApply: true,
 		showSupportCta: true,
 		showDocumentCta: false,
-		explanation: 'Your answers suggest you may be able to use this regularisation process.',
-		nextSteps: [
-			'Keep your identity papers and dated residence evidence together.',
-			'Use the official application channel before 30 June 2026.'
+		explanationKey: 'result.explanation.likely_in_scope',
+		nextStepKeys: [
+			'result.next_step.keep_papers_together',
+			'result.next_step.use_official_channel'
 		],
 		humanReviewRecommended: false
 	}

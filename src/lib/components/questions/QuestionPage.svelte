@@ -1,4 +1,7 @@
 <script lang="ts">
+import type { Locale } from '$lib/content'
+import { getTranslator } from '$lib/content'
+
 interface Props {
 	eyebrow?: string
 	title: string
@@ -7,10 +10,23 @@ interface Props {
 	error?: string
 	returnTo?: string
 	backHref: string
+	locale?: Locale
 	children?: import('svelte').Snippet
 }
 
-let { eyebrow, title, body, hint, error, returnTo, backHref, children }: Props = $props()
+let {
+	eyebrow,
+	title,
+	body,
+	hint,
+	error,
+	returnTo,
+	backHref,
+	locale = 'en',
+	children
+}: Props = $props()
+
+const tt = $derived(getTranslator(locale))
 </script>
 
 <section class="stack">
@@ -31,7 +47,7 @@ let { eyebrow, title, body, hint, error, returnTo, backHref, children }: Props =
 
 		{#if error}
 			<div class="error-summary" aria-live="assertive">
-				<h2>There is a problem</h2>
+				<h2>{tt('common.problem')}</h2>
 				<p class="error-text">{error}</p>
 			</div>
 		{/if}
@@ -44,8 +60,8 @@ let { eyebrow, title, body, hint, error, returnTo, backHref, children }: Props =
 			{@render children?.()}
 
 			<div class="actions">
-				<button class="button" type="submit">Continue</button>
-				<a class="button secondary" href={backHref}>Back</a>
+				<button class="button" type="submit">{tt('common.continue')}</button>
+				<a class="button secondary" href={backHref}>{tt('common.back')}</a>
 			</div>
 		</form>
 	</div>

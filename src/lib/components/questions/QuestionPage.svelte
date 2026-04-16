@@ -5,9 +5,6 @@ import { getTranslator } from '$lib/content'
 
 interface Props {
 	eyebrow?: string
-	title: string
-	body?: string
-	hint?: string
 	error?: string
 	returnTo?: string
 	backHref: string
@@ -15,18 +12,7 @@ interface Props {
 	children?: import('svelte').Snippet
 }
 
-let {
-	eyebrow,
-	title,
-	body,
-	hint,
-	error,
-	returnTo,
-	backHref,
-	locale = 'es',
-	children
-}: Props = $props()
-
+let { eyebrow, error, returnTo, backHref, locale = 'es', children }: Props = $props()
 const tt = $derived(getTranslator(locale))
 </script>
 
@@ -36,16 +22,6 @@ const tt = $derived(getTranslator(locale))
 	{/if}
 
 	<div class="app-card stack">
-		<h1>{title}</h1>
-
-		{#if body}
-			<p>{body}</p>
-		{/if}
-
-		{#if hint}
-			<p class="hint">{hint}</p>
-		{/if}
-
 		{#if error}
 			<div class="error-summary" aria-live="assertive">
 				<h2>{tt('common.problem')}</h2>

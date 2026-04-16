@@ -4,8 +4,6 @@ export const fr = {
 	'common.not_answered': 'Sans réponse',
 	'common.choose_an_option': 'Choisissez une option',
 	'common.choose_month': 'Choisissez un mois',
-	'common.choose_one_answer': 'Choisissez une réponse',
-	'common.choose_all_that_apply': 'Choisissez toutes les réponses qui s’appliquent',
 	'common.continue': 'Continuer',
 	'common.back': 'Retour',
 	'common.problem': 'Il y a un problème',
@@ -97,7 +95,6 @@ export const fr = {
 	'months.november': 'Novembre',
 	'months.december': 'Décembre',
 	'steps.language.title': 'Choisissez une langue',
-	'steps.language.body': 'Quelle langue souhaitez-vous utiliser ?',
 	'steps.language.hint': 'Vous pouvez changer de langue à tout moment sans perdre vos réponses.',
 	'steps.language.check_answers_label': 'Langue',
 	'steps.language.error': 'Choisissez une langue.',
@@ -106,7 +103,6 @@ export const fr = {
 	'steps.language.options.ar': 'العربية',
 	'steps.language.options.fr': 'Français',
 	'steps.completion_mode.title': 'Pour qui remplissez-vous ce questionnaire ?',
-	'steps.completion_mode.body': 'Pour qui remplissez-vous ce questionnaire ?',
 	'steps.completion_mode.hint': 'Choisissez l’option qui correspond le mieux à cette session.',
 	'steps.completion_mode.check_answers_label':
 		'Personne pour laquelle vous remplissez ce questionnaire',
@@ -115,7 +111,6 @@ export const fr = {
 	'steps.completion_mode.options.someone_else': 'Pour une autre personne, avec son autorisation',
 	'steps.completion_mode.options.support_worker': 'Je suis travailleur·euse social·e ou bénévole',
 	'steps.in_spain_now.title': 'Êtes-vous actuellement en Espagne ?',
-	'steps.in_spain_now.body': 'Êtes-vous actuellement en Espagne ?',
 	'steps.in_spain_now.check_answers_label': 'Présence actuelle en Espagne',
 	'steps.in_spain_now.error': 'Choisissez si vous êtes actuellement en Espagne.',
 	'steps.common.options.yes': 'Oui',
@@ -136,17 +131,11 @@ export const fr = {
 	'steps.residence_start.month_unknown': 'Je ne suis pas sûr·e du mois',
 	'steps.asylum_history.title':
 		'Avez-vous demandé l’asile ou une protection internationale en Espagne ?',
-	'steps.asylum_history.body':
-		'Avez-vous demandé l’asile ou une protection internationale en Espagne ?',
-	'steps.asylum_history.hint': 'Choisissez une option.',
 	'steps.asylum_history.check_answers_label': 'Asile ou protection internationale en Espagne',
 	'steps.asylum_history.error':
 		'Choisissez si vous avez demandé l’asile ou une protection internationale en Espagne.',
 	'steps.asylum_before_cutoff.title':
 		'Cette demande a-t-elle été déposée avant le 1er janvier 2026 ?',
-	'steps.asylum_before_cutoff.body':
-		'Cette demande a-t-elle été déposée avant le 1er janvier 2026 ?',
-	'steps.asylum_before_cutoff.hint': 'Choisissez une option.',
 	'steps.asylum_before_cutoff.check_answers_label':
 		'Asile ou protection internationale avant le 1er janvier 2026',
 	'steps.asylum_before_cutoff.error':
@@ -160,8 +149,6 @@ export const fr = {
 	'steps.five_month_stay.options.mostly_yes': 'Globalement oui, avec de courtes absences',
 	'steps.asylum_documents.title':
 		'Avez-vous des documents concernant votre dossier d’asile ou de protection ?',
-	'steps.asylum_documents.body':
-		'Avez-vous des documents concernant votre dossier d’asile ou de protection ?',
 	'steps.asylum_documents.hint':
 		'Par exemple, un récépissé de dépôt, un document du dossier, une lettre ou une notification.',
 	'steps.asylum_documents.check_answers_label':
@@ -169,8 +156,6 @@ export const fr = {
 	'steps.asylum_documents.error':
 		'Choisissez si vous avez des documents concernant votre dossier d’asile ou de protection.',
 	'steps.non_asylum_route.title': 'Laquelle de ces situations ressemble le plus à la vôtre ?',
-	'steps.non_asylum_route.body': 'Laquelle de ces situations ressemble le plus à la vôtre ?',
-	'steps.non_asylum_route.hint': 'Choisissez toutes les réponses qui s’appliquent.',
 	'steps.non_asylum_route.check_answers_label': 'Situation la plus proche de la vôtre',
 	'steps.non_asylum_route.error': 'Choisissez au moins une option.',
 	'steps.non_asylum_route.options.worked_in_spain': 'J’ai travaillé en Espagne',
@@ -180,8 +165,6 @@ export const fr = {
 		'Je pourrais avoir besoin d’aide en raison d’une situation difficile ou de vulnérabilité',
 	'steps.non_asylum_route.options.none': 'Aucune de ces réponses',
 	'steps.identity_documents.title': 'Quels documents d’identité avez-vous ?',
-	'steps.identity_documents.body': 'Quels documents d’identité avez-vous ?',
-	'steps.identity_documents.hint': 'Choisissez toutes les réponses qui s’appliquent.',
 	'steps.identity_documents.check_answers_label': 'Documents d’identité',
 	'steps.identity_documents.error': 'Choisissez au moins une option.',
 	'steps.identity_documents.options.current_passport': 'Passeport en cours de validité',
@@ -194,9 +177,6 @@ export const fr = {
 	'steps.identity_documents.options.prefer_not_to_say': 'Je préfère ne pas le dire',
 	'steps.evidence_before_cutoff.title':
 		'Avez-vous des documents pouvant aider à montrer que vous viviez déjà en Espagne avant janvier 2026 ?',
-	'steps.evidence_before_cutoff.body':
-		'Avez-vous des documents pouvant aider à montrer que vous viviez déjà en Espagne avant janvier 2026 ?',
-	'steps.evidence_before_cutoff.hint': 'Choisissez toutes les réponses qui s’appliquent.',
 	'steps.evidence_before_cutoff.check_answers_label':
 		'Documents pouvant montrer une résidence avant janvier 2026',
 	'steps.evidence_before_cutoff.error': 'Choisissez au moins une option.',
@@ -215,9 +195,6 @@ export const fr = {
 	'steps.evidence_before_cutoff.options.none_yet': 'Je n’ai encore aucun de ces documents',
 	'steps.evidence_recent_months.title':
 		'Avez-vous des documents des 5 derniers mois pouvant aider à montrer que vous vivez ici récemment ?',
-	'steps.evidence_recent_months.body':
-		'Avez-vous des documents des 5 derniers mois pouvant aider à montrer que vous vivez ici récemment ?',
-	'steps.evidence_recent_months.hint': 'Choisissez toutes les réponses qui s’appliquent.',
 	'steps.evidence_recent_months.check_answers_label': 'Documents des 5 derniers mois',
 	'steps.evidence_recent_months.error': 'Choisissez au moins une option.',
 	'steps.evidence_recent_months.options.housing_papers': 'Documents de logement',
@@ -234,8 +211,6 @@ export const fr = {
 		'Un autre document portant une date et mon nom',
 	'steps.evidence_recent_months.options.none_yet': 'Je n’ai encore aucun de ces documents',
 	'steps.specialist_flags.title':
-		'Y a-t-il quelque chose qui pourrait signifier que vous avez besoin d’un avis spécialisé avant de faire votre demande ?',
-	'steps.specialist_flags.body':
 		'Y a-t-il quelque chose qui pourrait signifier que vous avez besoin d’un avis spécialisé avant de faire votre demande ?',
 	'steps.specialist_flags.check_answers_label': 'Éléments pouvant nécessiter un avis spécialisé',
 	'steps.specialist_flags.error': 'Choisissez au moins une option.',
@@ -254,8 +229,6 @@ export const fr = {
 		'Je préfère parler de cela avec une personne spécialisée',
 	'steps.specialist_flags.options.none': 'Aucune de ces réponses',
 	'steps.support_needs.title': 'Quel type d’aide vous serait le plus utile ?',
-	'steps.support_needs.body': 'Quel type d’aide vous serait le plus utile ?',
-	'steps.support_needs.hint': 'Choisissez toutes les réponses qui s’appliquent.',
 	'steps.support_needs.error': 'Choisissez au moins une option.',
 	'steps.support_needs.check_answers_label': 'Aide nécessaire',
 	'steps.support_needs.options.another_language': 'Aide dans une autre langue',
@@ -271,7 +244,6 @@ export const fr = {
 		'Aide également pour des enfants ou des personnes à charge',
 	'steps.support_needs.options.specialist_advice': 'Avis spécialisé',
 	'steps.province.title': 'Dans quelle province êtes-vous ?',
-	'steps.province.body': 'Dans quelle province êtes-vous ?',
 	'steps.province.hint': 'Cela nous aide à vous montrer des options d’aide près de chez vous.',
 	'steps.province.check_answers_label': 'Province',
 	'steps.province.error': 'Choisissez une province.',
@@ -288,14 +260,11 @@ export const fr = {
 	'steps.referral.title': 'Voulez-vous de l’aide pour la prochaine étape ?',
 	'steps.referral.body':
 		'Selon votre résultat, vous pourriez vouloir de l’aide pour rassembler des documents, parler à une personne spécialisée ou déposer votre demande.',
-	'steps.referral.hint':
-		'La prochaine étape pourrait être de rassembler des documents, de parler à une personne spécialisée ou de faire votre demande.',
 	'steps.referral.error': 'Choisissez le type d’aide que vous souhaitez ensuite.',
 	'steps.referral.options.contact_me': 'Oui, je voudrais que quelqu’un me contacte',
 	'steps.referral.options.show_options': 'Oui, montrez-moi des options d’aide près de chez moi',
 	'steps.referral.options.no_thanks': 'Non, je vais conserver cela pour l’instant',
 	'steps.contact.title': 'Comment devons-nous vous contacter ?',
-	'steps.contact.body': 'Comment devons-nous vous contacter ?',
 	'steps.contact.hint': 'Choisissez le moyen le plus sûr.',
 	'steps.contact.error': 'Choisissez comment nous devons vous contacter.',
 	'steps.contact.detail_required_error':

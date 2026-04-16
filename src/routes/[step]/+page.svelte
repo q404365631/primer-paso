@@ -13,6 +13,8 @@ const locale = $derived(data.locale ?? 'es')
 const tt = $derived(getTranslator(locale))
 const monthId = 'residence-start-month'
 const monthUnknownId = 'monthUnknown'
+const provinceId = $derived(`${data.step.field}-select`)
+const contactValueId = 'contactValue'
 
 type ResidenceStartFormValue = {
 	yearBucket: string
@@ -24,6 +26,11 @@ const isRecord = (value: unknown): value is Record<string, unknown> =>
 	typeof value === 'object' && value !== null && !Array.isArray(value)
 
 const rawValue = $derived(form?.value ?? data.value)
+const distinctBody = $derived(
+	data.step.body && data.step.body !== data.step.title ? data.step.body : undefined
+)
+const currentError = $derived(form?.error)
+
 const scalarValue = $derived(typeof rawValue === 'string' ? rawValue : '')
 const multiValue = $derived(
 	Array.isArray(rawValue)
@@ -73,11 +80,8 @@ const contactValue = $derived.by(() => {
 
 <QuestionPage
 	eyebrow={data.step.eyebrow}
-	title={data.step.title}
-	body={data.step.body}
 	{locale}
-	hint={data.step.hint}
-	error={form?.error}
+	error={currentError}
 	returnTo={data.returnTo}
 	backHref={data.backHref}
 >
@@ -85,25 +89,40 @@ const contactValue = $derived.by(() => {
 		<ChoiceGroup
 			type="radio"
 			name={data.step.field}
-			legend={tt('common.choose_one_answer')}
+			question={data.step.title}
+			description={distinctBody}
+			hint={data.step.hint}
+			error={currentError}
 			options={data.step.options}
 			value={scalarValue}
 		/>
 	{:else if data.step.adapter === 'multi-choice'}
 		<ChoiceGroup
 			type="checkbox"
-			legend={tt('common.choose_all_that_apply')}
 			name={data.step.field}
+			question={data.step.title}
+			description={distinctBody}
+			hint={data.step.hint}
+			error={currentError}
 			options={data.step.options}
 			values={multiValue}
 		/>
 	{:else if data.step.adapter === 'select'}
-		<FormField label={data.step.title} forId={`${data.step.field}-select`}>
+		<FormField
+			label={data.step.title}
+			description={distinctBody}
+			hint={data.step.hint}
+			error={currentError}
+			forId={provinceId}
+			asPageHeading
+		>
 			<NativeSelect
-				id={`${data.step.field}-select`}
+				id={provinceId}
 				name={data.step.field}
 				value={scalarValue}
 				class="w-full"
+				aria-invalid={currentError ? 'true' : undefined}
+				aria-describedby={`${provinceId}-hint ${provinceId}-error`}
 			>
 				<NativeSelectOption value="">{tt('common.choose_an_option')}</NativeSelectOption>
 				{#each data.step.options as option}
@@ -115,15 +134,29 @@ const contactValue = $derived.by(() => {
 		<div class="stack">
 			<ChoiceGroup
 				type="radio"
-				legend={tt('common.choose_one_answer')}
 				name="yearBucket"
+				question={data.step.title}
+				description={distinctBody}
+				hint={data.step.hint}
+				error={currentError}
 				options={residenceOptions}
 				value={residenceValue.yearBucket}
 			/>
 			{#if showMonthField}
 				<div class="app-card stack inline-subsection">
-					<FormField label={tt('steps.residence_start.month_prompt')} forId={monthId}>
-						<select id={monthId} class="app-input" name="month" autocomplete="bday-month">
+					<FormField
+						label={tt('steps.residence_start.month_prompt')}
+						forId={monthId}
+						hint={undefined}
+						error={undefined}
+					>
+						<select
+							id={monthId}
+							class="app-input"
+							name="month"
+							autocomplete="bday-month"
+							aria-describedby={monthUnknownId}
+						>
 							<option value="">{tt('common.choose_month')}</option>
 							{#each MONTH_VALUES as month}
 								<option value={month} selected={residenceValue.month === month}>
@@ -148,20 +181,29 @@ const contactValue = $derived.by(() => {
 		<div class="stack">
 			<ChoiceGroup
 				type="radio"
-				legend={tt('common.choose_one_answer')}
 				name="contactMethod"
+				question={data.step.title}
+				description={distinctBody}
+				hint={data.step.hint}
+				error={currentError}
 				options={data.step.options}
 				value={contactValue.contactMethod}
 			/>
 			{#if contactValue.contactMethod && contactValue.contactMethod !== 'through_organisation' && contactValue.contactMethod !== 'do_not_contact_yet'}
-				<FormField label={tt('steps.contact.detail_label')} forId="contactValue">
+				<FormField label={tt('steps.contact.detail_label')} forId={contactValueId}>
 					<input
-						id="contactValue"
+						id={contactValueId}
 						class="app-input"
 						type="text"
 						name="contactValue"
 						value={contactValue.contactValue}
 						dir="auto"
+						inputmode={contactValue.contactMethod === 'phone' ||
+						contactValue.contactMethod === 'sms' ||
+						contactValue.contactMethod === 'whatsapp'
+							? 'tel'
+							: undefined}
+						autocomplete={contactValue.contactMethod === 'email' ? 'email' : 'tel'}
 					>
 				</FormField>
 			{/if}

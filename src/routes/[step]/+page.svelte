@@ -147,7 +147,7 @@ const contactValue = $derived.by(() => {
 			{#if contactValue.contactMethod && contactValue.contactMethod !== 'through_organisation' && contactValue.contactMethod !== 'do_not_contact_yet'}
 				<label class="field">
 					<span>{tt('steps.contact.detail_label')}</span>
-					<input type="text" name="contactValue" value={contactValue.contactValue}>
+					<input type="text" name="contactValue" value={contactValue.contactValue} dir="auto">
 				</label>
 			{/if}
 		</div>

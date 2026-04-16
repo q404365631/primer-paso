@@ -194,7 +194,7 @@ const switchLanguage = async (event: MouseEvent, languageValue: string) => {
 }
 
 :global(.option input) {
-	margin-top: 0.2rem;
+	margin-block-start: 0.2rem;
 }
 
 :global(.field) {
@@ -237,7 +237,7 @@ const switchLanguage = async (event: MouseEvent, languageValue: string) => {
 
 :global(.error-summary) {
 	border: 1px solid #dc2626;
-	border-left-width: 6px;
+	border-inline-start-width: 6px;
 	background: #fef2f2;
 	border-radius: 0.75rem;
 	padding: 1rem;
@@ -255,7 +255,7 @@ const switchLanguage = async (event: MouseEvent, languageValue: string) => {
 :global(.check-row) {
 	display: grid;
 	gap: 0.5rem;
-	padding-bottom: 1rem;
+	padding-block-end: 1rem;
 	border-bottom: 1px solid #e2e8f0;
 }
 
@@ -277,6 +277,7 @@ const switchLanguage = async (event: MouseEvent, languageValue: string) => {
 .site-header {
 	border-bottom: 1px solid #e2e8f0;
 	background: rgb(255 255 255 / 0.92);
+	text-align: start;
 	backdrop-filter: blur(12px);
 }
 
@@ -287,7 +288,8 @@ const switchLanguage = async (event: MouseEvent, languageValue: string) => {
 
 .brand {
 	display: inline-block;
-	padding: 1rem 0;
+	padding-block: 1rem;
+	padding-inline: 0;
 	font-weight: 700;
 	text-decoration: none;
 }
@@ -310,7 +312,7 @@ const switchLanguage = async (event: MouseEvent, languageValue: string) => {
 }
 
 .content {
-	padding: 2rem 0 4rem;
+	padding-block: 2rem 4rem;
 }
 
 @media (max-width: 640px) {

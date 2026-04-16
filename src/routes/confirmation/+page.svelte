@@ -4,6 +4,7 @@ import { getTranslator } from '$lib/content'
 let { data } = $props()
 
 const tt = $derived(getTranslator(data.locale ?? 'en'))
+const submittedAt = $derived(new Date(data.submittedAt).toLocaleString(data.locale ?? 'en'))
 </script>
 
 <section class="stack">
@@ -15,7 +16,7 @@ const tt = $derived(getTranslator(data.locale ?? 'en'))
 			<p><strong>{tt('pages.confirmation.reference_number')}:</strong> {data.sessionId}</p>
 			<p>
 				<strong>{tt('pages.confirmation.updated')}:</strong>
-				{new Date(data.submittedAt).toLocaleString()}
+				{submittedAt}
 			</p>
 		</div>
 		<p class="hint">{tt('pages.confirmation.hint')}</p>

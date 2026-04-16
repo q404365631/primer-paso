@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
+import { ar } from './ar'
 import { en } from './en'
 import { es } from './es'
 import { fr } from './fr'
@@ -10,11 +11,6 @@ describe('content localisation', () => {
 		expect(resolveLocale('es')).toBe('es')
 		expect(resolveLocale('fr')).toBe('fr')
 		expect(resolveLocale('nope')).toBe('en')
-	})
-
-	it('falls back to English when a locale is missing a key', () => {
-		expect(translate('ar', 'pages.start.title')).toBe(
-			'Check what support you may need for the regularisation process')
 	})
 
 	it('renders nested references in the requested locale', () => {
@@ -51,5 +47,9 @@ describe('content localisation', () => {
 
 	it('fully implements the French translation set', () => {
 		expect(Object.keys(fr).sort()).toEqual(Object.keys(en).sort())
+	})
+
+	it('fully implements the Arabic translation set', () => {
+		expect(Object.keys(ar).sort()).toEqual(Object.keys(en).sort())
 	})
 })

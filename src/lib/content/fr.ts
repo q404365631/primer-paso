@@ -11,7 +11,7 @@ export const fr = {
 	'common.problem': 'Il y a un problème',
 	'chrome.app_title': 'Primer Paso',
 	'chrome.meta_description':
-		"Primer Paso est un questionnaire d’accueil pour la procédure extraordinaire de régularisation en Espagne en 2026. Hébergé sur primerpaso.org.",
+		'Primer Paso est un questionnaire d’accueil pour la procédure extraordinaire de régularisation en Espagne en 2026. Hébergé sur primerpaso.org.',
 	'chrome.brand': 'Primer Paso',
 	'chrome.language_switcher_label': 'Sélecteur de langue',
 	'pages.start.eyebrow': 'Étape 1',
@@ -19,7 +19,7 @@ export const fr = {
 		'Vérifiez de quel accompagnement vous pourriez avoir besoin pour la procédure de régularisation',
 	'pages.start.lead':
 		'Utilisez ce questionnaire pour comprendre quelle pourrait être votre prochaine étape.',
-	'pages.start.not_official': "Ceci n’est pas la demande officielle du gouvernement.",
+	'pages.start.not_official': 'Ceci n’est pas la demande officielle du gouvernement.',
 	'pages.start.window_open':
 		'La période officielle de dépôt des demandes est ouverte jusqu’au 30 juin 2026.',
 	'pages.start.resume': 'Vous pouvez arrêter et revenir plus tard.',
@@ -107,9 +107,9 @@ export const fr = {
 	'steps.language.options.fr': 'Français',
 	'steps.completion_mode.title': 'Pour qui remplissez-vous ce questionnaire ?',
 	'steps.completion_mode.body': 'Pour qui remplissez-vous ce questionnaire ?',
-	'steps.completion_mode.hint':
-		'Choisissez l’option qui correspond le mieux à cette session.',
-	'steps.completion_mode.check_answers_label': 'Personne pour laquelle vous remplissez ce questionnaire',
+	'steps.completion_mode.hint': 'Choisissez l’option qui correspond le mieux à cette session.',
+	'steps.completion_mode.check_answers_label':
+		'Personne pour laquelle vous remplissez ce questionnaire',
 	'steps.completion_mode.error': 'Choisissez pour qui vous remplissez ce questionnaire.',
 	'steps.completion_mode.options.self': 'Pour moi',
 	'steps.completion_mode.options.someone_else': 'Pour une autre personne, avec son autorisation',
@@ -123,7 +123,8 @@ export const fr = {
 	'steps.common.options.not_sure': 'Je ne suis pas sûr·e',
 	'steps.residence_start.title': 'Quand avez-vous commencé à vivre en Espagne ?',
 	'steps.residence_start.hint': 'Un mois approximatif suffit.',
-	'steps.residence_start.check_answers_label': 'Date à laquelle vous avez commencé à vivre en Espagne',
+	'steps.residence_start.check_answers_label':
+		'Date à laquelle vous avez commencé à vivre en Espagne',
 	'steps.residence_start.error': 'Choisissez quand vous avez commencé à vivre en Espagne.',
 	'steps.residence_start.month_error':
 		'Choisissez le mois ou indiquez que vous n’êtes pas sûr·e du mois.',
@@ -141,8 +142,10 @@ export const fr = {
 	'steps.asylum_history.check_answers_label': 'Asile ou protection internationale en Espagne',
 	'steps.asylum_history.error':
 		'Choisissez si vous avez demandé l’asile ou une protection internationale en Espagne.',
-	'steps.asylum_before_cutoff.title': 'Cette demande a-t-elle été déposée avant le 1er janvier 2026 ?',
-	'steps.asylum_before_cutoff.body': 'Cette demande a-t-elle été déposée avant le 1er janvier 2026 ?',
+	'steps.asylum_before_cutoff.title':
+		'Cette demande a-t-elle été déposée avant le 1er janvier 2026 ?',
+	'steps.asylum_before_cutoff.body':
+		'Cette demande a-t-elle été déposée avant le 1er janvier 2026 ?',
 	'steps.asylum_before_cutoff.hint': 'Choisissez une option.',
 	'steps.asylum_before_cutoff.check_answers_label':
 		'Asile ou protection internationale avant le 1er janvier 2026',
@@ -151,8 +154,7 @@ export const fr = {
 	'steps.five_month_stay.title': 'Avez-vous vécu en Espagne pendant les 5 derniers mois ?',
 	'steps.five_month_stay.body': 'Avez-vous été en Espagne pendant les 5 derniers mois ?',
 	'steps.five_month_stay.hint': 'Les courts déplacements ne comptent pas toujours.',
-	'steps.five_month_stay.check_answers_label':
-		'Présence en Espagne pendant les 5 derniers mois',
+	'steps.five_month_stay.check_answers_label': 'Présence en Espagne pendant les 5 derniers mois',
 	'steps.five_month_stay.error':
 		'Choisissez si vous avez été en Espagne pendant les 5 derniers mois.',
 	'steps.five_month_stay.options.mostly_yes': 'Globalement oui, avec de courtes absences',
@@ -198,7 +200,8 @@ export const fr = {
 	'steps.evidence_before_cutoff.check_answers_label':
 		'Documents pouvant montrer une résidence avant janvier 2026',
 	'steps.evidence_before_cutoff.error': 'Choisissez au moins une option.',
-	'steps.evidence_before_cutoff.options.padron_or_registration': 'Empadronamiento ou enregistrement',
+	'steps.evidence_before_cutoff.options.padron_or_registration':
+		'Empadronamiento ou enregistrement',
 	'steps.evidence_before_cutoff.options.housing_papers': 'Documents de logement',
 	'steps.evidence_before_cutoff.options.health_or_pharmacy': 'Documents de santé ou de pharmacie',
 	'steps.evidence_before_cutoff.options.school_or_childcare':
@@ -226,8 +229,7 @@ export const fr = {
 		'Lettres d’une organisation, d’une église ou d’un travailleur social',
 	'steps.evidence_recent_months.options.bank_or_money_transfer':
 		'Relevés bancaires ou transferts d’argent',
-	'steps.evidence_recent_months.options.travel_or_dated_receipts':
-		'Voyages ou reçus datés',
+	'steps.evidence_recent_months.options.travel_or_dated_receipts': 'Voyages ou reçus datés',
 	'steps.evidence_recent_months.options.something_else_dated_named':
 		'Un autre document portant une date et mon nom',
 	'steps.evidence_recent_months.options.none_yet': 'Je n’ai encore aucun de ces documents',
@@ -313,7 +315,8 @@ export const fr = {
 	'answers.residence_start.2025_month_unknown': '2025 — mois inconnu',
 	'answers.residence_start.2025_month': '{month} 2025',
 	'answers.contact.with_value': '{method} : {value}',
-	'result.reason.not_in_spain_now': 'Vous avez indiqué que vous n’êtes pas actuellement en Espagne.',
+	'result.reason.not_in_spain_now':
+		'Vous avez indiqué que vous n’êtes pas actuellement en Espagne.',
 	'result.reason.after_cutoff': 'Vous avez indiqué avoir commencé à vivre en Espagne en 2026.',
 	'result.reason.specialist_review':
 		'Une ou plusieurs réponses suggèrent qu’une personne spécialisée devrait examiner la prochaine étape.',
@@ -381,6 +384,5 @@ export const fr = {
 		'Vous pourriez avoir besoin d’une aide spécialisée avant de faire votre demande',
 	'result.lead.not_enough_information_yet':
 		'Nous avons besoin d’un peu plus d’informations avant de suggérer une prochaine étape',
-	'result.lead.another_route_may_fit_better':
-		'Cette voie n’est probablement pas la bonne pour vous'
+	'result.lead.another_route_may_fit_better': 'Cette voie n’est probablement pas la bonne pour vous'
 } satisfies Partial<Record<MessageKey, string>>

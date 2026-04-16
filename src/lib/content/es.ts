@@ -132,38 +132,30 @@ export const es = {
 	'steps.asylum_history.body': '¿Solicitaste asilo o protección internacional en España?',
 	'steps.asylum_history.hint': 'Elige una opción.',
 	'steps.asylum_history.check_answers_label': 'Asilo o protección internacional en España',
-	'steps.asylum_history.error':
-		'Elige si solicitaste asilo o protección internacional en España.',
+	'steps.asylum_history.error': 'Elige si solicitaste asilo o protección internacional en España.',
 	'steps.asylum_before_cutoff.title': '¿Esa solicitud fue antes del 1 de enero de 2026?',
 	'steps.asylum_before_cutoff.body': '¿Esa solicitud fue antes del 1 de enero de 2026?',
 	'steps.asylum_before_cutoff.hint': 'Elige una opción.',
 	'steps.asylum_before_cutoff.check_answers_label':
 		'Asilo o protección internacional antes del 1 de enero de 2026',
-	'steps.asylum_before_cutoff.error':
-		'Elige si esa solicitud fue antes del 1 de enero de 2026.',
+	'steps.asylum_before_cutoff.error': 'Elige si esa solicitud fue antes del 1 de enero de 2026.',
 	'steps.five_month_stay.title': '¿Has estado viviendo en España durante los últimos 5 meses?',
 	'steps.five_month_stay.body': '¿Has estado en España durante los últimos 5 meses?',
 	'steps.five_month_stay.hint': 'Las salidas cortas no siempre importan.',
 	'steps.five_month_stay.check_answers_label':
 		'Si has estado en España durante los últimos 5 meses',
-	'steps.five_month_stay.error':
-		'Elige si has estado en España durante los últimos 5 meses.',
+	'steps.five_month_stay.error': 'Elige si has estado en España durante los últimos 5 meses.',
 	'steps.five_month_stay.options.mostly_yes': 'Casi siempre sí, con ausencias cortas',
-	'steps.asylum_documents.title':
-		'¿Tienes algún documento sobre tu caso de asilo o protección?',
-	'steps.asylum_documents.body':
-		'¿Tienes algún documento sobre tu caso de asilo o protección?',
+	'steps.asylum_documents.title': '¿Tienes algún documento sobre tu caso de asilo o protección?',
+	'steps.asylum_documents.body': '¿Tienes algún documento sobre tu caso de asilo o protección?',
 	'steps.asylum_documents.hint':
 		'Por ejemplo, un resguardo de presentación, documento del caso, carta o notificación.',
-	'steps.asylum_documents.check_answers_label':
-		'Documentos sobre tu caso de asilo o protección',
-	'steps.asylum_documents.error':
-		'Elige si tienes documentos sobre tu caso de asilo o protección.',
+	'steps.asylum_documents.check_answers_label': 'Documentos sobre tu caso de asilo o protección',
+	'steps.asylum_documents.error': 'Elige si tienes documentos sobre tu caso de asilo o protección.',
 	'steps.non_asylum_route.title': '¿Cuál de estas opciones se parece más a tu situación?',
 	'steps.non_asylum_route.body': '¿Cuál de estas opciones se parece más a tu situación?',
 	'steps.non_asylum_route.hint': 'Elige todas las que correspondan.',
-	'steps.non_asylum_route.check_answers_label':
-		'Qué opciones se parecen a tu situación',
+	'steps.non_asylum_route.check_answers_label': 'Qué opciones se parecen a tu situación',
 	'steps.non_asylum_route.error': 'Elige al menos una opción.',
 	'steps.non_asylum_route.options.worked_in_spain': 'He trabajado en España',
 	'steps.non_asylum_route.options.close_family_relevant':
@@ -194,15 +186,13 @@ export const es = {
 	'steps.evidence_before_cutoff.error': 'Elige al menos una opción.',
 	'steps.evidence_before_cutoff.options.padron_or_registration': 'Empadronamiento o registro',
 	'steps.evidence_before_cutoff.options.housing_papers': 'Documentos de vivienda',
-	'steps.evidence_before_cutoff.options.health_or_pharmacy':
-		'Documentos de salud o farmacia',
+	'steps.evidence_before_cutoff.options.health_or_pharmacy': 'Documentos de salud o farmacia',
 	'steps.evidence_before_cutoff.options.school_or_childcare':
 		'Documentos escolares o de cuidado infantil',
 	'steps.evidence_before_cutoff.options.work_papers': 'Documentos de trabajo',
 	'steps.evidence_before_cutoff.options.organisation_or_church_letter':
 		'Cartas de una organización, iglesia o trabajador/a social',
-	'steps.evidence_before_cutoff.options.travel_or_transport':
-		'Documentos de viaje o transporte',
+	'steps.evidence_before_cutoff.options.travel_or_transport': 'Documentos de viaje o transporte',
 	'steps.evidence_before_cutoff.options.something_else_dated_named':
 		'Otro documento con fecha y mi nombre',
 	'steps.evidence_before_cutoff.options.none_yet': 'Todavía no tengo ninguno de estos',
@@ -214,8 +204,7 @@ export const es = {
 	'steps.evidence_recent_months.check_answers_label': 'Documentos de los últimos 5 meses',
 	'steps.evidence_recent_months.error': 'Elige al menos una opción.',
 	'steps.evidence_recent_months.options.housing_papers': 'Documentos de vivienda',
-	'steps.evidence_recent_months.options.health_or_pharmacy':
-		'Documentos de salud o farmacia',
+	'steps.evidence_recent_months.options.health_or_pharmacy': 'Documentos de salud o farmacia',
 	'steps.evidence_recent_months.options.school_or_childcare':
 		'Documentos escolares o de cuidado infantil',
 	'steps.evidence_recent_months.options.work_papers': 'Documentos de trabajo',
@@ -223,8 +212,7 @@ export const es = {
 		'Cartas de una organización, iglesia o trabajador/a social',
 	'steps.evidence_recent_months.options.bank_or_money_transfer':
 		'Registros bancarios o de transferencias de dinero',
-	'steps.evidence_recent_months.options.travel_or_dated_receipts':
-		'Viajes o recibos con fecha',
+	'steps.evidence_recent_months.options.travel_or_dated_receipts': 'Viajes o recibos con fecha',
 	'steps.evidence_recent_months.options.something_else_dated_named':
 		'Otro documento con fecha y mi nombre',
 	'steps.evidence_recent_months.options.none_yet': 'Todavía no tengo ninguno de estos',
@@ -292,8 +280,7 @@ export const es = {
 	'steps.contact.body': '¿Cómo deberíamos contactarte?',
 	'steps.contact.hint': 'Elige la forma más segura.',
 	'steps.contact.error': 'Elige cómo deberíamos contactarte.',
-	'steps.contact.detail_required_error':
-		'Ingresa el dato de contacto para el método que elegiste.',
+	'steps.contact.detail_required_error': 'Ingresa el dato de contacto para el método que elegiste.',
 	'steps.contact.detail_label': 'Dato de contacto',
 	'steps.contact.options.sms': 'SMS',
 	'steps.contact.options.whatsapp': 'WhatsApp',

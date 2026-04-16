@@ -4,6 +4,7 @@ import { getTranslator } from '$lib/content'
 let { data } = $props()
 
 const tt = $derived(getTranslator(data.locale ?? 'en'))
+const provinceLabel = $derived(tt(`steps.province.options.${data.province}`))
 </script>
 
 <section class="stack">
@@ -52,7 +53,7 @@ const tt = $derived(getTranslator(data.locale ?? 'en'))
 		{#if data.result.showSupportCta}
 			<div class="stack">
 				<h2>{tt('pages.result.support_title')}</h2>
-				<p>{tt('pages.result.support.body', { province: data.province })}</p>
+				<p>{tt('pages.result.support.body', { province: provinceLabel })}</p>
 			</div>
 		{/if}
 

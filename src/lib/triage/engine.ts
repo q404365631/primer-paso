@@ -74,6 +74,7 @@ export const runTriage = (answers: JourneyAnswers): TriageResult => {
 	const flags = new Set<MessageKey>()
 	const residenceStart = parseResidenceStart(answers)
 	const inSpainNow = answers.inSpainNow
+	const asylumHistory = answers.asylumHistory
 	const asylumBeforeCutoff = answers.asylumBeforeCutoff
 	const fiveMonthStay = answers.fiveMonthStay
 	const asylumCaseDocuments = answers.asylumCaseDocuments
@@ -81,6 +82,7 @@ export const runTriage = (answers: JourneyAnswers): TriageResult => {
 	const evidenceBeforeCutoff = answers.evidenceBeforeCutoff ?? []
 	const evidenceRecentMonths = answers.evidenceRecentMonths ?? []
 	const specialistFlags = answers.specialistFlags ?? []
+	const supportNeeds = answers.supportNeeds ?? []
 
 	const hasStrongEvidence =
 		hasAnyStrongBeforeCutoffEvidence(evidenceBeforeCutoff) &&
@@ -113,7 +115,8 @@ export const runTriage = (answers: JourneyAnswers): TriageResult => {
 		!residenceStart ||
 		residenceStart.yearBucket === 'not_sure' ||
 		(residenceStart.yearBucket === '2025' && residenceStart.monthUnknown) ||
-		asylumBeforeCutoff === 'not_sure' ||
+		asylumHistory === 'not_sure' ||
+		(asylumHistory === 'yes' && asylumBeforeCutoff === 'not_sure') ||
 		fiveMonthStay === 'not_sure'
 	) {
 		flags.add('result.flag.uncertain_timeline')
@@ -144,7 +147,10 @@ export const runTriage = (answers: JourneyAnswers): TriageResult => {
 	if (
 		specialistFlags.includes('criminal_record_worry') ||
 		specialistFlags.includes('identity_missing_or_mismatch') ||
+		specialistFlags.includes('previous_refusal_needs_help') ||
 		specialistFlags.includes('asylum_case_not_clear') ||
+		specialistFlags.includes('unsafe_sharing_digitally') ||
+		specialistFlags.includes('urgent_human_support') ||
 		specialistFlags.includes('want_specialist') ||
 		identityDocuments.includes('no_identity_documents_now') ||
 		fiveMonthStay === 'no' ||
@@ -159,6 +165,9 @@ export const runTriage = (answers: JourneyAnswers): TriageResult => {
 					: []),
 				...(specialistFlags.includes('identity_missing_or_mismatch')
 					? (['result.flag.identity_issue'] as MessageKey[])
+					: []),
+				...(supportNeeds.includes('child_or_dependant_support')
+					? (['result.flag.family_support_needs'] as MessageKey[])
 					: []),
 				...(specialistFlags.includes('asylum_case_not_clear')
 					? (['result.flag.asylum_complexity'] as MessageKey[])
@@ -185,7 +194,12 @@ export const runTriage = (answers: JourneyAnswers): TriageResult => {
 	if (flags.has('result.flag.uncertain_timeline')) {
 		return {
 			resultState: 'not_enough_information_yet',
-			flags: [...flags],
+			flags: [
+				...flags,
+				...(supportNeeds.includes('child_or_dependant_support')
+					? (['result.flag.family_support_needs'] as MessageKey[])
+					: [])
+			],
 			reasonKey: 'result.reason.not_enough_information',
 			evidenceStrength,
 			showHowToApply: false,
@@ -207,7 +221,9 @@ export const runTriage = (answers: JourneyAnswers): TriageResult => {
 	) {
 		return {
 			resultState: 'possible_but_needs_more_evidence',
-			flags: [],
+			flags: supportNeeds.includes('child_or_dependant_support')
+				? ['result.flag.family_support_needs']
+				: [],
 			reasonKey: 'result.reason.more_evidence',
 			evidenceStrength,
 			showHowToApply: true,
@@ -221,7 +237,9 @@ export const runTriage = (answers: JourneyAnswers): TriageResult => {
 
 	return {
 		resultState: 'likely_in_scope',
-		flags: [],
+		flags: supportNeeds.includes('child_or_dependant_support')
+			? ['result.flag.family_support_needs']
+			: [],
 		reasonKey: 'result.reason.likely_in_scope',
 		evidenceStrength,
 		showHowToApply: true,

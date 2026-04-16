@@ -27,5 +27,15 @@ export const load: PageServerLoad = ({ cookies }) => {
 			changeHref: `/${step.slug}?returnTo=/check-answers`
 		}))
 
-	return { answers, locale }
+	const previousStep = journeySteps
+		.filter(
+			(step) => step.includeInCheckAnswers !== false && (!step.guard || step.guard(state.answers))
+		)
+		.at(-1)
+
+	return {
+		answers,
+		locale,
+		backHref: previousStep ? `/${previousStep.slug}` : '/start'
+	}
 }

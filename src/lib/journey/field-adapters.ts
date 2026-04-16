@@ -191,7 +191,11 @@ const contactPreferenceAdapter: FieldAdapter = {
 			return { ok: false, errorKey: step.errorKey, formValue: { contactMethod, contactValue } }
 		}
 
-		if (contactMethod !== 'through_organisation' && !contactValue) {
+		if (
+			contactMethod !== 'through_organisation' &&
+			contactMethod !== 'do_not_contact_yet' &&
+			!contactValue
+		) {
 			return {
 				ok: false,
 				errorKey: 'steps.contact.detail_required_error',
@@ -211,7 +215,11 @@ const contactPreferenceAdapter: FieldAdapter = {
 		const method = step.options.find((option) => option.value === answers.contactMethod)
 		if (!method) return notAnswered()
 
-		if (answers.contactMethod === 'through_organisation' || !answers.contactValue) {
+		if (
+			answers.contactMethod === 'through_organisation' ||
+			answers.contactMethod === 'do_not_contact_yet' ||
+			!answers.contactValue
+		) {
 			return [message(method.labelKey)]
 		}
 

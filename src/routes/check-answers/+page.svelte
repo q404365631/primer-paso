@@ -1,7 +1,16 @@
 <script lang="ts">
+import type { Locale } from '$lib/content'
 import { getTranslator } from '$lib/content'
 
-let { data } = $props()
+let {
+	data
+}: {
+	data: {
+		locale?: Locale
+		backHref: string
+		answers: Array<{ label: string; value: string; changeHref: string }>
+	}
+} = $props()
 
 const tt = $derived(getTranslator(data.locale ?? 'en'))
 </script>
@@ -29,7 +38,7 @@ const tt = $derived(getTranslator(data.locale ?? 'en'))
 
 		<div class="actions">
 			<a class="button" href="/result">{tt('pages.check_answers.see_result')}</a>
-			<a class="button secondary" href="/province">{tt('pages.check_answers.back')}</a>
+			<a class="button secondary" href={data.backHref}>{tt('pages.check_answers.back')}</a>
 		</div>
 	</div>
 </section>

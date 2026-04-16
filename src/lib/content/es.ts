@@ -124,6 +124,40 @@ export const es = {
 	'steps.residence_start.options.not_sure': 'No estoy seguro/a',
 	'steps.residence_start.month_prompt': '¿Qué mes fue, aproximadamente?',
 	'steps.residence_start.month_unknown': 'No estoy seguro/a del mes',
+	'steps.identity_documents.options.national_identity_card': 'Documento nacional de identidad',
+	'steps.identity_documents.options.asylum_document': 'Documento de asilo',
+	'steps.identity_documents.options.travel_document': 'Documento de viaje',
+	'steps.identity_documents.options.no_identity_documents_now':
+		'No tengo documentos de identidad conmigo ahora',
+	'steps.identity_documents.options.prefer_not_to_say': 'Prefiero no decirlo',
+	'steps.specialist_flags.options.criminal_record_worry':
+		'Me preocupa tener antecedentes penales o una causa penal',
+	'steps.specialist_flags.options.identity_missing_or_mismatch':
+		'Mis documentos de identidad faltan o mis datos no coinciden entre documentos',
+	'steps.specialist_flags.options.previous_refusal_needs_help':
+		'Tuve una denegación en otro trámite y necesito ayuda para entenderla',
+	'steps.specialist_flags.options.asylum_case_not_clear':
+		'No estoy seguro/a de qué pasó con mi caso de asilo',
+	'steps.specialist_flags.options.unsafe_sharing_digitally':
+		'No me siento seguro/a compartiendo cierta información de forma digital',
+	'steps.specialist_flags.options.urgent_human_support': 'Necesito apoyo humano urgente',
+	'steps.specialist_flags.options.want_specialist':
+		'Prefiero hablar de esto con una persona especialista',
+	'steps.specialist_flags.options.none': 'Ninguna de estas',
+	'steps.support_needs.check_answers_label': 'Apoyo necesario',
+	'steps.support_needs.options.help_using_phone_or_computer':
+		'Ayuda para usar un teléfono o computador',
+	'steps.support_needs.options.phone_support': 'Apoyo por teléfono',
+	'steps.support_needs.options.help_scanning_or_printing':
+		'Ayuda para escanear o imprimir documentos',
+	'steps.support_needs.options.help_gathering_papers': 'Ayuda para entender qué documentos reunir',
+	'steps.support_needs.options.child_or_dependant_support':
+		'Ayuda también para niños, niñas o personas dependientes',
+	'steps.support_needs.options.specialist_advice': 'Asesoría especializada',
+	'steps.contact.options.phone': 'Llamada telefónica',
+	'steps.contact.options.email': 'Correo electrónico',
+	'steps.contact.options.do_not_contact_yet': 'No me contacten todavía',
+	'steps.contact.options.through_organisation': 'A través de la organización que me está ayudando',
 	'answers.residence_start.2024_or_earlier': '2024 o antes',
 	'answers.residence_start.2026': '2026',
 	'answers.residence_start.not_sure': 'No estoy seguro/a',
@@ -182,6 +216,7 @@ export const es = {
 	'result.flag.asylum_complexity': 'Posible complejidad relacionada con asilo',
 	'result.flag.missing_identity_documents': 'Faltan documentos de identidad',
 	'result.flag.continuity_concern': 'Preocupación por continuidad',
+	'result.flag.family_support_needs': 'Necesidades de apoyo para familia o personas dependientes',
 	'result.title.likely_in_scope': 'Probablemente dentro del alcance',
 	'result.title.possible_but_needs_more_evidence':
 		'Esta vía podría encajar, pero quizá necesites más documentos primero',

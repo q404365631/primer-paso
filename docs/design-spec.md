@@ -63,11 +63,18 @@ The service should follow these principles throughout the journey, not just on i
 
 ## Core journey
 
+The implemented journey is code-owned.
+
+- `src/lib/journey/config.ts` is the canonical reference for implemented steps, ordering, route slugs, and branching.
+- `src/routes/**` are the canonical reference for implemented page behaviour.
+- docs should describe product requirements and deferred work, not duplicate implemented screen-by-screen flow.
+
 Version 1 should follow this flow:
 
 1. start and orientation
 1. language and completion mode
 1. guided questions
+1. support-needs capture where it affects triage or flagging
 1. check answers
 1. result and next-step plan
 1. save, print, or share summary
@@ -126,7 +133,7 @@ The service must capture enough information to estimate broad fit against the cu
 - a residence timeline detailed enough to infer broad cut-off alignment
 - approximate residence timeline
 - whether they have applied for asylum or international protection
-- rough timing where that affects triage
+- where they have, whether it was before the relevant policy cut-off
 
 ### Evidence snapshot
 
@@ -148,9 +155,11 @@ The service must identify cases that likely need higher-touch review, including 
 The service must capture enough information to identify support needs, including:
 
 - language needs
+- child or dependant support needs
 - digital help needs
 - in-person or phone support needs
-- safe communication preferences
+
+If the user asks for follow-up or partner contact, the service must then capture safe communication preferences as part of that follow-up flow.
 
 ### Routing data
 
@@ -234,13 +243,14 @@ Version 1 should store only the minimum structured data needed for triage and re
 - current-in-Spain flag
 - derived broad cut-off alignment signal
 - approximate residence start date or period
-- asylum or protection history flag and rough timing
+- asylum or protection history flag
+- whether any reported asylum or protection application was before the cut-off where relevant
 - identity-document categories
 - evidence categories present
 - dependant or family-support flags
 - specialist flags
 - support-needs flags
-- safe contact preference
+- safe contact preference, where follow-up contact or partner handoff is requested
 - routing geography
 - consent to share with a partner organisation, where applicable
 

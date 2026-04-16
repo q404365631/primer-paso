@@ -27,4 +27,13 @@ describe('content localisation', () => {
 		).toBe('Enero de 2025')
 		expect(getTextDirection('ar')).toBe('rtl')
 	})
+
+	it('includes new contact and support labels in Spanish', () => {
+		expect(translate('es', 'steps.contact.options.do_not_contact_yet')).toBe(
+			'No me contacten todavía'
+		)
+		expect(translate('es', 'steps.support_needs.options.child_or_dependant_support')).toBe(
+			'Ayuda también para niños, niñas o personas dependientes'
+		)
+	})
 })

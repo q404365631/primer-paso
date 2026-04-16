@@ -144,7 +144,7 @@ const contactValue = $derived.by(() => {
 				options={data.step.options}
 				value={contactValue.contactMethod}
 			/>
-			{#if contactValue.contactMethod && contactValue.contactMethod !== 'through_organisation'}
+			{#if contactValue.contactMethod && contactValue.contactMethod !== 'through_organisation' && contactValue.contactMethod !== 'do_not_contact_yet'}
 				<label class="field">
 					<span>{tt('steps.contact.detail_label')}</span>
 					<input type="text" name="contactValue" value={contactValue.contactValue}>

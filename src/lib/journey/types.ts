@@ -53,8 +53,10 @@ export const IDENTITY_DOCUMENT_VALUES = [
 	'current_passport',
 	'expired_passport',
 	'national_identity_card',
+	'asylum_document',
 	'travel_document',
 	'no_identity_documents_now',
+	'prefer_not_to_say',
 	'not_sure'
 ] as const
 export type IdentityDocumentValue = (typeof IDENTITY_DOCUMENT_VALUES)[number]
@@ -90,7 +92,10 @@ export type EvidenceRecentValue = (typeof EVIDENCE_RECENT_VALUES)[number]
 export const SPECIALIST_FLAG_VALUES = [
 	'criminal_record_worry',
 	'identity_missing_or_mismatch',
+	'previous_refusal_needs_help',
 	'asylum_case_not_clear',
+	'unsafe_sharing_digitally',
+	'urgent_human_support',
 	'want_specialist',
 	'none'
 ] as const
@@ -116,9 +121,11 @@ export type ReferralChoiceValue = (typeof REFERRAL_CHOICE_VALUES)[number]
 export const SUPPORT_NEED_VALUES = [
 	'another_language',
 	'in_person_help',
+	'phone_support',
 	'help_using_phone_or_computer',
 	'help_scanning_or_printing',
 	'help_gathering_papers',
+	'child_or_dependant_support',
 	'specialist_advice',
 	'not_sure'
 ] as const
@@ -129,6 +136,7 @@ export const CONTACT_METHOD_VALUES = [
 	'whatsapp',
 	'phone',
 	'email',
+	'do_not_contact_yet',
 	'through_organisation'
 ] as const
 export type ContactMethodValue = (typeof CONTACT_METHOD_VALUES)[number]
@@ -138,6 +146,7 @@ export interface JourneyAnswers {
 	completionMode?: CompletionModeValue
 	inSpainNow?: YesNoNotSureValue
 	residenceStart?: ResidenceStartAnswer
+	asylumHistory?: YesNoNotSureValue
 	asylumBeforeCutoff?: YesNoNotSureValue
 	fiveMonthStay?: FiveMonthStayValue
 	asylumCaseDocuments?: YesNoNotSureValue

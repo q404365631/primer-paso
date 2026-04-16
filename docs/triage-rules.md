@@ -25,13 +25,14 @@ Version 1 triage uses the following categories of input:
 
 - whether the person is in Spain now
 - approximate residence start
-- whether they report mostly living in Spain since then
-- asylum or international protection history
+- whether they report living in Spain during the last five months
+- whether they report asylum or international protection in Spain
+- where relevant, whether they report that it was before 1 January 2026
+- whether they report having documents about an asylum or protection case where relevant
 - identity-document categories
 - evidence categories present
 - reported specialist issues
-- support needs and safe contact preferences
-- routing geography
+- support needs that change flagging or follow-up needs
 
 ## Result states
 
@@ -68,8 +69,9 @@ Soft gates do not automatically stop the journey. They add flags that influence 
 Add an uncertainty flag if any of these are `not sure`:
 
 - residence start question
-- mostly living in Spain question
+- five-month stay question
 - asylum-history question
+- asylum-before-cutoff question where asylum history is reported
 
 If multiple core timeline answers are uncertain, prefer:
 
@@ -77,21 +79,9 @@ If multiple core timeline answers are uncertain, prefer:
 
 unless a stronger specialist route is present.
 
-### SG-02 — Contradictory timeline
-
-Add a contradiction flag if the user reports:
-
-- internally inconsistent timeline information across residence-related questions
-
-Contradictions should usually produce:
-
-- `needs_specialist_review`
-
-rather than a hard negative result.
-
 ### SG-03 — Continuity concerns
 
-If the user reports not mostly living in Spain since arrival, add a continuity concern flag.
+If the user reports that they have not been living in Spain during the last five months, add a continuity concern flag.
 
 This usually leads to:
 
@@ -101,7 +91,7 @@ unless other answers clearly suggest a more suitable route outside this process.
 
 ### SG-04 — Asylum complexity
 
-If the user reports asylum or international protection history and is uncertain about timing, or says they are unsure how it affects the process, add an asylum complexity flag.
+If the user reports asylum or international protection before 1 January 2026 and does not have clear asylum-case documents, or says they are unsure how it affects the process, add an asylum complexity flag.
 
 Default outcome tendency:
 
@@ -131,9 +121,17 @@ Default outcome tendency:
 
 - `needs_specialist_review`
 
+### SG-07A — Previous refusal or other procedure complexity
+
+If the user reports a refusal in another procedure and says they need help understanding it, add a specialist-review flag.
+
+Default outcome tendency:
+
+- `needs_specialist_review`
+
 ### SG-08 — Safeguarding or urgent support
 
-If the user reports feeling unsafe sharing information digitally, needing urgent human support, or an unsafe contact situation, add a safeguarding flag.
+If the user reports feeling unsafe sharing information digitally or needing urgent human support, add a safeguarding flag.
 
 Default outcome:
 
@@ -147,14 +145,23 @@ Version 1 does not verify documents. It uses broad evidence categories as a roug
 
 ### Stronger evidence signal
 
-Two or more of the following usually indicates at least some evidence readiness:
+The current implementation treats evidence as strong when there is at least one stronger before-cutoff signal and at least one stronger recent-months signal.
+
+Stronger before-cutoff signals are:
 
 - padrón certificate
 - rental or housing papers
 - medical or pharmacy records
 - school or education records
 - work-related papers
-- asylum or immigration papers
+
+Stronger recent-months signals are:
+
+- rental or housing papers
+- medical or pharmacy records
+- school or education records
+- work-related papers
+- bank or money transfer records
 
 ### Weaker evidence signal
 
@@ -247,10 +254,11 @@ It should also generate:
 
 - triggered flags
 - evidence-readiness signal
-- routing geography
-- support-needs summary
+- family or dependant-support flag where relevant
 - next-step suggestions
 - whether human review is recommended immediately
+
+Richer summary outputs such as routing geography and support-needs summary are deferred work and are tracked in `docs/journey-future.md`.
 
 ## Review triggers
 

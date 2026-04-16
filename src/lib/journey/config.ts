@@ -56,7 +56,7 @@ const steps: JourneyStepDefinition[] = [
 		hintKey: 'steps.language.hint',
 		errorKey: 'steps.language.error',
 		checkAnswersLabelKey: 'steps.language.check_answers_label',
-		includeInCheckAnswers: true,
+		includeInCheckAnswers: false,
 		back: '/start',
 		next: 'completion-mode',
 		options: [
@@ -122,7 +122,7 @@ const steps: JourneyStepDefinition[] = [
 	{
 		id: 'asylum-history',
 		slug: 'asylum-history',
-		field: 'asylumBeforeCutoff',
+		field: 'asylumHistory',
 		adapter: 'single-choice',
 		eyebrowKey: 'eyebrows.route_split',
 		titleKey: 'steps.asylum_history.title',
@@ -132,7 +132,30 @@ const steps: JourneyStepDefinition[] = [
 		checkAnswersLabelKey: 'steps.asylum_history.check_answers_label',
 		includeInCheckAnswers: true,
 		back: 'residence-start',
+		next: (answers) =>
+			answers.asylumHistory === 'yes' ? 'asylum-before-cutoff' : 'five-month-stay',
+		options: [
+			{ value: 'yes', labelKey: 'steps.common.options.yes' },
+			{ value: 'no', labelKey: 'steps.common.options.no' },
+			{ value: 'not_sure', labelKey: 'steps.common.options.not_sure' }
+		]
+	},
+	{
+		id: 'asylum-before-cutoff',
+		slug: 'asylum-before-cutoff',
+		field: 'asylumBeforeCutoff',
+		adapter: 'single-choice',
+		eyebrowKey: 'eyebrows.route_split',
+		titleKey: 'steps.asylum_before_cutoff.title',
+		bodyKey: 'steps.asylum_before_cutoff.body',
+		hintKey: 'steps.asylum_before_cutoff.hint',
+		errorKey: 'steps.asylum_before_cutoff.error',
+		checkAnswersLabelKey: 'steps.asylum_before_cutoff.check_answers_label',
+		includeInCheckAnswers: true,
+		back: 'asylum-history',
 		next: 'five-month-stay',
+		guard: (answers) => answers.asylumHistory === 'yes',
+		redirectIfGuardFails: 'five-month-stay',
 		options: [
 			{ value: 'yes', labelKey: 'steps.common.options.yes' },
 			{ value: 'no', labelKey: 'steps.common.options.no' },
@@ -151,7 +174,8 @@ const steps: JourneyStepDefinition[] = [
 		errorKey: 'steps.five_month_stay.error',
 		checkAnswersLabelKey: 'steps.five_month_stay.check_answers_label',
 		includeInCheckAnswers: true,
-		back: 'asylum-history',
+		back: (answers) =>
+			answers.asylumHistory === 'yes' ? 'asylum-before-cutoff' : 'asylum-history',
 		next: (answers) =>
 			answers.asylumBeforeCutoff === 'yes' ? 'asylum-documents' : 'non-asylum-route',
 		options: [
@@ -175,7 +199,7 @@ const steps: JourneyStepDefinition[] = [
 		includeInCheckAnswers: true,
 		back: 'five-month-stay',
 		next: 'identity-documents',
-		guard: (answers) => answers.asylumBeforeCutoff === 'yes',
+		guard: (answers) => answers.asylumHistory === 'yes' && answers.asylumBeforeCutoff === 'yes',
 		redirectIfGuardFails: 'non-asylum-route',
 		options: [
 			{ value: 'yes', labelKey: 'steps.common.options.yes' },
@@ -197,7 +221,7 @@ const steps: JourneyStepDefinition[] = [
 		includeInCheckAnswers: true,
 		back: 'five-month-stay',
 		next: 'identity-documents',
-		guard: (answers) => answers.asylumBeforeCutoff !== 'yes',
+		guard: (answers) => answers.asylumHistory !== 'yes' || answers.asylumBeforeCutoff !== 'yes',
 		redirectIfGuardFails: 'asylum-documents',
 		options: [
 			{
@@ -245,12 +269,20 @@ const steps: JourneyStepDefinition[] = [
 				labelKey: 'steps.identity_documents.options.national_identity_card'
 			},
 			{
+				value: 'asylum_document',
+				labelKey: 'steps.identity_documents.options.asylum_document'
+			},
+			{
 				value: 'travel_document',
 				labelKey: 'steps.identity_documents.options.travel_document'
 			},
 			{
 				value: 'no_identity_documents_now',
 				labelKey: 'steps.identity_documents.options.no_identity_documents_now'
+			},
+			{
+				value: 'prefer_not_to_say',
+				labelKey: 'steps.identity_documents.options.prefer_not_to_say'
 			},
 			{ value: 'not_sure', labelKey: 'steps.common.options.not_sure' }
 		]
@@ -377,14 +409,70 @@ const steps: JourneyStepDefinition[] = [
 				labelKey: 'steps.specialist_flags.options.identity_missing_or_mismatch'
 			},
 			{
+				value: 'previous_refusal_needs_help',
+				labelKey: 'steps.specialist_flags.options.previous_refusal_needs_help'
+			},
+			{
 				value: 'asylum_case_not_clear',
 				labelKey: 'steps.specialist_flags.options.asylum_case_not_clear'
+			},
+			{
+				value: 'unsafe_sharing_digitally',
+				labelKey: 'steps.specialist_flags.options.unsafe_sharing_digitally'
+			},
+			{
+				value: 'urgent_human_support',
+				labelKey: 'steps.specialist_flags.options.urgent_human_support'
 			},
 			{
 				value: 'want_specialist',
 				labelKey: 'steps.specialist_flags.options.want_specialist'
 			},
 			{ value: 'none', labelKey: 'steps.specialist_flags.options.none' }
+		]
+	},
+	{
+		id: 'support-needs',
+		slug: 'support-needs',
+		field: 'supportNeeds',
+		adapter: 'multi-choice',
+		eyebrowKey: 'eyebrows.support',
+		titleKey: 'steps.support_needs.title',
+		bodyKey: 'steps.support_needs.body',
+		hintKey: 'steps.support_needs.hint',
+		errorKey: 'steps.support_needs.error',
+		checkAnswersLabelKey: 'steps.support_needs.check_answers_label',
+		includeInCheckAnswers: true,
+		back: 'specialist-flags',
+		next: 'province',
+		options: [
+			{
+				value: 'another_language',
+				labelKey: 'steps.support_needs.options.another_language'
+			},
+			{ value: 'in_person_help', labelKey: 'steps.support_needs.options.in_person_help' },
+			{ value: 'phone_support', labelKey: 'steps.support_needs.options.phone_support' },
+			{
+				value: 'help_using_phone_or_computer',
+				labelKey: 'steps.support_needs.options.help_using_phone_or_computer'
+			},
+			{
+				value: 'help_scanning_or_printing',
+				labelKey: 'steps.support_needs.options.help_scanning_or_printing'
+			},
+			{
+				value: 'help_gathering_papers',
+				labelKey: 'steps.support_needs.options.help_gathering_papers'
+			},
+			{
+				value: 'child_or_dependant_support',
+				labelKey: 'steps.support_needs.options.child_or_dependant_support'
+			},
+			{
+				value: 'specialist_advice',
+				labelKey: 'steps.support_needs.options.specialist_advice'
+			},
+			{ value: 'not_sure', labelKey: 'steps.common.options.not_sure' }
 		]
 	},
 	{
@@ -399,7 +487,7 @@ const steps: JourneyStepDefinition[] = [
 		errorKey: 'steps.province.error',
 		checkAnswersLabelKey: 'steps.province.check_answers_label',
 		includeInCheckAnswers: true,
-		back: 'specialist-flags',
+		back: 'support-needs',
 		next: '/check-answers',
 		options: [
 			{ value: 'madrid', labelKey: 'steps.province.options.madrid' },
@@ -428,50 +516,12 @@ const steps: JourneyStepDefinition[] = [
 		back: '/result',
 		next: (answers) =>
 			answers.referralChoice === 'contact_me' || answers.referralChoice === 'show_options'
-				? 'support-needs'
+				? 'contact'
 				: '/confirmation',
 		options: [
 			{ value: 'contact_me', labelKey: 'steps.referral.options.contact_me' },
 			{ value: 'show_options', labelKey: 'steps.referral.options.show_options' },
 			{ value: 'no_thanks', labelKey: 'steps.referral.options.no_thanks' }
-		]
-	},
-	{
-		id: 'support-needs',
-		slug: 'support-needs',
-		field: 'supportNeeds',
-		adapter: 'multi-choice',
-		eyebrowKey: 'eyebrows.support',
-		titleKey: 'steps.support_needs.title',
-		bodyKey: 'steps.support_needs.body',
-		hintKey: 'steps.support_needs.hint',
-		errorKey: 'steps.support_needs.error',
-		includeInCheckAnswers: false,
-		back: 'referral',
-		next: 'contact',
-		options: [
-			{
-				value: 'another_language',
-				labelKey: 'steps.support_needs.options.another_language'
-			},
-			{ value: 'in_person_help', labelKey: 'steps.support_needs.options.in_person_help' },
-			{
-				value: 'help_using_phone_or_computer',
-				labelKey: 'steps.support_needs.options.help_using_phone_or_computer'
-			},
-			{
-				value: 'help_scanning_or_printing',
-				labelKey: 'steps.support_needs.options.help_scanning_or_printing'
-			},
-			{
-				value: 'help_gathering_papers',
-				labelKey: 'steps.support_needs.options.help_gathering_papers'
-			},
-			{
-				value: 'specialist_advice',
-				labelKey: 'steps.support_needs.options.specialist_advice'
-			},
-			{ value: 'not_sure', labelKey: 'steps.common.options.not_sure' }
 		]
 	},
 	{
@@ -485,7 +535,7 @@ const steps: JourneyStepDefinition[] = [
 		hintKey: 'steps.contact.hint',
 		errorKey: 'steps.contact.error',
 		includeInCheckAnswers: false,
-		back: 'support-needs',
+		back: 'referral',
 		next: '/confirmation',
 		guard: (answers) =>
 			answers.referralChoice === 'contact_me' || answers.referralChoice === 'show_options',
@@ -495,6 +545,7 @@ const steps: JourneyStepDefinition[] = [
 			{ value: 'whatsapp', labelKey: 'steps.contact.options.whatsapp' },
 			{ value: 'phone', labelKey: 'steps.contact.options.phone' },
 			{ value: 'email', labelKey: 'steps.contact.options.email' },
+			{ value: 'do_not_contact_yet', labelKey: 'steps.contact.options.do_not_contact_yet' },
 			{
 				value: 'through_organisation',
 				labelKey: 'steps.contact.options.through_organisation'

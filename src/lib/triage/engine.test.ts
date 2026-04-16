@@ -52,6 +52,38 @@ describe('runTriage', () => {
 		expect(result.resultState).toBe('needs_specialist_review')
 	})
 
+	it('adds a family-support flag when extra dependant support is needed', () => {
+		const result = runTriage({
+			inSpainNow: 'yes',
+			residenceStart: {
+				yearBucket: '2024_or_earlier'
+			},
+			asylumBeforeCutoff: 'no',
+			fiveMonthStay: 'yes',
+			identityDocuments: ['current_passport'],
+			evidenceBeforeCutoff: ['padron_or_registration'],
+			evidenceRecentMonths: ['housing_papers'],
+			supportNeeds: ['child_or_dependant_support']
+		})
+
+		expect(result.resultState).toBe('likely_in_scope')
+		expect(result.flags).toContain('result.flag.family_support_needs')
+	})
+
+	it('returns specialist review for safeguarding and urgent-support flags', () => {
+		const result = runTriage({
+			inSpainNow: 'yes',
+			residenceStart: {
+				yearBucket: '2024_or_earlier'
+			},
+			asylumBeforeCutoff: 'no',
+			fiveMonthStay: 'yes',
+			specialistFlags: ['unsafe_sharing_digitally']
+		})
+
+		expect(result.resultState).toBe('needs_specialist_review')
+	})
+
 	it('returns evidence weak when timing fits but papers are thin', () => {
 		const result = runTriage({
 			inSpainNow: 'yes',

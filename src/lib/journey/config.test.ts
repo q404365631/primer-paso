@@ -7,6 +7,9 @@ import { fieldAdapters } from './field-adapters'
 
 const scenarios: JourneyAnswers[] = [
 	{},
+	{ asylumHistory: 'yes' },
+	{ asylumHistory: 'no' },
+	{ asylumHistory: 'yes', asylumBeforeCutoff: 'yes' },
 	{ asylumBeforeCutoff: 'yes' },
 	{ asylumBeforeCutoff: 'no' },
 	{ referralChoice: 'contact_me' },

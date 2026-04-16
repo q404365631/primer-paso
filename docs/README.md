@@ -11,12 +11,13 @@ Keep docs lean. Each file should have one main job and one main source of truth.
   - version 1 scope
   - high-level functional, UX, content, data, and accessibility requirements
 
-- `journey-v1.md` owns the screen-by-screen journey:
-  - route map
-  - screen IDs
-  - per-screen purpose
-  - per-screen question structure
-  - per-screen branching and progression
+- the implemented journey lives in code:
+  - `src/lib/journey/config.ts` owns implemented step order, route slugs, labels, and branching
+  - `src/routes/**` own implemented page behaviour
+
+- `journey-future.md` owns non-implemented journey notes only:
+  - deferred or future journey ideas
+  - flow notes that are not yet canonical in the shipped product
 
 - `triage-rules.md` owns the triage logic:
   - canonical result-state identifiers
@@ -48,7 +49,8 @@ Keep docs lean. Each file should have one main job and one main source of truth.
 ## Current canonical owners
 
 - result-state identifiers: `triage-rules.md`
-- route map and screen catalogue: `journey-v1.md`
+- implemented route map and screen catalogue: `src/lib/journey/config.ts`
+- deferred journey notes: `journey-future.md`
 - product requirements: `design-spec.md`
 - external policy assumptions: `policy-context.md`
 - significant decision rationale: `adr/*.md`

@@ -124,15 +124,18 @@ export const en = {
 	'steps.residence_start.options.not_sure': "I'm not sure",
 	'steps.residence_start.month_prompt': 'Which month was that, roughly?',
 	'steps.residence_start.month_unknown': "I'm not sure about the month",
-	'steps.asylum_history.title':
-		'Did you apply for asylum or international protection in Spain before 1 January 2026?',
-	'steps.asylum_history.body':
-		'Did you apply for asylum or international protection in Spain before 1 January 2026?',
+	'steps.asylum_history.title': 'Did you apply for asylum or international protection in Spain?',
+	'steps.asylum_history.body': 'Did you apply for asylum or international protection in Spain?',
 	'steps.asylum_history.hint': 'Choose one option.',
-	'steps.asylum_history.check_answers_label':
-		'Asylum or international protection before 1 January 2026',
+	'steps.asylum_history.check_answers_label': 'Asylum or international protection in Spain',
 	'steps.asylum_history.error':
-		'Choose whether you applied for asylum or international protection in Spain before 1 January 2026.',
+		'Choose whether you applied for asylum or international protection in Spain.',
+	'steps.asylum_before_cutoff.title': 'Was that application before 1 January 2026?',
+	'steps.asylum_before_cutoff.body': 'Was that application before 1 January 2026?',
+	'steps.asylum_before_cutoff.hint': 'Choose one option.',
+	'steps.asylum_before_cutoff.check_answers_label':
+		'Asylum or international protection before 1 January 2026',
+	'steps.asylum_before_cutoff.error': 'Choose whether that application was before 1 January 2026.',
 	'steps.five_month_stay.title': 'Have you been living in Spain during the last 5 months?',
 	'steps.five_month_stay.body': 'Have you been in Spain during the last 5 months?',
 	'steps.five_month_stay.hint': 'Short trips away do not always matter.',
@@ -165,9 +168,11 @@ export const en = {
 	'steps.identity_documents.options.current_passport': 'Current passport',
 	'steps.identity_documents.options.expired_passport': 'Expired passport',
 	'steps.identity_documents.options.national_identity_card': 'National identity card',
+	'steps.identity_documents.options.asylum_document': 'Asylum document',
 	'steps.identity_documents.options.travel_document': 'Travel document',
 	'steps.identity_documents.options.no_identity_documents_now':
 		'I do not have any identity documents with me now',
+	'steps.identity_documents.options.prefer_not_to_say': 'Prefer not to say',
 	'steps.evidence_before_cutoff.title':
 		'Do you have any documents that could help show you were already living in Spain before January 2026?',
 	'steps.evidence_before_cutoff.body':
@@ -214,12 +219,18 @@ export const en = {
 	'steps.specialist_flags.options.criminal_record_worry':
 		"I'm worried about a criminal record or criminal case",
 	'steps.specialist_flags.options.identity_missing_or_mismatch':
-		'My identity papers are missing or do not match',
+		'My identity papers are missing or my details do not match across documents',
+	'steps.specialist_flags.options.previous_refusal_needs_help':
+		'I had a refusal in another procedure and need help understanding it',
 	'steps.specialist_flags.options.asylum_case_not_clear':
 		"I'm not sure what happened with my asylum case",
+	'steps.specialist_flags.options.unsafe_sharing_digitally':
+		'I do not feel safe sharing some information digitally',
+	'steps.specialist_flags.options.urgent_human_support': 'I need urgent human support',
 	'steps.specialist_flags.options.want_specialist':
 		"I'd rather talk this through with a specialist",
 	'steps.specialist_flags.options.none': 'None of these',
+	'steps.support_needs.check_answers_label': 'Support needed',
 	'steps.province.title': 'Which province are you in?',
 	'steps.province.body': 'Which province are you in?',
 	'steps.province.hint': 'This helps us show support options near you.',
@@ -250,9 +261,11 @@ export const en = {
 	'steps.support_needs.error': 'Choose at least one option.',
 	'steps.support_needs.options.another_language': 'Help in another language',
 	'steps.support_needs.options.in_person_help': 'In-person help',
+	'steps.support_needs.options.phone_support': 'Phone support',
 	'steps.support_needs.options.help_using_phone_or_computer': 'Help using a phone or computer',
 	'steps.support_needs.options.help_scanning_or_printing': 'Help scanning or printing papers',
 	'steps.support_needs.options.help_gathering_papers': 'Help understanding which papers to gather',
+	'steps.support_needs.options.child_or_dependant_support': 'Help with children or dependants too',
 	'steps.support_needs.options.specialist_advice': 'Specialist advice',
 	'steps.contact.title': 'How should we contact you?',
 	'steps.contact.body': 'How should we contact you?',
@@ -264,6 +277,7 @@ export const en = {
 	'steps.contact.options.whatsapp': 'WhatsApp',
 	'steps.contact.options.phone': 'Phone call',
 	'steps.contact.options.email': 'Email',
+	'steps.contact.options.do_not_contact_yet': 'Do not contact me yet',
 	'steps.contact.options.through_organisation': 'Through the organisation helping me now',
 	'answers.residence_start.2024_or_earlier': '2024 or earlier',
 	'answers.residence_start.2026': '2026',
@@ -321,6 +335,7 @@ export const en = {
 	'result.flag.asylum_complexity': 'Possible asylum complexity',
 	'result.flag.missing_identity_documents': 'Missing identity documents',
 	'result.flag.continuity_concern': 'Continuity concern',
+	'result.flag.family_support_needs': 'Family or dependant support needs',
 	'result.title.likely_in_scope': 'Likely in scope',
 	'result.title.possible_but_needs_more_evidence':
 		'This route may fit, but you may need more papers first',

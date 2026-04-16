@@ -129,6 +129,7 @@ const isJourneyState = (value: unknown): value is JourneyState => {
 		(answers.completionMode === undefined || isCompletionModeValue(answers.completionMode)) &&
 		(answers.inSpainNow === undefined || isYesNoNotSureValue(answers.inSpainNow)) &&
 		(answers.residenceStart === undefined || isResidenceStartAnswer(answers.residenceStart)) &&
+		(answers.asylumHistory === undefined || isYesNoNotSureValue(answers.asylumHistory)) &&
 		(answers.asylumBeforeCutoff === undefined || isYesNoNotSureValue(answers.asylumBeforeCutoff)) &&
 		(answers.fiveMonthStay === undefined || isFiveMonthStayValue(answers.fiveMonthStay)) &&
 		(answers.asylumCaseDocuments === undefined ||
@@ -277,8 +278,10 @@ export const formatIdentityDocumentsAnswer = (values?: IdentityDocumentValue[]) 
 					current_passport: 'Current passport',
 					expired_passport: 'Expired passport',
 					national_identity_card: 'National identity card',
+					asylum_document: 'Asylum document',
 					travel_document: 'Travel document',
 					no_identity_documents_now: 'I do not have any identity documents with me now',
+					prefer_not_to_say: 'Prefer not to say',
 					not_sure: "I'm not sure"
 				})[value]
 		)
@@ -328,8 +331,13 @@ export const formatSpecialistFlagsAnswer = (values?: SpecialistFlagValue[]) =>
 			(value) =>
 				({
 					criminal_record_worry: "I'm worried about a criminal record or criminal case",
-					identity_missing_or_mismatch: 'My identity papers are missing or do not match',
+					identity_missing_or_mismatch:
+						'My identity papers are missing or my details do not match across documents',
+					previous_refusal_needs_help:
+						'I had a refusal in another procedure and need help understanding it',
 					asylum_case_not_clear: "I'm not sure what happened with my asylum case",
+					unsafe_sharing_digitally: 'I do not feel safe sharing some information digitally',
+					urgent_human_support: 'I need urgent human support',
 					want_specialist: "I'd rather talk this through with a specialist",
 					none: 'None of these'
 				})[value]
@@ -362,9 +370,11 @@ export const formatSupportNeedsAnswer = (values?: SupportNeedValue[]) =>
 				({
 					another_language: 'Help in another language',
 					in_person_help: 'In-person help',
+					phone_support: 'Phone support',
 					help_using_phone_or_computer: 'Help using a phone or computer',
 					help_scanning_or_printing: 'Help scanning or printing papers',
 					help_gathering_papers: 'Help understanding which papers to gather',
+					child_or_dependant_support: 'Help with children or dependants too',
 					specialist_advice: 'Specialist advice',
 					not_sure: "I'm not sure"
 				})[value]
@@ -376,6 +386,7 @@ export const formatContactMethodAnswer = labelMap<ContactMethodValue>({
 	whatsapp: 'WhatsApp',
 	phone: 'Phone call',
 	email: 'Email',
+	do_not_contact_yet: 'Do not contact me yet',
 	through_organisation: 'Through the organisation helping me now'
 })
 

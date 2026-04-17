@@ -26,7 +26,7 @@ const weekdayLabels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] as const
 
 const formatOpeningHoursLabel = (startDay: number, endDay: number) =>
 	startDay === endDay
-		? weekdayLabels[startDay] ?? ''
+		? (weekdayLabels[startDay] ?? '')
 		: `${weekdayLabels[startDay] ?? ''}–${weekdayLabels[endDay] ?? ''}`
 
 const formatTimeRanges = (value: string) => value.replace(/(\d{2}:\d{2})-(\d{2}:\d{2})/g, '$1–$2')

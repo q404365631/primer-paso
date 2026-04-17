@@ -19,6 +19,15 @@ export const ar = {
 	'chrome.nav.home': 'الرئيسية',
 	'chrome.nav.start': 'التحقق من الخطوة التالية',
 	'chrome.nav.organisations': 'البحث عن منظمات',
+	'chrome.footer.eyebrow': 'Primer Paso',
+	'chrome.footer.title': 'حول هذه الأداة',
+	'chrome.footer.body':
+		'تساعد Primer Paso الأشخاص على فهم عملية التسوية الاستثنائية لعام 2026 في إسبانيا، وتحديد الوثائق أو المعلومات التي قد لا تزال ناقصة، واتخاذ قرار بشأن وقت استخدام البوابة الرسمية أو طلب الدعم.',
+	'chrome.footer.attribution_prefix': 'طُوِّرت بواسطة',
+	'chrome.footer.attribution_name': 'Radical Data',
+	'chrome.footer.disclaimer': 'لا تحل محل الاستشارة القانونية ولا تشكل قراراً رسمياً.',
+	'chrome.footer.link.radical_data': 'موقع Radical Data',
+	'chrome.footer.link.official_portal': 'البوابة الرسمية',
 	'chrome.language_switcher_label': 'اللغة',
 	'pages.home.eyebrow': 'البدء',
 	'pages.home.title': 'اختر كيف تريد أن تبدأ',
@@ -69,8 +78,7 @@ export const ar = {
 	'pages.organisations.action.start_screener': 'ابدأ الأداة',
 	'pages.organisations.detail.meta_has_phone': 'الهاتف متاح',
 	'pages.organisations.detail.meta_has_website': 'الموقع متاح',
-	'pages.organisations.detail.lead':
-		'راجع قنوات التواصل وساعات العمل قبل التواصل مع هذه الجهة.',
+	'pages.organisations.detail.lead': 'راجع قنوات التواصل وساعات العمل قبل التواصل مع هذه الجهة.',
 	'pages.organisations.detail.contact_title': 'بيانات التواصل',
 	'pages.organisations.detail.opening_hours_title': 'ساعات العمل',
 	'pages.organisations.detail.guidance_body':

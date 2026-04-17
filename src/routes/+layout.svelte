@@ -1,4 +1,5 @@
 <script lang="ts">
+import ExternalLinkIcon from '@lucide/svelte/icons/external-link'
 import LanguagesIcon from '@lucide/svelte/icons/languages'
 import '../app.css'
 import { browser } from '$app/environment'
@@ -13,6 +14,7 @@ const locale = $derived(data.locale ?? 'es')
 const textDirection = $derived(data.textDirection ?? 'ltr')
 const tt = $derived(getTranslator(locale))
 const currentPath = $derived(data.currentPath ?? '/start')
+const radicalDataUrl = 'https://radicaldata.org'
 
 $effect(() => {
 	if (!browser) return
@@ -115,4 +117,50 @@ const switchLanguage = async (event: MouseEvent, languageValue: string) => {
 		</div>
 	</header>
 	<main id="main-content" class="site-width py-8 pb-16">{@render children()}</main>
+	<footer class="site-footer">
+		<div class="site-footer-inner site-width">
+			<section class="site-footer-about" aria-labelledby="site-footer-title">
+				<p class="site-footer-eyebrow">{tt('chrome.footer.eyebrow')}</p>
+				<h2 id="site-footer-title" class="site-footer-title">{tt('chrome.footer.title')}</h2>
+				<div class="site-footer-copy">
+					<p>
+						{tt('chrome.footer.body')}
+					</p>
+					<p>
+						{tt('chrome.footer.attribution_prefix')}
+						{' '}
+						<a
+							class="site-footer-link !inline !min-h-0"
+							href={radicalDataUrl}
+							target="_blank"
+							rel="noreferrer"
+						><span class="inline-flex items-center gap-[0.2em] whitespace-nowrap">{tt('chrome.footer.attribution_name')}<ExternalLinkIcon class="size-[0.85em] shrink-0" aria-hidden="true" /></span></a>
+					</p>
+					<p>{tt('chrome.footer.disclaimer')}</p>
+				</div>
+			</section>
+
+			<nav class="site-footer-nav" aria-label={tt('chrome.footer.title')}>
+				<h2 class="site-footer-title">{tt('chrome.primary_navigation')}</h2>
+				<ul class="site-footer-links">
+					{#each navigationItems as item (item.href)}
+						<li>
+							<a class="site-footer-link" href={item.href}>{item.label}</a>
+						</li>
+					{/each}
+					<li>
+						<a
+							class="site-footer-link"
+							href="https://inclusion.gob.es/regularizacion"
+							target="_blank"
+							rel="noreferrer"
+						>
+							{tt('chrome.footer.link.official_portal')}
+							<ExternalLinkIcon class="size-4" aria-hidden="true" />
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</footer>
 </div>

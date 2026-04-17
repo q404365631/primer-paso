@@ -541,6 +541,48 @@
 		@apply flex flex-wrap items-center gap-2;
 	}
 
+	.site-footer {
+		@apply border-border/80 bg-muted/40 border-t;
+		padding-block: 1.5rem 2rem;
+	}
+	.site-footer-inner {
+		@apply grid gap-8;
+	}
+	.site-footer-about {
+		@apply grid gap-2;
+	}
+	.site-footer-eyebrow {
+		@apply text-muted-foreground text-xs font-semibold tracking-[0.08em] uppercase;
+	}
+	.site-footer-title {
+		@apply text-foreground text-base font-semibold tracking-tight;
+	}
+	.site-footer-copy {
+		@apply text-muted-foreground grid max-w-[68ch] gap-2 text-sm leading-6;
+	}
+	.site-footer-nav {
+		@apply grid gap-3;
+	}
+	.site-footer-links {
+		@apply m-0 grid list-none gap-2 p-0;
+	}
+	.site-footer-link {
+		@apply text-muted-foreground hover:text-foreground inline-flex min-h-10 items-center gap-2 text-sm no-underline underline-offset-4 transition-colors;
+	}
+	.site-footer-link:hover {
+		text-decoration: underline;
+	}
+	@media (min-width: 960px) {
+		.site-footer-inner {
+			grid-template-columns: minmax(0, 1.6fr) minmax(16rem, auto);
+			align-items: start;
+			column-gap: 2rem;
+		}
+		.site-footer-nav {
+			justify-self: end;
+		}
+	}
+
 	.app-card {
 		@apply bg-card text-card-foreground border-border rounded-2xl border p-6 shadow-sm md:p-8;
 	}

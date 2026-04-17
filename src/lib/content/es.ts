@@ -31,6 +31,10 @@ export const es = {
 	'chrome.language_switcher_label': 'Idioma',
 	'pages.home.eyebrow': 'Empezar',
 	'pages.home.title': 'Elige cómo quieres empezar',
+	'pages.home.meta_title':
+		'Ayuda para la regularización extraordinaria 2026 en España | Primer Paso',
+	'pages.home.meta_description':
+		'Primer Paso ayuda a entender el proceso extraordinario de regularización en España, revisar qué documentos pueden faltar y decidir si conviene usar el portal oficial o buscar apoyo de una organización colaboradora.',
 	'pages.home.lead':
 		'Puedes usar el orientador para revisar tu siguiente paso o explorar directamente el directorio de organizaciones colaboradoras.',
 	'pages.home.choose': 'Elige una opción',
@@ -45,6 +49,25 @@ export const es = {
 	'pages.home.note_title': 'Antes de empezar',
 	'pages.home.note_body':
 		'Este servicio ofrece orientación práctica. No sustituye el asesoramiento jurídico ni una decisión oficial.',
+	'pages.home.seo_intro_title': 'Orientación clara antes de empezar',
+	'pages.home.seo_intro_body_1':
+		'En Primer Paso puedes elegir cómo quieres empezar: responder un cuestionario breve o ir directamente al directorio de organizaciones colaboradoras.',
+	'pages.home.seo_intro_body_2':
+		'La herramienta está pensada para personas que buscan apoyo con la regularización extraordinaria de 2026 en España. Sirve para entender qué información importa, qué documentos pueden faltar y cuándo conviene seguir por el portal oficial o pedir ayuda presencial a una organización colaboradora.',
+	'pages.home.seo_intro_body_3':
+		'El enfoque es prudente. No sustituye asesoría legal ni una decisión oficial. Su objetivo es ayudarte a prepararte mejor, reducir dudas y llegar más rápido al siguiente paso adecuado.',
+	'pages.home.seo_help_title': 'Qué puedes hacer aquí',
+	'pages.home.seo_help_item_1':
+		'Responder una pregunta por página y revisar las respuestas antes de ver el resultado.',
+	'pages.home.seo_help_item_2': 'Entender si el portal oficial puede encajar con tu situación.',
+	'pages.home.seo_help_item_3':
+		'Encontrar organizaciones colaboradoras que puedan apoyar el proceso en España.',
+	'pages.home.seo_help_item_4':
+		'Preparar un resumen imprimible con la información clave ya reunida.',
+	'pages.home.seo_support_title': '¿Buscas apoyo práctico en España?',
+	'pages.home.seo_support_body':
+		'Si ya sabes que prefieres apoyo humano, puedes abrir directamente el directorio de organizaciones. Si primero quieres orientarte, empieza por el cuestionario y luego decide si conviene usar la vía oficial o pedir ayuda a una entidad colaboradora.',
+	'pages.home.official_portal_action': 'Portal oficial de regularización',
 	'pages.start.eyebrow': 'Hito 1',
 	'pages.organisations.meta_title': 'Buscar organizaciones',
 	'pages.organisations.meta_description':

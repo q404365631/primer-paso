@@ -6,11 +6,14 @@ import { browser } from '$app/environment'
 import { invalidateAll } from '$app/navigation'
 import { resolve } from '$app/paths'
 import { page } from '$app/state'
+import faviconUrl from '$lib/assets/favicon.svg?url'
 import { getTranslator } from '$lib/content'
 
 let { children, data } = $props()
 
 const locale = $derived(data.locale ?? 'es')
+const siteUrl = 'https://primerpaso.org'
+const canonicalUrl = $derived(`${siteUrl}${page.url.pathname}`)
 const textDirection = $derived(data.textDirection ?? 'ltr')
 const tt = $derived(getTranslator(locale))
 const currentPath = $derived(data.currentPath ?? '/start')
@@ -61,6 +64,12 @@ const switchLanguage = async (event: MouseEvent, languageValue: string) => {
 <svelte:head>
 	<title>{tt('chrome.app_title')}</title>
 	<meta name="description" content={tt('chrome.meta_description')}>
+	<link rel="icon" href={faviconUrl} type="image/svg+xml">
+	<link rel="apple-touch-icon" href={faviconUrl}>
+	<link rel="mask-icon" href={faviconUrl} color="#315ec7">
+	<link rel="canonical" href={canonicalUrl}>
+	<meta property="og:site_name" content="Primer Paso">
+	<meta name="twitter:card" content="summary">
 </svelte:head>
 
 <div class="app-shell">
@@ -107,6 +116,7 @@ const switchLanguage = async (event: MouseEvent, languageValue: string) => {
 									href={getLanguageHref(language.value)}
 									aria-current={language.value === locale ? 'true' : undefined}
 									onclick={(event) => switchLanguage(event, language.value)}
+									rel="nofollow"
 									>{language.label}</a
 								>
 							</li>

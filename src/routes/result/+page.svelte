@@ -34,7 +34,7 @@ const heroTone = $derived.by(() => {
 	}
 })
 </script>
-
+<svelte:head> <meta name="robots" content="noindex, nofollow"> </svelte:head>
 <section class="stack">
 	<p class="eyebrow">{tt('pages.result.eyebrow')}</p>
 

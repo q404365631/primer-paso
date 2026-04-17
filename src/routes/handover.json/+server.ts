@@ -12,7 +12,8 @@ export const GET: RequestHandler = ({ cookies }) => {
 	return new Response(JSON.stringify(packet, null, 2), {
 		headers: {
 			'content-type': 'application/json; charset=utf-8',
-			'content-disposition': `attachment; filename="primer-paso-handover-${state.sessionId}.json"`
+			'content-disposition': `attachment; filename="primer-paso-handover-${state.sessionId}.json"`,
+			'x-robots-tag': 'noindex, nofollow, noarchive'
 		}
 	})
 }

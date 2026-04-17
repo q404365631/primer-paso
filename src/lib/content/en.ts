@@ -26,6 +26,9 @@ export const en = {
 	'chrome.language_switcher_label': 'Language',
 	'pages.home.eyebrow': 'Getting started',
 	'pages.home.title': 'Choose how you want to start',
+	'pages.home.meta_title': "Support for Spain's 2026 regularisation process | Primer Paso",
+	'pages.home.meta_description':
+		"Primer Paso helps people understand Spain's 2026 extraordinary regularisation process, check what documents may be missing, and decide whether to use the official portal or seek support from a collaborating organisation.",
 	'pages.home.lead':
 		'You can use the screener to check your next step or go straight to the directory of collaborating organisations.',
 	'pages.home.choose': 'Choose an option',
@@ -40,6 +43,24 @@ export const en = {
 	'pages.home.note_title': 'Before you begin',
 	'pages.home.note_body':
 		'This service offers practical guidance. It does not replace legal advice or an official decision.',
+	'pages.home.seo_intro_title': 'Clear guidance before you start',
+	'pages.home.seo_intro_body_1':
+		'On Primer Paso, you can choose how you want to begin: use a short screener or go straight to the directory of collaborating organisations.',
+	'pages.home.seo_intro_body_2':
+		"This tool is designed for people looking for support with Spain's 2026 extraordinary regularisation process. It helps you understand what information matters, what documents you may still need, and when it may be better to ask for in-person support instead of continuing alone.",
+	'pages.home.seo_intro_body_3':
+		'The guidance is cautious. It does not replace legal advice, and it does not make an official decision. It helps people prepare, reduce confusion, and reach the right next step more quickly.',
+	'pages.home.seo_help_title': 'What you can do here',
+	'pages.home.seo_help_item_1':
+		'Answer one question at a time and review your answers before seeing a result.',
+	'pages.home.seo_help_item_2': 'Understand whether the official portal may fit your situation.',
+	'pages.home.seo_help_item_3': 'Find collaborating organisations that may offer support in Spain.',
+	'pages.home.seo_help_item_4':
+		'Prepare a handover summary with the key information you have already gathered.',
+	'pages.home.seo_support_title': 'Looking for practical support in Spain?',
+	'pages.home.seo_support_body':
+		'If you already know you want human support, you can go straight to the organisations directory. If you want to understand your situation first, start with the screener and then decide whether to use the official route or ask a collaborating organisation for help.',
+	'pages.home.official_portal_action': 'Official regularisation portal',
 	'pages.start.eyebrow': 'Milestone 1',
 	'pages.organisations.meta_title': 'Find organisations',
 	'pages.organisations.meta_description':

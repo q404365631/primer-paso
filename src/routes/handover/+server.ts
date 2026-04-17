@@ -16,7 +16,8 @@ export const GET: RequestHandler = async ({ cookies }) => {
 			'content-type': 'application/pdf',
 			'content-disposition': `attachment; filename="primer-paso-handover-${state.sessionId}.pdf"`,
 			'cache-control': 'no-store',
-			'content-length': String(body.size)
+			'content-length': String(body.size),
+			'x-robots-tag': 'noindex, nofollow, noarchive'
 		}
 	})
 }

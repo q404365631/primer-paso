@@ -32,6 +32,10 @@ export const fr = {
 	'chrome.language_switcher_label': 'Langue',
 	'pages.home.eyebrow': 'Pour commencer',
 	'pages.home.title': 'Choisissez comment commencer',
+	'pages.home.meta_title':
+		'Aide pour la régularisation extraordinaire 2026 en Espagne | Primer Paso',
+	'pages.home.meta_description':
+		'Primer Paso aide à comprendre la régularisation extraordinaire de 2026 en Espagne, à repérer les documents éventuellement manquants et à choisir entre le portail officiel et une organisation collaboratrice.',
 	'pages.home.lead':
 		'Vous pouvez utiliser le questionnaire pour vérifier la prochaine étape ou accéder directement au répertoire des organisations collaboratrices.',
 	'pages.home.choose': 'Choisissez une option',
@@ -46,6 +50,24 @@ export const fr = {
 	'pages.home.note_title': 'Avant de commencer',
 	'pages.home.note_body':
 		'Ce service fournit une orientation pratique. Il ne remplace ni un conseil juridique ni une décision officielle.',
+	'pages.home.seo_intro_title': 'Une orientation claire avant de commencer',
+	'pages.home.seo_intro_body_1':
+		'Sur Primer Paso, vous pouvez choisir comment commencer : répondre à un court questionnaire ou consulter directement l’annuaire des organisations collaboratrices.',
+	'pages.home.seo_intro_body_2':
+		"Cet outil s'adresse aux personnes qui cherchent de l'aide pour le processus extraordinaire de régularisation de 2026 en Espagne. Il aide à comprendre quelles informations comptent, quels documents peuvent encore manquer et quand il vaut mieux demander un accompagnement humain.",
+	'pages.home.seo_intro_body_3':
+		"Le service reste prudent. Il ne remplace ni un conseil juridique ni une décision officielle. Il sert à préparer la suite et à trouver plus vite le bon point d'entrée.",
+	'pages.home.seo_help_title': 'Ce que vous pouvez faire ici',
+	'pages.home.seo_help_item_1': 'Répondre à une question à la fois puis relire vos réponses.',
+	'pages.home.seo_help_item_2':
+		'Comprendre si le portail officiel peut convenir à votre situation.',
+	'pages.home.seo_help_item_3':
+		'Trouver des organisations collaboratrices pouvant offrir un soutien en Espagne.',
+	'pages.home.seo_help_item_4': 'Préparer un résumé imprimable des informations déjà réunies.',
+	'pages.home.seo_support_title': 'Vous cherchez un accompagnement concret en Espagne ?',
+	'pages.home.seo_support_body':
+		"Si vous savez déjà que vous voulez un accompagnement humain, vous pouvez ouvrir directement l'annuaire des organisations. Si vous préférez d'abord comprendre votre situation, commencez par le questionnaire puis choisissez entre le portail officiel et une organisation collaboratrice.",
+	'pages.home.official_portal_action': 'Portail officiel de régularisation',
 	'pages.start.eyebrow': 'Étape 1',
 	'pages.organisations.meta_title': 'Trouver des organisations',
 	'pages.organisations.meta_description':

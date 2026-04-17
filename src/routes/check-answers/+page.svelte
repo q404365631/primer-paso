@@ -15,7 +15,7 @@ let {
 
 const tt = $derived(getTranslator(data.locale ?? 'es'))
 </script>
-
+<svelte:head> <meta name="robots" content="noindex, nofollow"> </svelte:head>
 <section class="stack">
 	<p class="eyebrow">{tt('pages.check_answers.eyebrow')}</p>
 

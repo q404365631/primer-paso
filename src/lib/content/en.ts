@@ -136,7 +136,7 @@ export const en = {
 	'pages.handover.action.print': 'Print this summary',
 	'pages.handover.action.back_to_result': 'Back to result',
 	'pages.result.eyebrow': 'Result',
-	'pages.result.eligibility_title': 'Likely eligibility',
+	'pages.result.eligibility_title': 'Your result',
 	'pages.result.eligibility.likely_in_scope':
 		'Based on your answers, this regularisation route may fit your situation.',
 	'pages.result.eligibility.possible_but_needs_more_evidence':
@@ -148,6 +148,8 @@ export const en = {
 	'pages.result.eligibility.another_route_may_fit_better':
 		'Based on your answers, another immigration route may fit better.',
 	'pages.result.next_step_title': 'Your next step',
+	'pages.result.next_step.review_answers_first':
+		'First, check your answers again, especially your dates and timeline. If they are correct, another immigration route may fit better.',
 	'pages.result.next_step.official_portal':
 		'Go to the official regularisation portal when you are ready to continue.',
 	'pages.result.next_step.collaborating_organisation':
@@ -171,6 +173,11 @@ export const en = {
 	'pages.result.how_to_apply.body':
 		'Use the official government application channel and do not leave it until the last minute.',
 	'pages.result.how_to_apply.hint': 'The official application window is open until 30 June 2026.',
+	'pages.result.another_route.do_now_title': 'What to do now',
+	'pages.result.another_route.do_now.body':
+		'Check your answers again, especially your dates and timeline. If they are correct, save this summary and pause before continuing with this route.',
+	'pages.result.another_route.support_body':
+		'If your answers are correct and you still need help, you may want tailored advice before taking a next step.',
 	'pages.result.support_title': 'Get support',
 	'pages.result.support.body':
 		'This checker is not legal advice. Support near you may depend on your province: {province}.',
@@ -183,6 +190,8 @@ export const en = {
 	'pages.result.action.collaborators_pdf': 'See official list of collaborating organisations',
 	'pages.result.action.print_handover': 'Download handover PDF',
 	'pages.result.action.download_handover_json': 'Download handover JSON',
+	'pages.result.action.review_answers': 'Check your answers',
+	'pages.result.action.see_support_options': 'See support options',
 	'pages.result.action.back_to_answers': 'Back to answers',
 	'pages.result.action.start_again': 'Start again',
 	'pages.confirmation.eyebrow': 'Confirmation',

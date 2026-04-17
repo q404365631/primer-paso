@@ -38,6 +38,15 @@ const buildChecklist = (
 	const discussWithSupport = new Set<MessageKey>()
 	const unresolved = new Set<MessageKey>()
 
+	if (resultState === 'another_route_may_fit_better') {
+		return {
+			alreadyHave: [],
+			stillNeed: [],
+			discussWithSupport: [],
+			unresolved: []
+		}
+	}
+
 	const identityDocuments = answers.identityDocuments ?? []
 	const evidenceBeforeCutoff = answers.evidenceBeforeCutoff ?? []
 	const evidenceRecentMonths = answers.evidenceRecentMonths ?? []
@@ -94,8 +103,6 @@ const buildChecklist = (
 		discussWithSupport.add('result.checklist.item.practical_support_helpful')
 	if (resultState === 'needs_specialist_review')
 		discussWithSupport.add('result.checklist.item.complex_case_review')
-	if (resultState === 'another_route_may_fit_better')
-		discussWithSupport.add('result.checklist.item.another_route_advice')
 
 	if (timelineUncertain) unresolved.add('result.checklist.item.confirm_timeline')
 	if (answers.fiveMonthStay === 'left_spain')
@@ -129,9 +136,11 @@ const getResultSummary = (
 						: 'pages.result.eligibility.another_route_may_fit_better'
 
 	const nextStepKey =
-		recommendedRoute === 'official_portal'
-			? 'pages.result.next_step.official_portal'
-			: 'pages.result.next_step.collaborating_organisation'
+		resultState === 'another_route_may_fit_better'
+			? 'pages.result.next_step.review_answers_first'
+			: recommendedRoute === 'official_portal'
+				? 'pages.result.next_step.official_portal'
+				: 'pages.result.next_step.collaborating_organisation'
 
 	return { eligibilityKey, nextStepKey }
 }

@@ -203,15 +203,21 @@ export const buildHandoverPdf = async (
 	drawWrapped(packet.routeBody)
 
 	gap(10)
-	drawSectionTitle(tt('pages.handover.checklist_title'))
-
-	drawCompactListSection(tt('pages.result.checklist.already_have'), packet.checklist.alreadyHave)
-	drawCompactListSection(tt('pages.result.checklist.still_need'), packet.checklist.stillNeed)
-	drawCompactListSection(
-		tt('pages.result.checklist.discuss_with_support'),
-		packet.checklist.discussWithSupport
-	)
-	drawCompactListSection(tt('pages.result.checklist.unresolved'), packet.checklist.unresolved)
+	const hasChecklistItems =
+		packet.checklist.alreadyHave.length > 0 ||
+		packet.checklist.stillNeed.length > 0 ||
+		packet.checklist.discussWithSupport.length > 0 ||
+		packet.checklist.unresolved.length > 0
+	if (hasChecklistItems) {
+		drawSectionTitle(tt('pages.handover.checklist_title'))
+		drawCompactListSection(tt('pages.result.checklist.already_have'), packet.checklist.alreadyHave)
+		drawCompactListSection(tt('pages.result.checklist.still_need'), packet.checklist.stillNeed)
+		drawCompactListSection(
+			tt('pages.result.checklist.discuss_with_support'),
+			packet.checklist.discussWithSupport
+		)
+		drawCompactListSection(tt('pages.result.checklist.unresolved'), packet.checklist.unresolved)
+	}
 
 	drawSectionTitle(tt('pages.handover.answers_title'))
 	for (const answer of packet.answers) {

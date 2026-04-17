@@ -149,7 +149,7 @@ export const fr = {
 	'pages.handover.action.print': 'Imprimer ce résumé',
 	'pages.handover.action.back_to_result': 'Retour au résultat',
 	'pages.result.eyebrow': 'Résultat',
-	'pages.result.eligibility_title': 'Éligibilité probable',
+	'pages.result.eligibility_title': 'Votre résultat',
 	'pages.result.eligibility.likely_in_scope':
 		'D’après vos réponses, cette voie de régularisation pourrait correspondre à votre situation.',
 	'pages.result.eligibility.possible_but_needs_more_evidence':
@@ -161,6 +161,8 @@ export const fr = {
 	'pages.result.eligibility.another_route_may_fit_better':
 		'D’après vos réponses, une autre voie d’immigration pourrait mieux convenir.',
 	'pages.result.next_step_title': 'Votre prochaine étape',
+	'pages.result.next_step.review_answers_first':
+		'Vérifiez d’abord à nouveau vos réponses, surtout vos dates et votre chronologie. Si elles sont correctes, une autre voie d’immigration pourrait mieux convenir.',
 	'pages.result.next_step.official_portal':
 		'Allez sur le portail officiel de régularisation quand vous êtes prêt·e à continuer.',
 	'pages.result.next_step.collaborating_organisation':
@@ -185,6 +187,11 @@ export const fr = {
 		'N’attendez pas le dernier moment et utilisez le canal officiel du gouvernement pour déposer votre demande.',
 	'pages.result.how_to_apply.hint':
 		'La période officielle de dépôt des demandes est ouverte jusqu’au 30 juin 2026.',
+	'pages.result.another_route.do_now_title': 'Que faire maintenant',
+	'pages.result.another_route.do_now.body':
+		'Vérifiez à nouveau vos réponses, surtout vos dates et votre chronologie. Si elles sont correctes, enregistrez ce résumé et faites une pause avant de continuer avec cette voie.',
+	'pages.result.another_route.support_body':
+		'Si vos réponses sont correctes et que vous avez encore besoin d’aide, vous pourriez avoir intérêt à demander un avis personnalisé avant de choisir la prochaine étape.',
 	'pages.result.support_title': 'Obtenir de l’aide',
 	'pages.result.support.body':
 		'Ce questionnaire ne constitue pas un conseil juridique. L’aide disponible près de chez vous peut dépendre de votre province : {province}.',
@@ -198,6 +205,8 @@ export const fr = {
 	'pages.result.action.collaborators_pdf': 'Voir la liste officielle des organisations partenaires',
 	'pages.result.action.print_handover': 'Télécharger le PDF du résumé',
 	'pages.result.action.download_handover_json': 'Télécharger le JSON du résumé',
+	'pages.result.action.review_answers': 'Vérifier vos réponses',
+	'pages.result.action.see_support_options': 'Voir les options d’aide',
 	'pages.result.action.back_to_answers': 'Retour aux réponses',
 	'pages.result.action.start_again': 'Recommencer',
 	'pages.confirmation.eyebrow': 'Confirmation',

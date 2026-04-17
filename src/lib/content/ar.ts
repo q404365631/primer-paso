@@ -138,7 +138,7 @@ export const ar = {
 	'pages.handover.action.print': 'طباعة هذا الملخص',
 	'pages.handover.action.back_to_result': 'العودة إلى النتيجة',
 	'pages.result.eyebrow': 'النتيجة',
-	'pages.result.eligibility_title': 'الأهلية المحتملة',
+	'pages.result.eligibility_title': 'نتيجتك',
 	'pages.result.eligibility.likely_in_scope':
 		'استناداً إلى إجاباتك، قد يكون هذا المسار مناسباً لوضعك.',
 	'pages.result.eligibility.possible_but_needs_more_evidence':
@@ -150,6 +150,8 @@ export const ar = {
 	'pages.result.eligibility.another_route_may_fit_better':
 		'استناداً إلى إجاباتك، قد يكون مسار هجرة آخر أنسب.',
 	'pages.result.next_step_title': 'خطوتك التالية',
+	'pages.result.next_step.review_answers_first':
+		'تحقّق أولاً من إجاباتك مرة أخرى، وخصوصاً التواريخ والتسلسل الزمني. وإذا كانت صحيحة، فقد يكون مسار هجرة آخر أنسب.',
 	'pages.result.next_step.official_portal':
 		'اذهب إلى بوابة التسوية الرسمية عندما تكون مستعداً للمتابعة.',
 	'pages.result.next_step.collaborating_organisation':
@@ -173,6 +175,11 @@ export const ar = {
 	'pages.result.how_to_apply.body':
 		'استخدم قناة التقديم الحكومية الرسمية ولا تنتظر حتى اللحظة الأخيرة.',
 	'pages.result.how_to_apply.hint': 'فترة التقديم الرسمية مفتوحة حتى 30 يونيو 2026.',
+	'pages.result.another_route.do_now_title': 'ما الذي ينبغي فعله الآن',
+	'pages.result.another_route.do_now.body':
+		'تحقّق من إجاباتك مرة أخرى، وخصوصاً التواريخ والتسلسل الزمني. وإذا كانت صحيحة، فاحفظ هذا الملخص وتوقف قبل متابعة هذا المسار.',
+	'pages.result.another_route.support_body':
+		'إذا كانت إجاباتك صحيحة وما زلت بحاجة إلى المساعدة، فقد يكون من الأفضل الحصول على مشورة مخصّصة قبل اختيار الخطوة التالية.',
 	'pages.result.support_title': 'الحصول على دعم',
 	'pages.result.support.body':
 		'هذا الاستبيان ليس استشارة قانونية. وقد يعتمد الدعم المتاح بالقرب منك على المقاطعة التي أنت فيها: {province}.',
@@ -185,6 +192,8 @@ export const ar = {
 	'pages.result.action.collaborators_pdf': 'عرض القائمة الرسمية للمنظمات المتعاونة',
 	'pages.result.action.print_handover': 'تنزيل ملف PDF للملخص',
 	'pages.result.action.download_handover_json': 'تنزيل ملف JSON للتسليم',
+	'pages.result.action.review_answers': 'راجع إجاباتك',
+	'pages.result.action.see_support_options': 'عرض خيارات الدعم',
 	'pages.result.action.back_to_answers': 'العودة إلى الإجابات',
 	'pages.result.action.start_again': 'ابدأ من جديد',
 	'pages.confirmation.eyebrow': 'تأكيد',

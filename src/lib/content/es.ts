@@ -147,7 +147,7 @@ export const es = {
 	'pages.handover.action.print': 'Imprimir este resumen',
 	'pages.handover.action.back_to_result': 'Volver al resultado',
 	'pages.result.eyebrow': 'Resultado',
-	'pages.result.eligibility_title': 'Elegibilidad probable',
+	'pages.result.eligibility_title': 'Tu resultado',
 	'pages.result.eligibility.likely_in_scope':
 		'Según tus respuestas, esta vía de regularización podría encajar con tu situación.',
 	'pages.result.eligibility.possible_but_needs_more_evidence':
@@ -159,6 +159,8 @@ export const es = {
 	'pages.result.eligibility.another_route_may_fit_better':
 		'Según tus respuestas, otra vía de inmigración podría encajar mejor.',
 	'pages.result.next_step_title': 'Tu siguiente paso',
+	'pages.result.next_step.review_answers_first':
+		'Primero, revisa tus respuestas otra vez, especialmente tus fechas y tu cronología. Si están correctas, otra vía de inmigración podría encajar mejor.',
 	'pages.result.next_step.official_portal':
 		'Ve al portal oficial de regularización cuando estés listo/a para continuar.',
 	'pages.result.next_step.collaborating_organisation':
@@ -183,6 +185,11 @@ export const es = {
 		'Usa el canal oficial del gobierno y no lo dejes para el último momento.',
 	'pages.result.how_to_apply.hint':
 		'La ventana oficial de solicitud está abierta hasta el 30 de junio de 2026.',
+	'pages.result.another_route.do_now_title': 'Qué hacer ahora',
+	'pages.result.another_route.do_now.body':
+		'Revisa tus respuestas otra vez, especialmente tus fechas y tu cronología. Si están correctas, guarda este resumen y haz una pausa antes de seguir por esta vía.',
+	'pages.result.another_route.support_body':
+		'Si tus respuestas están correctas y todavía necesitas ayuda, puede que te convenga buscar orientación personalizada antes de dar el siguiente paso.',
 	'pages.result.support_title': 'Recibir apoyo',
 	'pages.result.support.body':
 		'Este cuestionario no es asesoría legal. El apoyo disponible cerca de ti puede depender de tu provincia: {province}.',
@@ -195,6 +202,8 @@ export const es = {
 	'pages.result.action.collaborators_pdf': 'Ver la lista oficial de entidades colaboradoras',
 	'pages.result.action.print_handover': 'Descargar PDF del resumen',
 	'pages.result.action.download_handover_json': 'Descargar JSON del resumen',
+	'pages.result.action.review_answers': 'Revisar tus respuestas',
+	'pages.result.action.see_support_options': 'Ver opciones de apoyo',
 	'pages.result.action.back_to_answers': 'Volver a las respuestas',
 	'pages.result.action.start_again': 'Empezar de nuevo',
 	'pages.confirmation.eyebrow': 'Confirmación',

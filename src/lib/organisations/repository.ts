@@ -185,9 +185,7 @@ export const filterOrganisations = (filters: OrganisationDirectoryFilters) => {
 			.map((entry) => entry.record)
 	}
 
-	return fuse
-		.search(q)
-		.map((result) => result.item.record)
+	return fuse.search(q).map((result) => result.item.record)
 }
 
 export const getOrganisationBySlug = (slug: string) =>

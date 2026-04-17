@@ -123,9 +123,7 @@ const switchLanguage = async (event: MouseEvent, languageValue: string) => {
 				<p class="site-footer-eyebrow">{tt('chrome.footer.eyebrow')}</p>
 				<h2 id="site-footer-title" class="site-footer-title">{tt('chrome.footer.title')}</h2>
 				<div class="site-footer-copy">
-					<p>
-						{tt('chrome.footer.body')}
-					</p>
+					<p>{tt('chrome.footer.body')}</p>
 					<p>
 						{tt('chrome.footer.attribution_prefix')}
 						{' '}
@@ -134,7 +132,11 @@ const switchLanguage = async (event: MouseEvent, languageValue: string) => {
 							href={radicalDataUrl}
 							target="_blank"
 							rel="noreferrer"
-						><span class="inline-flex items-center gap-[0.2em] whitespace-nowrap">{tt('chrome.footer.attribution_name')}<ExternalLinkIcon class="size-[0.85em] shrink-0" aria-hidden="true" /></span></a>
+							><span class="inline-flex items-center gap-[0.2em] whitespace-nowrap"
+								>{tt('chrome.footer.attribution_name')}
+								<ExternalLinkIcon class="size-[0.85em] shrink-0" aria-hidden="true" /></span
+							></a
+						>
 					</p>
 					<p>{tt('chrome.footer.disclaimer')}</p>
 				</div>
@@ -144,9 +146,7 @@ const switchLanguage = async (event: MouseEvent, languageValue: string) => {
 				<h2 class="site-footer-title">{tt('chrome.primary_navigation')}</h2>
 				<ul class="site-footer-links">
 					{#each navigationItems as item (item.href)}
-						<li>
-							<a class="site-footer-link" href={item.href}>{item.label}</a>
-						</li>
+						<li><a class="site-footer-link" href={item.href}>{item.label}</a></li>
 					{/each}
 					<li>
 						<a

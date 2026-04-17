@@ -13,7 +13,7 @@ export const fr = {
 	'chrome.meta_description':
 		'Primer Paso est un questionnaire d’accueil pour la procédure extraordinaire de régularisation en Espagne en 2026. Hébergé sur primerpaso.org.',
 	'chrome.brand': 'Primer Paso',
-	'chrome.language_switcher_label': 'Sélecteur de langue',
+	'chrome.language_switcher_label': 'Changer de langue',
 	'pages.start.eyebrow': 'Étape 1',
 	'pages.start.title':
 		'Vérifiez de quel accompagnement vous pourriez avoir besoin pour la procédure de régularisation',
@@ -77,8 +77,7 @@ export const fr = {
 	'pages.result.checklist_title': 'Ce qu’il faut préparer',
 	'pages.result.checklist.already_have': 'Ce que vous avez déjà',
 	'pages.result.checklist.still_need': 'Ce qui peut encore manquer',
-	'pages.result.checklist.discuss_with_support':
-		'Ce qu’il vaut mieux demander quand vous obtenez de l’aide',
+	'pages.result.checklist.discuss_with_support': 'Ce qu’il faut demander lors d’un accompagnement',
 	'pages.result.checklist.unresolved': 'Ce qu’il faut vérifier ou expliquer',
 	'pages.result.route.official_portal_body':
 		'Utilisez le portail officiel du gouvernement pour la procédure de régularisation. Si vous avez d’abord besoin d’aide, vous pouvez aussi apporter ce résumé à une organisation partenaire.',

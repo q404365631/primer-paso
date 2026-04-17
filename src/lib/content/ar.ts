@@ -73,7 +73,7 @@ export const ar = {
 	'pages.result.checklist_title': 'ما الذي ينبغي تجهيزه',
 	'pages.result.checklist.already_have': 'ما لديك بالفعل',
 	'pages.result.checklist.still_need': 'ما قد لا يزال ينقصك',
-	'pages.result.checklist.discuss_with_support': 'ما الذي ينبغي السؤال عنه عند الحصول على الدعم',
+	'pages.result.checklist.discuss_with_support': 'أسئلة يُستحسن طرحها عند الحصول على الدعم',
 	'pages.result.checklist.unresolved': 'ما الذي ينبغي التحقق منه أو شرحه',
 	'pages.result.route.official_portal_body':
 		'استخدم البوابة الحكومية الرسمية لعملية التسوية. إذا احتجت إلى مساعدة أولاً، يمكنك أيضاً أخذ هذا الملخص إلى منظمة متعاونة.',
@@ -169,9 +169,9 @@ export const ar = {
 	'steps.residence_start.options.not_sure': 'لست متأكداً',
 	'steps.residence_start.month_prompt': 'أي شهر تقريباً؟',
 	'steps.residence_start.month_unknown': 'لست متأكداً من الشهر',
-	'steps.asylum_history.title': 'هل قدمت طلب لجوء أو حماية دولية في إسبانيا؟',
+	'steps.asylum_history.title': 'هل تقدّمت بطلب لجوء أو حماية دولية في إسبانيا؟',
 	'steps.asylum_history.check_answers_label': 'اللجوء أو الحماية الدولية في إسبانيا',
-	'steps.asylum_history.error': 'اختر ما إذا كنت قد قدمت طلب لجوء أو حماية دولية في إسبانيا.',
+	'steps.asylum_history.error': 'اختر ما إذا كنت قد تقدّمت بطلب لجوء أو حماية دولية في إسبانيا.',
 	'steps.asylum_before_cutoff.title': 'هل كان ذلك الطلب قبل 1 يناير 2026؟',
 	'steps.asylum_before_cutoff.check_answers_label': 'اللجوء أو الحماية الدولية قبل 1 يناير 2026',
 	'steps.asylum_before_cutoff.error': 'اختر ما إذا كان ذلك الطلب قبل 1 يناير 2026.',
@@ -201,7 +201,7 @@ export const ar = {
 		'أعيش مع طفلي البالغ الذي يحتاج إلى دعم كبير بسبب إعاقة أو احتياجات صحية',
 	'steps.family_situation.options.mother_or_father': 'أعيش مع أمي أو أبي',
 	'steps.family_situation.options.none': 'لا شيء من ذلك',
-	'steps.identity_documents.title': 'ما وثائق الهوية التي لديك؟',
+	'steps.identity_documents.title': 'ما وثائق الهوية التي بحوزتك؟',
 	'steps.identity_documents.check_answers_label': 'وثائق الهوية',
 	'steps.identity_documents.error': 'اختر خياراً واحداً على الأقل.',
 	'steps.identity_documents.options.current_passport': 'جواز سفر ساري',
@@ -223,7 +223,7 @@ export const ar = {
 	'steps.evidence_before_cutoff.options.organisation_or_church_letter':
 		'رسائل من منظمة أو كنيسة أو عامل اجتماعي',
 	'steps.evidence_before_cutoff.options.travel_or_transport': 'مستندات سفر أو نقل',
-	'steps.evidence_before_cutoff.options.something_else_dated_named': 'شيء آخر يحمل تاريخاً واسمي',
+	'steps.evidence_before_cutoff.options.something_else_dated_named': 'مستند آخر يحمل تاريخاً واسمي',
 	'steps.evidence_before_cutoff.options.none_yet': 'لا أملك أياً من هذه بعد',
 	'steps.evidence_recent_months.title':
 		'هل لديك أي مستندات من الأشهر الخمسة الماضية يمكن أن تساعد في إظهار أنك كنت تعيش هنا مؤخراً؟',
@@ -237,7 +237,7 @@ export const ar = {
 		'رسائل من منظمة أو كنيسة أو عامل اجتماعي',
 	'steps.evidence_recent_months.options.bank_or_money_transfer': 'سجلات مصرفية أو تحويلات مالية',
 	'steps.evidence_recent_months.options.travel_or_dated_receipts': 'سفر أو إيصالات مؤرخة',
-	'steps.evidence_recent_months.options.something_else_dated_named': 'شيء آخر يحمل تاريخاً واسمي',
+	'steps.evidence_recent_months.options.something_else_dated_named': 'مستند آخر يحمل تاريخاً واسمي',
 	'steps.evidence_recent_months.options.none_yet': 'لا أملك أياً من هذه بعد',
 	'steps.specialist_flags.title': 'هل هناك أي شيء قد يعني أنك تحتاج إلى مشورة متخصصة قبل التقديم؟',
 	'steps.specialist_flags.check_answers_label': 'أمور قد تتطلب مشورة متخصصة',
@@ -379,7 +379,7 @@ export const ar = {
 	'result.checklist.item.identity_issue_to_explain': 'أي وثائق هوية مفقودة أو تفاصيل لا تتطابق.',
 	'result.checklist.item.asylum_history_to_explain':
 		'ما الذي حدث في أي إجراء لجوء أو حماية في إسبانيا.',
-	'result.title.likely_in_scope': 'على الأرجح ضمن النطاق',
+	'result.title.likely_in_scope': 'من المرجّح أن هذه الحالة تنطبق عليك',
 	'result.title.possible_but_needs_more_evidence':
 		'قد يكون هذا المسار مناسباً، لكنك قد تحتاج إلى مزيد من المستندات أولاً',
 	'result.title.needs_specialist_review': 'يحتاج إلى مراجعة متخصصة',

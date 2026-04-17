@@ -13,7 +13,7 @@ export const es = {
 	'chrome.meta_description':
 		'Primer Paso es un cuestionario inicial para el proceso extraordinario de regularización de España de 2026. Está alojado en primerpaso.org.',
 	'chrome.brand': 'Primer Paso',
-	'chrome.language_switcher_label': 'Cambio de idioma',
+	'chrome.language_switcher_label': 'Selector de idioma',
 	'pages.start.eyebrow': 'Hito 1',
 	'pages.start.title': 'Revisa qué apoyo podrías necesitar para el proceso de regularización',
 	'pages.start.lead': 'Usa este cuestionario para entender cuál podría ser tu siguiente paso.',
@@ -280,7 +280,7 @@ export const es = {
 	'steps.support_needs.options.another_language': 'Ayuda en otro idioma',
 	'steps.support_needs.options.in_person_help': 'Ayuda presencial',
 	'steps.support_needs.options.help_using_phone_or_computer':
-		'Ayuda para usar un teléfono o computador',
+		'Ayuda para usar un teléfono o un ordenador',
 	'steps.support_needs.options.phone_support': 'Apoyo por teléfono',
 	'steps.support_needs.options.help_scanning_or_printing':
 		'Ayuda para escanear o imprimir documentos',
@@ -324,7 +324,7 @@ export const es = {
 	'answers.residence_start.2026': '2026',
 	'answers.residence_start.not_sure': 'No estoy seguro/a',
 	'answers.residence_start.2025': '2025',
-	'answers.residence_start.2025_month_unknown': '2025 — mes no seguro',
+	'answers.residence_start.2025_month_unknown': '2025 — mes no confirmado',
 	'answers.residence_start.2025_month': '{month} de 2025',
 	'answers.contact.with_value': '{method}: {value}',
 	'result.reason.after_cutoff': 'Dijiste que aún no vivías en España antes del 1 de enero de 2026.',
@@ -396,7 +396,7 @@ export const es = {
 	'result.checklist.item.asylum_case_documents_needed':
 		'Cualquier documento que todavía tengas sobre un caso de asilo o protección, si eso aplica a tu situación.',
 	'result.checklist.item.official_document_requirements':
-		'Los requisitos oficiales más recientes, incluidos los antecedentes penales si aplican a tu caso.',
+		'Los requisitos oficiales más recientes, incluidos los certificados o documentos de antecedentes penales si aplican a tu caso.',
 	'result.checklist.item.practical_support_helpful':
 		'Ayuda con el idioma, el acceso digital, escanear, imprimir o entender qué documentos importan.',
 	'result.checklist.item.complex_case_review':

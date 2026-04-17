@@ -13,8 +13,59 @@ export const fr = {
 	'chrome.meta_description':
 		'Primer Paso est un questionnaire d’accueil pour la procédure extraordinaire de régularisation en Espagne en 2026. Hébergé sur primerpaso.org.',
 	'chrome.brand': 'Primer Paso',
+	'chrome.primary_navigation': 'Principale',
+	'chrome.nav.home': 'Accueil',
+	'chrome.nav.start': 'Vérifier votre prochaine étape',
+	'chrome.nav.organisations': 'Trouver des organisations',
 	'chrome.language_switcher_label': 'Changer de langue',
+	'pages.home.eyebrow': 'Pour commencer',
+	'pages.home.title': 'Choisissez comment commencer',
+	'pages.home.lead':
+		'Vous pouvez utiliser le questionnaire pour vérifier la prochaine étape ou accéder directement au répertoire des organisations collaboratrices.',
+	'pages.home.choose': 'Choisissez une option',
+	'pages.home.quiz_title': 'Vérifier ma prochaine étape',
+	'pages.home.quiz_body':
+		'Répondez à quelques questions pour obtenir une orientation prudente sur la voie qui peut le mieux correspondre à votre situation.',
+	'pages.home.quiz_action': 'Commencer le questionnaire',
+	'pages.home.directory_title': 'Trouver une organisation collaboratrice',
+	'pages.home.directory_body':
+		'Consultez le répertoire sans remplir le formulaire. Recherchez par nom, province ou coordonnées.',
+	'pages.home.directory_action': 'Ouvrir le répertoire',
+	'pages.home.note_title': 'Avant de commencer',
+	'pages.home.note_body':
+		'Ce service fournit une orientation pratique. Il ne remplace ni un conseil juridique ni une décision officielle.',
 	'pages.start.eyebrow': 'Étape 1',
+	'pages.organisations.meta_title': 'Trouver des organisations',
+	'pages.organisations.meta_description':
+		'Parcourez les organisations collaboratrices par nom, province et coordonnées.',
+	'pages.organisations.eyebrow': 'Organisations collaboratrices',
+	'pages.organisations.title': 'Trouver une organisation collaboratrice',
+	'pages.organisations.lead':
+		'Consultez le répertoire public sans remplir le questionnaire. Recherchez par nom, lieu ou coordonnées.',
+	'pages.organisations.search_label': 'Rechercher',
+	'pages.organisations.search_placeholder':
+		'Rechercher par nom, lieu, téléphone, e-mail ou site web',
+	'pages.organisations.apply_filters': 'Appliquer les filtres',
+	'pages.organisations.clear': 'Effacer',
+	'pages.organisations.summary.one': '{count} organisation trouvée',
+	'pages.organisations.summary.many': '{count} organisations trouvées',
+	'pages.organisations.summary.with_website': '{count} avec site web',
+	'pages.organisations.summary.with_phone': '{count} avec téléphone',
+	'pages.organisations.summary.with_email': '{count} avec e-mail',
+	'pages.organisations.badge.website': 'site web disponible',
+	'pages.organisations.badge.phone': 'téléphone disponible',
+	'pages.organisations.badge.email': 'e-mail disponible',
+	'pages.organisations.empty_title': 'Aucune organisation ne correspond à ces filtres',
+	'pages.organisations.empty_body':
+		'Essayez une recherche plus large ou parcourez le répertoire complet.',
+	'pages.organisations.guidance_title': 'Besoin d’un accompagnement personnalisé d’abord ?',
+	'pages.organisations.guidance_body':
+		'Si vous ne savez pas par où commencer, utilisez d’abord le questionnaire puis revenez au répertoire.',
+	'pages.organisations.action.visit_website': 'Visiter le site web',
+	'pages.organisations.action.email': 'E-mail',
+	'pages.organisations.action.call': 'Appeler',
+	'pages.organisations.action.browse_all': 'Parcourir toutes les organisations',
+	'pages.organisations.action.start_screener': 'Commencer le questionnaire',
 	'pages.start.title':
 		'Vérifiez de quel accompagnement vous pourriez avoir besoin pour la procédure de régularisation',
 	'pages.start.lead':

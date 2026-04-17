@@ -11,48 +11,50 @@ import { Button } from '$lib/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '$lib/components/ui/card'
 import { Input } from '$lib/components/ui/input'
 import { Label } from '$lib/components/ui/label'
+import type { Locale } from '$lib/content'
+import { getTranslator } from '$lib/content'
 
 type DirectoryData = {
+	locale?: Locale
 	filters: { q: string }
 	organisations: OrganisationRecord[]
 	summary: { total: number; withWebsite: number; withPhone: number; withEmail: number }
 }
 
 let { data }: { data: DirectoryData } = $props()
+const tt = $derived(getTranslator(data.locale ?? 'es'))
 
 const resultLabel = $derived(
-	data.summary.total === 1 ? '1 organisation found' : `${data.summary.total} organisations found`
+	tt(data.summary.total === 1 ? 'pages.organisations.summary.one' : 'pages.organisations.summary.many', {
+		count: String(data.summary.total)
+	})
 )
 </script>
 
 <svelte:head>
-	<title>Find organisations | Primer Paso</title>
-	<meta
-		name="description"
-		content="Browse collaborating organisations by name, province, and contact details."
-	/>
+	<title>{tt('pages.organisations.meta_title')} | Primer Paso</title>
+	<meta name="description" content={tt('pages.organisations.meta_description')} />
 </svelte:head>
 
 <section class="stack">
-	<p class="eyebrow">Collaborating organisations</p>
+	<p class="eyebrow">{tt('pages.organisations.eyebrow')}</p>
 	<div class="app-card stack">
 		<div class="section-block">
-			<h1 class="page-title">Find a collaborating organisation</h1>
+			<h1 class="page-title">{tt('pages.organisations.title')}</h1>
 			<p class="lead-text">
-				Browse the public directory without completing the screener. Search by name,
-				location, or contact details.
+				{tt('pages.organisations.lead')}
 			</p>
 		</div>
 
 		<form class="directory-toolbar" method="GET" action="/organisations">
 			<div class="form-field">
-				<Label for="directory-search">Search</Label>
+				<Label for="directory-search">{tt('pages.organisations.search_label')}</Label>
 				<div class="relative">
 					<Input
 						id="directory-search"
 						name="q"
 						value={data.filters.q}
-						placeholder="Search by name, place, phone, email, or website"
+						placeholder={tt('pages.organisations.search_placeholder')}
 						class="w-full pl-10"
 					/>
 					<SearchIcon
@@ -63,16 +65,22 @@ const resultLabel = $derived(
 			</div>
 
 			<div class="directory-toolbar-actions">
-				<Button type="submit">Apply filters</Button>
-				<Button href="/organisations" variant="outline">Clear</Button>
+				<Button type="submit">{tt('pages.organisations.apply_filters')}</Button>
+				<Button href="/organisations" variant="outline">{tt('pages.organisations.clear')}</Button>
 			</div>
 		</form>
 
 		<div class="directory-meta">
 			<Badge variant="outline">{resultLabel}</Badge>
-			<Badge variant="outline">{data.summary.withWebsite} with website</Badge>
-			<Badge variant="outline">{data.summary.withPhone} with phone</Badge>
-			<Badge variant="outline">{data.summary.withEmail} with email</Badge>
+			<Badge variant="outline">
+				{tt('pages.organisations.summary.with_website', { count: String(data.summary.withWebsite) })}
+			</Badge>
+			<Badge variant="outline">
+				{tt('pages.organisations.summary.with_phone', { count: String(data.summary.withPhone) })}
+			</Badge>
+			<Badge variant="outline">
+				{tt('pages.organisations.summary.with_email', { count: String(data.summary.withEmail) })}
+			</Badge>
 		</div>
 
 		{#if data.organisations.length > 0}
@@ -115,28 +123,32 @@ const resultLabel = $derived(
 						<CardContent>
 							<div class="directory-meta">
 								{#if organisation.website}
-									<Badge variant="outline">website available</Badge>
+									<Badge variant="outline">{tt('pages.organisations.badge.website')}</Badge>
 								{/if}
 								{#if organisation.phone}
-									<Badge variant="outline">phone available</Badge>
+									<Badge variant="outline">{tt('pages.organisations.badge.phone')}</Badge>
 								{/if}
 								{#if organisation.email}
-									<Badge variant="outline">email available</Badge>
+									<Badge variant="outline">{tt('pages.organisations.badge.email')}</Badge>
 								{/if}
 							</div>
 						</CardContent>
 						<CardFooter class="gap-3">
 							{#if organisation.website}
 								<Button href={organisation.website} target="_blank" rel="noreferrer" variant="secondary">
-									Visit website
+									{tt('pages.organisations.action.visit_website')}
 									<GlobeIcon class="size-4" />
 								</Button>
 							{/if}
 							{#if organisation.email}
-								<Button href={`mailto:${organisation.email}`} variant="outline">Email</Button>
+								<Button href={`mailto:${organisation.email}`} variant="outline">
+									{tt('pages.organisations.action.email')}
+								</Button>
 							{/if}
 							{#if organisation.phone}
-								<Button href={`tel:${organisation.phone}`} variant="outline">Call</Button>
+								<Button href={`tel:${organisation.phone}`} variant="outline">
+									{tt('pages.organisations.action.call')}
+								</Button>
 							{/if}
 						</CardFooter>
 					</Card>
@@ -144,23 +156,25 @@ const resultLabel = $derived(
 			</div>
 		{:else}
 			<div class="panel-subtle section-block">
-				<h2 class="section-title">No organisations match these filters</h2>
+				<h2 class="section-title">{tt('pages.organisations.empty_title')}</h2>
 				<p class="supporting-text">
-					Try a broader search or browse the full directory.
+					{tt('pages.organisations.empty_body')}
 				</p>
 				<div class="actions">
-					<Button href="/organisations" variant="outline">Browse all organisations</Button>
+					<Button href="/organisations" variant="outline">
+						{tt('pages.organisations.action.browse_all')}
+					</Button>
 				</div>
 			</div>
 		{/if}
 
 		<div class="panel-subtle section-block">
-			<h2 class="section-title">Need personalised guidance first?</h2>
+			<h2 class="section-title">{tt('pages.organisations.guidance_title')}</h2>
 			<p class="supporting-text">
-				If you are not sure where to start, use the screener and then come back to the directory.
+				{tt('pages.organisations.guidance_body')}
 			</p>
 			<div class="actions">
-				<Button href="/start">Start the screener</Button>
+				<Button href="/start">{tt('pages.organisations.action.start_screener')}</Button>
 			</div>
 		</div>
 	</div>

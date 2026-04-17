@@ -28,6 +28,11 @@ const languages = [
 
 const getLanguageHref = (languageValue: string) =>
 	`${resolve('/language')}?set=${languageValue}&returnTo=${encodeURIComponent(currentPath)}`
+const navigationItems = $derived([
+	{ href: '/', label: tt('chrome.nav.home') },
+	{ href: '/start', label: tt('chrome.nav.start') },
+	{ href: '/organisations', label: tt('chrome.nav.organisations') }
+])
 
 const switchLanguage = async (event: MouseEvent, languageValue: string) => {
 	if (!browser) return
@@ -54,10 +59,10 @@ const switchLanguage = async (event: MouseEvent, languageValue: string) => {
 		<div class="site-width flex flex-wrap items-center justify-between gap-4">
 			<div class="site-header-main">
 				<a class="brand" href={resolve('/')}>{tt('chrome.brand')}</a>
-				<nav class="service-nav" aria-label="Primary">
-					<a class="service-nav-link" href="/">Home</a>
-					<a class="service-nav-link" href="/start">Check your next step</a>
-					<a class="service-nav-link" href="/organisations">Find organisations</a>
+				<nav class="service-nav" aria-label={tt('chrome.primary_navigation')}>
+					{#each navigationItems as item (item.href)}
+						<a class="service-nav-link" href={item.href}>{item.label}</a>
+					{/each}
 				</nav>
 			</div>
 			<nav class="language-nav" aria-label={tt('chrome.language_switcher_label')}>
@@ -73,7 +78,7 @@ const switchLanguage = async (event: MouseEvent, languageValue: string) => {
 						<li>
 							<a
 								class="language-link"
-								href={resolve('/language')}
+								href={getLanguageHref(language.value)}
 								aria-current={language.value === locale ? 'true' : undefined}
 								onclick={(event) => switchLanguage(event, language.value)}
 								>{language.label}</a

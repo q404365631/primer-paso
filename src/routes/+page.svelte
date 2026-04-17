@@ -33,7 +33,6 @@ const structuredData = $derived(
 	<meta property="og:description" content={tt('pages.home.meta_description')}>
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://primerpaso.org/">
-	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content={tt('pages.home.meta_title')}>
 	<meta name="twitter:description" content={tt('pages.home.meta_description')}>
 	<script type="application/ld+json">{structuredData}</script>

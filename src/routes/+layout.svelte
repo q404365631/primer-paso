@@ -63,7 +63,6 @@ const switchLanguage = async (event: MouseEvent, languageValue: string) => {
 
 <svelte:head>
 	<title>{tt('chrome.app_title')}</title>
-	<meta name="description" content={tt('chrome.meta_description')}>
 	<link rel="icon" href={faviconUrl} type="image/svg+xml">
 	<link rel="apple-touch-icon" href={faviconUrl}>
 	<link rel="mask-icon" href={faviconUrl} color="#315ec7">

@@ -10,7 +10,7 @@ describe('getSitemapEntries', () => {
 
 		for (const locale of SUPPORTED_LOCALES) {
 			expect(entries.some((entry) => entry.url === `${APP_URL}/${locale}`)).toBe(true)
-			expect(entries.some((entry) => entry.url === `${APP_URL}/${locale}/start`)).toBe(true)
+			expect(entries.some((entry) => entry.url === `${APP_URL}/${locale}/screener`)).toBe(true)
 			expect(entries.some((entry) => entry.url === `${APP_URL}/${locale}/organisations`)).toBe(true)
 		}
 	})

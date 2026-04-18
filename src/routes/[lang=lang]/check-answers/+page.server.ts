@@ -35,6 +35,6 @@ export const load: PageServerLoad = ({ cookies, params }) => {
 		locale,
 		backHref: previousStep
 			? localiseHref(locale, `/${previousStep.slug}`)
-			: localiseHref(locale, '/start')
+			: localiseHref(locale, '/screener')
 	}
 }

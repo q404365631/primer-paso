@@ -27,7 +27,7 @@ declare global {
 
 export type RouteGroup =
 	| 'home'
-	| 'start'
+	| 'screener'
 	| 'question'
 	| 'check_answers'
 	| 'result'
@@ -154,7 +154,7 @@ export const getRouteGroup = (pathname: string): RouteGroup => {
 
 	const [first, second] = routeSegments
 
-	if (first === 'start') return 'start'
+	if (first === 'screener') return 'screener'
 	if (first === 'check-answers') return 'check_answers'
 	if (first === 'result') return 'result'
 	if (first === 'organisations' && second) return 'organisation_detail'

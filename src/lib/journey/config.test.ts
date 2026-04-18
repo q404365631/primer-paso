@@ -16,7 +16,7 @@ const scenarios: JourneyAnswers[] = [
 	{ asylumBeforeCutoff: 'no' }
 ]
 
-const allowedAbsoluteRoutes = new Set(['/check-answers', '/result', '/start'])
+const allowedAbsoluteRoutes = new Set(['/check-answers', '/result', '/screener'])
 const knownStepRoutes = new Set(journeySteps.map((step) => `/${step.slug}`))
 
 describe('journey config', () => {

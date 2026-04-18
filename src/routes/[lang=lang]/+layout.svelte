@@ -20,7 +20,7 @@ const locale = $derived(data.locale ?? 'es')
 const siteUrl = 'https://primerpaso.org'
 const canonicalUrl = $derived(`${siteUrl}${page.url.pathname}`)
 const tt = $derived(getTranslator(locale))
-const currentPath = $derived(data.currentPath ?? '/start')
+const currentPath = $derived(data.currentPath ?? '/screener')
 const currentHref = $derived(`${page.url.pathname}${page.url.search}`)
 const radicalDataUrl = 'https://radicaldata.org'
 
@@ -39,7 +39,7 @@ const getLanguageHref = (languageValue: Locale) => {
 
 const navigationItems = $derived([
 	{ href: localiseHref(locale, '/'), label: tt('chrome.nav.home') },
-	{ href: localiseHref(locale, '/start'), label: tt('chrome.nav.start') },
+	{ href: localiseHref(locale, '/screener'), label: tt('chrome.nav.start') },
 	{ href: localiseHref(locale, '/organisations'), label: tt('chrome.nav.organisations') }
 ])
 

@@ -38,7 +38,7 @@ const heroTone = $derived.by(() => {
 
 const isAnotherRoute = $derived(data.result.resultState === 'another_route_may_fit_better')
 const checkAnswersHref = $derived(localiseHref(data.locale ?? 'es', '/check-answers'))
-const startAgainHref = $derived(localiseHref(data.locale ?? 'es', '/start?new=1'))
+const startAgainHref = $derived(localiseHref(data.locale ?? 'es', '/screener?new=1'))
 </script>
 <svelte:head> <meta name="robots" content="noindex, nofollow"> </svelte:head>
 <section class="stack">

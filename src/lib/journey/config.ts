@@ -64,7 +64,7 @@ const steps: JourneyStepDefinition[] = [
 		errorKey: 'steps.language.error',
 		checkAnswersLabelKey: 'steps.language.check_answers_label',
 		includeInCheckAnswers: false,
-		back: '/start',
+		back: '/screener',
 		next: 'completion-mode',
 		options: [
 			{ value: 'es', labelKey: 'steps.language.options.es' },

@@ -30,7 +30,7 @@ describe('getMatomoSiteIdForEnvironment', () => {
 describe('getRouteGroup', () => {
 	it('maps key routes correctly', () => {
 		expect(getRouteGroup('/es')).toBe('home')
-		expect(getRouteGroup('/es/start')).toBe('start')
+		expect(getRouteGroup('/es/screener')).toBe('screener')
 		expect(getRouteGroup('/es/check-answers')).toBe('check_answers')
 		expect(getRouteGroup('/es/result')).toBe('result')
 		expect(getRouteGroup('/es/organisations')).toBe('organisations')

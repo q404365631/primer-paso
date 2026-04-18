@@ -13,7 +13,7 @@ export const load: LayoutServerLoad = ({ cookies, params, url }) => {
 
 	const currentPath =
 		url.pathname === localiseHref(locale, '/language')
-			? url.searchParams.get('returnTo') || localiseHref(locale, '/start')
+			? url.searchParams.get('returnTo') || localiseHref(locale, '/screener')
 			: `${url.pathname}${url.search}`
 
 	return {

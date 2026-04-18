@@ -57,7 +57,7 @@ const structuredData = $derived(
 					<CardContent />
 					<CardFooter>
 						<Button
-							href={localiseHref(locale, '/start')}
+							href={localiseHref(locale, '/screener')}
 							onclick={() => trackEvent('Journey', 'Open start', 'home')}
 							>{tt('pages.home.quiz_action')}</Button
 						>

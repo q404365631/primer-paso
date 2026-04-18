@@ -46,7 +46,7 @@ const buildLocaleEntry = (locale: Locale, href: string): SitemapEntry => ({
 })
 
 export const getSitemapEntries = (): SitemapEntry[] => {
-	const publicPaths = ['/', '/start', '/organisations'] as const
+	const publicPaths = ['/', '/screener', '/organisations'] as const
 	const organisationPaths = getAllOrganisations().map(
 		(organisation) => `/organisations/${organisation.slug}`
 	)

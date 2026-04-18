@@ -34,8 +34,8 @@ export const load: PageServerLoad = ({ cookies, params, url }) => {
 
 		if (set && hasOptions(step) && step.options.some((option) => option.value === set)) {
 			updateJourneyAnswers(cookies, { language: set as LanguageValue })
-			const fallback = localiseHref(set as Locale, '/start')
-			const returnTo = getSafeReturnTo(url, localiseHref(locale, '/start'))
+			const fallback = localiseHref(set as Locale, '/screener')
+			const returnTo = getSafeReturnTo(url, localiseHref(locale, '/screener'))
 			redirect(303, replaceLocaleInHref(returnTo, set as Locale) || fallback)
 		}
 	}

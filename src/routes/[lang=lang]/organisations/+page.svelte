@@ -225,7 +225,7 @@ const trackDirectorySearch = () => {
 			<p class="supporting-text">{tt('pages.organisations.guidance_body')}</p>
 			<div class="actions">
 				<Button
-					href={localiseHref(data.locale ?? 'es', '/start')}
+					href={localiseHref(data.locale ?? 'es', '/screener')}
 					onclick={() => trackEvent('Journey', 'Open start', 'organisations')}
 					>{tt('pages.organisations.action.start_screener')}</Button
 				>

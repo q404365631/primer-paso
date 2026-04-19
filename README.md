@@ -19,6 +19,12 @@ mise x -- pnpm install --frozen-lockfile
 mise x -- pnpm dev
 ```
 
+To check that the analytics environment contract is satisfied:
+
+```sh
+mise run analytics:env:check
+```
+
 ## Checks
 
 ```sh

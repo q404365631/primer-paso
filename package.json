@@ -10,6 +10,8 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
+		"check:analytics-env": "node scripts/check-matomo-env.mjs",
+		"check:analytics-env:strict": "node scripts/check-matomo-env.mjs --strict",
 		"generate:provinces": "node scripts/generate-provinces.mjs",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
@@ -38,6 +40,7 @@
 		"bits-ui": "^2.17.3",
 		"clsx": "^2.1.1",
 		"fuse.js": "^7.1.0",
+		"netlify-cli": "^25.0.1",
 		"pdf-lib": "^1.17.1",
 		"shadcn-svelte": "^1.2.7",
 		"svelte": "^5.55.2",

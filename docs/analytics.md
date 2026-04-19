@@ -165,7 +165,7 @@ Recommended:
 
 ## Netlify setup
 
-Manage Matomo variables in the Netlify UI using deploy-context values.
+Manage Matomo variables as Netlify site environment variables. The repo should validate their presence, but the deployed values should stay outside git.
 
 ### Production
 
@@ -194,7 +194,39 @@ Only when actively testing localhost tracking:
 
 ## Environment variables
 
+These variables should be provided by the execution environment rather than committed as real environment files.
+
+- local development: developer-managed `.env`
+- CI: workflow `env`
+- Netlify: site environment variables
+
 - `PUBLIC_MATOMO_SITE_ID_PRODUCTION`: Matomo site ID for production traffic
 - `PUBLIC_MATOMO_SITE_ID_TEST`: Matomo site ID for non-production traffic
 - `PUBLIC_MATOMO_LOCAL_ANALYTICS`: localhost behaviour, currently `off` or `test`
 - `PUBLIC_MATOMO_PRODUCTION_HOSTS`: comma-separated production hostnames
+- `PUBLIC_MATOMO_URL`: Matomo base URL
+- `PUBLIC_MATOMO_ENABLED`: global analytics switch
+
+## Validation
+
+The repo should fail fast when the analytics environment contract is broken.
+
+- local development: `mise run analytics:env:check`
+- CI and Netlify builds: strict validation should run before build or typecheck
+
+This keeps the real values out of git while still making configuration drift visible in code review and build logs.
+
+## Applying variables to Netlify
+
+If you keep real values in an uncommitted local env file, import them into the linked Netlify site with the CLI:
+
+```sh
+netlify env:import .env.netlify.production
+```
+
+## Recommended ownership split
+
+- `netlify.toml`: build command and platform config
+- `scripts/check-matomo-env.mjs`: analytics environment contract
+- `mise.toml`: repeatable local and CI tasks
+- Netlify site settings or API-managed variables: real deploy values

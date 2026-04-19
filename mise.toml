@@ -4,3 +4,11 @@ pnpm = "10.33.0"
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
 experimental = true
+
+[tasks."analytics:env:check"]
+description = "Validate the Matomo public environment contract"
+run = "node scripts/check-matomo-env.mjs"
+
+[tasks."analytics:env:check:strict"]
+description = "Validate the Matomo public environment contract and fail on missing or invalid values"
+run = "node scripts/check-matomo-env.mjs --strict"

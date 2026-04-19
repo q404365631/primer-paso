@@ -1,5 +1,5 @@
 [build]
-	command = "pnpm build"
+	command = "node scripts/check-matomo-env.mjs --strict && pnpm build"
 
 [build.environment]
 	NODE_VERSION = "24.10.0"

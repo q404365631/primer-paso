@@ -1,17 +1,4 @@
-import {
-	PUBLIC_MATOMO_DIMENSION_ENVIRONMENT,
-	PUBLIC_MATOMO_DIMENSION_LOCALE,
-	PUBLIC_MATOMO_DIMENSION_RECOMMENDED_ROUTE,
-	PUBLIC_MATOMO_DIMENSION_RESULT_STATE,
-	PUBLIC_MATOMO_DIMENSION_ROUTE_GROUP,
-	PUBLIC_MATOMO_DIMENSION_STEP_SLUG,
-	PUBLIC_MATOMO_ENABLED,
-	PUBLIC_MATOMO_LOCAL_ANALYTICS,
-	PUBLIC_MATOMO_PRODUCTION_HOSTS,
-	PUBLIC_MATOMO_SITE_ID_PRODUCTION,
-	PUBLIC_MATOMO_SITE_ID_TEST,
-	PUBLIC_MATOMO_URL
-} from '$env/static/public'
+import { env } from '$env/dynamic/public'
 import type { RecommendedRoute, ResultState } from '$lib/triage/types'
 
 declare global {
@@ -36,6 +23,7 @@ export type RouteGroup =
 
 export type MatomoEnvironment = 'development' | 'production' | 'test'
 export type LocalAnalyticsMode = 'off' | 'test'
+
 interface DimensionIds {
 	locale: number | null
 	environment: number | null
@@ -49,6 +37,7 @@ export interface PageViewDimensions {
 	locale: string
 	environment: string
 	routeGroup: RouteGroup
+
 	stepSlug?: string
 	resultState?: ResultState
 	recommendedRoute?: RecommendedRoute
@@ -56,35 +45,39 @@ export interface PageViewDimensions {
 	url: string
 }
 
-const parseDimensionId = (value: string) => {
-	const parsed = Number.parseInt(value, 10)
+const parseDimensionId = (value: string | undefined): number | null => {
+	const parsed = Number.parseInt((value ?? '').trim(), 10)
 	return Number.isFinite(parsed) ? parsed : null
 }
 
 const dimensionIds: DimensionIds = {
-	locale: parseDimensionId(PUBLIC_MATOMO_DIMENSION_LOCALE),
-	environment: parseDimensionId(PUBLIC_MATOMO_DIMENSION_ENVIRONMENT),
-	routeGroup: parseDimensionId(PUBLIC_MATOMO_DIMENSION_ROUTE_GROUP),
-	stepSlug: parseDimensionId(PUBLIC_MATOMO_DIMENSION_STEP_SLUG),
-	resultState: parseDimensionId(PUBLIC_MATOMO_DIMENSION_RESULT_STATE),
-	recommendedRoute: parseDimensionId(PUBLIC_MATOMO_DIMENSION_RECOMMENDED_ROUTE)
+	locale: parseDimensionId(env.PUBLIC_MATOMO_DIMENSION_LOCALE),
+	environment: parseDimensionId(env.PUBLIC_MATOMO_DIMENSION_ENVIRONMENT),
+	routeGroup: parseDimensionId(env.PUBLIC_MATOMO_DIMENSION_ROUTE_GROUP),
+	stepSlug: parseDimensionId(env.PUBLIC_MATOMO_DIMENSION_STEP_SLUG),
+	resultState: parseDimensionId(env.PUBLIC_MATOMO_DIMENSION_RESULT_STATE),
+	recommendedRoute: parseDimensionId(env.PUBLIC_MATOMO_DIMENSION_RECOMMENDED_ROUTE)
 }
 
-const matomoUrl = PUBLIC_MATOMO_URL.trim().replace(/\/+$/, '')
-const isEnabledByConfig = PUBLIC_MATOMO_ENABLED === 'true'
+const matomoUrl = (env.PUBLIC_MATOMO_URL ?? '').trim().replace(/\/+$/, '')
+const isEnabledByConfig = env.PUBLIC_MATOMO_ENABLED === 'true'
+
 const productionHosts = new Set(
-	PUBLIC_MATOMO_PRODUCTION_HOSTS.split(',')
-		.map((host) => host.trim().toLowerCase())
+	(env.PUBLIC_MATOMO_PRODUCTION_HOSTS ?? '')
+		.split(',')
+		.map((host: string) => host.trim().toLowerCase())
 		.filter(Boolean)
 )
-const parseLocalAnalyticsMode = (value: string): LocalAnalyticsMode => {
-	const normalised = value.trim().toLowerCase()
+
+const parseLocalAnalyticsMode = (value: string | undefined): LocalAnalyticsMode => {
+	const normalised = (value ?? '').trim().toLowerCase()
 	return normalised === 'test' ? 'test' : 'off'
 }
-const localAnalyticsMode = parseLocalAnalyticsMode(PUBLIC_MATOMO_LOCAL_ANALYTICS)
+
+const localAnalyticsMode = parseLocalAnalyticsMode(env.PUBLIC_MATOMO_LOCAL_ANALYTICS)
 const siteIdsByEnvironment: Record<Exclude<MatomoEnvironment, 'development'>, string> = {
-	production: PUBLIC_MATOMO_SITE_ID_PRODUCTION.trim(),
-	test: PUBLIC_MATOMO_SITE_ID_TEST.trim()
+	production: (env.PUBLIC_MATOMO_SITE_ID_PRODUCTION ?? '').trim(),
+	test: (env.PUBLIC_MATOMO_SITE_ID_TEST ?? '').trim()
 }
 
 const isLocalHostname = (hostname: string) =>

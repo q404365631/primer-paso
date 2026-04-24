@@ -64,7 +64,7 @@ const steps: JourneyStepDefinition[] = [
 		errorKey: 'steps.completion_mode.error',
 		checkAnswersLabelKey: 'steps.completion_mode.check_answers_label',
 		includeInCheckAnswers: true,
-\t\tback: '/screener',
+		back: '/screener',
 		next: 'presence-before-cutoff',
 		options: [
 			{ value: 'self', labelKey: 'steps.completion_mode.options.self' },
